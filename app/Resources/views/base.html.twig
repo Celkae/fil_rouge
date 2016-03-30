@@ -2,12 +2,43 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Hub Series{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+        <link rel="icon" type="image/x-icon" href="{{ asset('serie.png') }}" />
     </head>
     <body>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Hub Series</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Serie</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">Profile</a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('fos_user_profile_show')}}" >Profile</a></li>
+                   <li><a href="{{ path('fos_user_resetting_request')}}" >Reset</a></li>
+                </ul>
+              </li>
+              <li><a href="{{ path('fos_user_registration_register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('fos_user_security_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                {% endif %}
+              </li>
+            </ul>
+        </div>
+      </nav>
+      <div class="container">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+      </div>
     </body>
 </html>
