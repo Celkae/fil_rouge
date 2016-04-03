@@ -15,12 +15,14 @@
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="FilRougeBundle">FilRougeBundle\FilRougeBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
       <parameter key="FOSCommentBundle">FOS\CommentBundle\FOSCommentBundle</parameter>
+      <parameter key="FOSMessageBundle">FOS\MessageBundle\FOSMessageBundle</parameter>
+      <parameter key="IdeatoStarRatingBundle">Ideato\StarRatingBundle\IdeatoStarRatingBundle</parameter>
       <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
-      <parameter key="TobiassjostenTheTVDBBundle">Tobiassjosten\TheTVDBBundle\TobiassjostenTheTVDBBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -38,7 +40,6 @@
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
-    <parameter key="thetvdb_api_key">1D5E2965510E434F</parameter>
     <parameter key="locale">en</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -190,7 +191,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/home/manu/devellopement/fil_rouge/app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">/home/manu/devellopement/fil_rouge/app/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -519,6 +520,47 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="assetic.asset_factory.class">Symfony\Bundle\AsseticBundle\Factory\AssetFactory</parameter>
+    <parameter key="assetic.asset_manager.class">Assetic\Factory\LazyAssetManager</parameter>
+    <parameter key="assetic.asset_manager_cache_warmer.class">Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer</parameter>
+    <parameter key="assetic.cached_formula_loader.class">Assetic\Factory\Loader\CachedFormulaLoader</parameter>
+    <parameter key="assetic.config_cache.class">Assetic\Cache\ConfigCache</parameter>
+    <parameter key="assetic.config_loader.class">Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader</parameter>
+    <parameter key="assetic.config_resource.class">Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource</parameter>
+    <parameter key="assetic.coalescing_directory_resource.class">Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource</parameter>
+    <parameter key="assetic.directory_resource.class">Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource</parameter>
+    <parameter key="assetic.filter_manager.class">Symfony\Bundle\AsseticBundle\FilterManager</parameter>
+    <parameter key="assetic.worker.ensure_filter.class">Assetic\Factory\Worker\EnsureFilterWorker</parameter>
+    <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
+    <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
+    <parameter key="assetic.node.paths" type="collection"/>
+    <parameter key="assetic.cache_dir">/home/manu/devellopement/fil_rouge/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.bundles" type="collection">
+      <parameter>FOSCommentBundle</parameter>
+    </parameter>
+    <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
+    <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
+    <parameter key="assetic.helper.dynamic.class">Symfony\Bundle\AsseticBundle\Templating\DynamicAsseticHelper</parameter>
+    <parameter key="assetic.helper.static.class">Symfony\Bundle\AsseticBundle\Templating\StaticAsseticHelper</parameter>
+    <parameter key="assetic.php_formula_loader.class">Symfony\Bundle\AsseticBundle\Factory\Loader\AsseticHelperFormulaLoader</parameter>
+    <parameter key="assetic.debug">true</parameter>
+    <parameter key="assetic.use_controller">true</parameter>
+    <parameter key="assetic.enable_profiler">false</parameter>
+    <parameter key="assetic.read_from">/home/manu/devellopement/fil_rouge/app/../web</parameter>
+    <parameter key="assetic.write_to">/home/manu/devellopement/fil_rouge/app/../web</parameter>
+    <parameter key="assetic.variables" type="collection"/>
+    <parameter key="assetic.java.bin">/usr/bin/java</parameter>
+    <parameter key="assetic.node.bin">/usr/bin/node</parameter>
+    <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
+    <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
+    <parameter key="assetic.reactjsx.bin">/usr/bin/jsx</parameter>
+    <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
+    <parameter key="assetic.twig_extension.functions" type="collection"/>
+    <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
+    <parameter key="assetic.routing_loader.class">Symfony\Bundle\AsseticBundle\Routing\AsseticLoader</parameter>
+    <parameter key="assetic.cache.class">Assetic\Cache\FilesystemCache</parameter>
+    <parameter key="assetic.use_controller_worker.class">Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker</parameter>
+    <parameter key="assetic.request_listener.class">Symfony\Bundle\AsseticBundle\EventListener\RequestListener</parameter>
     <parameter key="fos_user.backend_type_orm">true</parameter>
     <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\EventListener\LastLoginListener</parameter>
     <parameter key="fos_user.security.login_manager.class">FOS\UserBundle\Security\LoginManager</parameter>
@@ -611,9 +653,9 @@
       <parameter key="json">fos_rest.decoder.json</parameter>
       <parameter key="xml">fos_rest.decoder.xml</parameter>
     </parameter>
-    <parameter key="fos_comment.model.thread.class">FilRougeBundle\Entity\Thread</parameter>
+    <parameter key="fos_comment.model.thread.class">FilRougeBundle\Entity\ThreadComment</parameter>
     <parameter key="fos_comment.model.comment.class">FilRougeBundle\Entity\Comment</parameter>
-    <parameter key="fos_comment.model.vote.class">FOS\CommentBundle\Entity\Vote</parameter>
+    <parameter key="fos_comment.model.vote.class">FilRougeBundle\Entity\Vote</parameter>
     <parameter key="fos_comment.manager.thread.default.class">FOS\CommentBundle\Entity\ThreadManager</parameter>
     <parameter key="fos_comment.manager.comment.default.class">FOS\CommentBundle\Entity\CommentManager</parameter>
     <parameter key="fos_comment.manager.vote.default.class">FOS\CommentBundle\Entity\VoteManager</parameter>
@@ -638,6 +680,15 @@
     <parameter key="fos_comment.form.vote.type">fos_comment_vote</parameter>
     <parameter key="fos_comment.form.vote.name">fos_comment_vote</parameter>
     <parameter key="fos_comment.sorting_factory.default_sorter">date_desc</parameter>
+    <parameter key="fos_message.message_meta_class">FilRougeBundle\Entity\MessageMetadata</parameter>
+    <parameter key="fos_message.thread_meta_class">FilRougeBundle\Entity\ThreadMetadata</parameter>
+    <parameter key="fos_message.message_class">FilRougeBundle\Entity\Message</parameter>
+    <parameter key="fos_message.thread_class">FilRougeBundle\Entity\Thread</parameter>
+    <parameter key="fos_message.new_thread_form.model">FOS\MessageBundle\FormModel\NewThreadMessage</parameter>
+    <parameter key="fos_message.new_thread_form.name">message</parameter>
+    <parameter key="fos_message.reply_form.model">FOS\MessageBundle\FormModel\ReplyMessage</parameter>
+    <parameter key="fos_message.reply_form.name">message</parameter>
+    <parameter key="ideato_starrating.starrating_service_class">Ideato\StarRatingBundle\Service\StarRatingService</parameter>
     <parameter key="jms_serializer.metadata.file_locator.class">Metadata\Driver\FileLocator</parameter>
     <parameter key="jms_serializer.metadata.annotation_driver.class">JMS\Serializer\Metadata\Driver\AnnotationDriver</parameter>
     <parameter key="jms_serializer.metadata.chain_driver.class">Metadata\Driver\DriverChain</parameter>
@@ -674,8 +725,6 @@
     <parameter key="jms_serializer.constraint_violation_handler.class">JMS\Serializer\Handler\ConstraintViolationHandler</parameter>
     <parameter key="jms_serializer.doctrine_proxy_subscriber.class">JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber</parameter>
     <parameter key="jms_serializer.stopwatch_subscriber.class">JMS\SerializerBundle\Serializer\StopwatchEventSubscriber</parameter>
-    <parameter key="fpn_thetvdb.http_client.class">FPN\TheTVDB\HttpClient\Buzz</parameter>
-    <parameter key="fpn_thetvdb.api.class">FPN\TheTVDB\Api</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -798,6 +847,12 @@
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer" public="false">
+            <tag name="kernel.cache_warmer" priority="10"/>
+            <argument type="service" id="service_container"/>
           </service>
         </argument>
         <argument type="service" id="kernel.class_cache.cache_warmer"/>
@@ -1011,6 +1066,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.en.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.en.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.en.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.en.yml</argument>
           </argument>
           <argument key="nl" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
@@ -1019,6 +1075,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.nl.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.nl.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.nl.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.nl.yml</argument>
           </argument>
           <argument key="tr" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
@@ -1053,6 +1110,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sv.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sv.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.sv.yml</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
@@ -1091,6 +1149,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.ru.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.ru.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.ru.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.ru.yml</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nn.xlf</argument>
@@ -1125,6 +1184,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.de.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.de.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.de.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.de.yml</argument>
           </argument>
           <argument key="lt" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
@@ -1177,6 +1237,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.fr.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.fr.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.fr.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.fr.yml</argument>
           </argument>
           <argument key="bg" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
@@ -1200,6 +1261,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.es.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.es.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.es.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.es.yml</argument>
           </argument>
           <argument key="zh_CN" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
@@ -1250,6 +1312,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.sl.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.sl.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.sl.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.sl.yml</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
@@ -1265,6 +1328,7 @@
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/FOSUserBundle.pl.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/translations/validators.pl.yml</argument>
             <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/translations/FOSCommentBundle.pl.yml</argument>
+            <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/translations/FOSMessageBundle.pl.yml</argument>
           </argument>
           <argument key="sr_Cyrl" type="collection">
             <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
@@ -1637,6 +1701,8 @@
               <argument key="FOS\CommentBundle\Form\ThreadType">fos_comment.form_type.thread.default</argument>
               <argument key="fos_comment_vote">fos_comment.form_type.vote.default</argument>
               <argument key="FOS\CommentBundle\Form\VoteType">fos_comment.form_type.vote.default</argument>
+              <argument key="recipients_selector">fos_message.recipients_selector</argument>
+              <argument key="FOS\MessageBundle\FormType\RecipientsType">fos_message.recipients_selector</argument>
             </argument>
             <argument type="collection">
               <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -1867,6 +1933,14 @@
               <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">security.validator.user_password</argument>
               <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
               <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator">doctrine.orm.validator.unique</argument>
+              <argument key="fos_message.validator.authorization">fos_message.validator.authorization</argument>
+              <argument key="FOS\MessageBundle\Validator\AuthorizationValidator">fos_message.validator.authorization</argument>
+              <argument key="fos_message.validator.reply_authorization">fos_message.validator.reply_authorization</argument>
+              <argument key="FOS\MessageBundle\Validator\ReplyAuthorizationValidator">fos_message.validator.reply_authorization</argument>
+              <argument key="fos_message.validator.spam">fos_message.validator.spam</argument>
+              <argument key="FOS\MessageBundle\Validator\SpamValidator">fos_message.validator.spam</argument>
+              <argument key="fos_message.validator.self_recipient">fos_message.validator.self_recipient</argument>
+              <argument key="FOS\MessageBundle\Validator\SelfRecipientValidator">fos_message.validator.self_recipient</argument>
             </argument>
           </service>
         </argument>
@@ -1882,6 +1956,7 @@
           <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
           <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/config/validation.xml</argument>
           <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/config/validation.xml</argument>
+          <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -2151,6 +2226,15 @@
             </argument>
           </call>
           <call method="addLoader">
+            <argument type="service">
+              <service class="Symfony\Bundle\AsseticBundle\Routing\AsseticLoader" public="false">
+                <tag name="routing.loader"/>
+                <argument type="service" id="assetic.asset_manager"/>
+                <argument type="collection"/>
+              </service>
+            </argument>
+          </call>
+          <call method="addLoader">
             <argument type="service" id="fos_rest.routing.loader.controller"/>
           </call>
           <call method="addLoader">
@@ -2203,6 +2287,14 @@
         <argument type="collection">
           <argument>data_collector.router</argument>
           <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>assetic.request_listener</argument>
+          <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2373,8 +2465,17 @@
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="collection">
         <argument type="service">
+          <service class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
+            <argument type="service" id="fos_user.user_provider.username_email"/>
+            <argument type="service" id="security.user_checker.main"/>
+            <argument>main</argument>
+            <argument type="service" id="security.encoder_factory"/>
+            <argument>true</argument>
+          </service>
+        </argument>
+        <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56fb3e0a168b19.48108678</argument>
+            <argument>570159353edb23.85900762</argument>
           </service>
         </argument>
       </argument>
@@ -2386,6 +2487,9 @@
     <service id="security.authentication.trust_resolver" class="Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver" public="false">
       <argument>Symfony\Component\Security\Core\Authentication\Token\AnonymousToken</argument>
       <argument>Symfony\Component\Security\Core\Authentication\Token\RememberMeToken</argument>
+    </service>
+    <service id="security.authentication.session_strategy" class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy" public="false">
+      <argument>migrate</argument>
     </service>
     <service id="security.authentication_utils" class="Symfony\Component\Security\Http\Authentication\AuthenticationUtils">
       <argument type="service" id="request_stack"/>
@@ -2443,7 +2547,11 @@
                 <argument>^/(_(profiler|wdt)|css|images|js)/</argument>
               </service>
             </argument>
-            <argument key="security.firewall.map.context.main">null</argument>
+            <argument key="security.firewall.map.context.main" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>^/</argument>
+              </service>
+            </argument>
           </argument>
         </service>
       </argument>
@@ -2453,6 +2561,13 @@
       <argument type="service" id="request_stack" on-invalid="null"/>
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
+      <call method="registerListener">
+        <argument>main</argument>
+        <argument>/logout</argument>
+        <argument>logout</argument>
+        <argument>_csrf_token</argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
@@ -2521,7 +2636,18 @@
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin/</argument>
+                      <argument>^/admin/users</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_SUPER_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/admin</argument>
                     </service>
                   </argument>
                   <argument type="collection">
@@ -2544,9 +2670,7 @@
           <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
             <argument type="service" id="security.token_storage"/>
             <argument type="collection">
-              <argument type="service">
-                <service class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false"/>
-              </argument>
+              <argument type="service" id="fos_user.user_provider.username_email"/>
             </argument>
             <argument>main</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -2554,9 +2678,113 @@
           </service>
         </argument>
         <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                <argument type="service" id="router" on-invalid="null"/>
+                <argument type="service" id="router" on-invalid="null"/>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
+                <argument type="service">
+                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                    <argument type="service" id="router" on-invalid="null"/>
+                    <argument type="service" id="router" on-invalid="null"/>
+                  </service>
+                </argument>
+                <argument>/</argument>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="csrf_token_id">logout</argument>
+              <argument key="logout_path">/logout</argument>
+            </argument>
+            <call method="addHandler">
+              <argument type="service">
+                <service class="Symfony\Component\Security\Http\Logout\SessionLogoutHandler" public="false"/>
+              </argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener" public="false">
+            <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.fos_userbundle"/>
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="security.authentication.manager"/>
+            <argument type="service" id="security.authentication.session_strategy"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                <argument type="service" id="router" on-invalid="null"/>
+                <argument type="service" id="router" on-invalid="null"/>
+              </service>
+            </argument>
+            <argument>main</argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
+                <argument type="service">
+                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                    <argument type="service" id="router" on-invalid="null"/>
+                    <argument type="service" id="router" on-invalid="null"/>
+                  </service>
+                </argument>
+                <argument type="collection"/>
+                <call method="setOptions">
+                  <argument type="collection">
+                    <argument key="always_use_default_target_path">false</argument>
+                    <argument key="default_target_path">/</argument>
+                    <argument key="login_path">/login</argument>
+                    <argument key="target_path_parameter">_target_path</argument>
+                    <argument key="use_referer">false</argument>
+                  </argument>
+                </call>
+                <call method="setProviderKey">
+                  <argument>main</argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false">
+                <argument type="service" id="http_kernel"/>
+                <argument type="service">
+                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                    <argument type="service" id="router" on-invalid="null"/>
+                    <argument type="service" id="router" on-invalid="null"/>
+                  </service>
+                </argument>
+                <argument type="collection"/>
+                <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+                <call method="setOptions">
+                  <argument type="collection">
+                    <argument key="login_path">/login</argument>
+                    <argument key="failure_path">null</argument>
+                    <argument key="failure_forward">false</argument>
+                    <argument key="failure_path_parameter">_failure_path</argument>
+                  </argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="check_path">/login_check</argument>
+              <argument key="use_forward">false</argument>
+              <argument key="require_previous_session">true</argument>
+              <argument key="username_parameter">_username</argument>
+              <argument key="password_parameter">_password</argument>
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="csrf_token_id">authenticate</argument>
+              <argument key="post_only">true</argument>
+            </argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+            <argument type="service" id="security.csrf.token_manager"/>
+          </service>
+        </argument>
+        <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56fb3e0a168b19.48108678</argument>
+            <argument>570159353edb23.85900762</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2604,7 +2832,18 @@
                 <call method="add">
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin/</argument>
+                      <argument>^/admin/users</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_SUPER_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/admin</argument>
                     </service>
                   </argument>
                   <argument type="collection">
@@ -2629,7 +2868,19 @@
             </service>
           </argument>
           <argument>main</argument>
-          <argument>null</argument>
+          <argument type="service">
+            <service class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
+              <argument type="service" id="http_kernel"/>
+              <argument type="service">
+                <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                  <argument type="service" id="router" on-invalid="null"/>
+                  <argument type="service" id="router" on-invalid="null"/>
+                </service>
+              </argument>
+              <argument>/login</argument>
+              <argument>false</argument>
+            </service>
+          </argument>
           <argument>null</argument>
           <argument>null</argument>
           <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -2810,6 +3061,26 @@
       </call>
       <call method="addExtension">
         <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Twig\AsseticExtension" public="false">
+            <tag name="twig.extension"/>
+            <tag name="assetic.templating.twig"/>
+            <argument type="service" id="assetic.asset_factory"/>
+            <argument type="service" id="templating.name_parser"/>
+            <argument>true</argument>
+            <argument type="collection"/>
+            <argument type="collection">
+              <argument>FOSCommentBundle</argument>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
+                <argument type="service" id="service_container"/>
+              </service>
+            </argument>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
           <service class="FOS\CommentBundle\Twig\CommentExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
@@ -2817,6 +3088,9 @@
             <argument>null</argument>
           </service>
         </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="fos_message.twig_extension"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -3035,6 +3309,8 @@
             <argument type="collection">
               <argument key="FilRougeBundle">FilRougeBundle\Entity</argument>
               <argument key="FOSCommentBundle">FOS\CommentBundle\Entity</argument>
+              <argument key="FOSMessageBundle">FOS\MessageBundle\Entity</argument>
+              <argument key="IdeatoStarRatingBundle">Ideato\StarRatingBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -3055,6 +3331,7 @@
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
                         <argument>/home/manu/devellopement/fil_rouge/src/FilRougeBundle/Entity</argument>
+                        <argument>/home/manu/devellopement/fil_rouge/vendor/ideato/star-rating-bundle/Ideato/StarRatingBundle/Entity</argument>
                       </argument>
                     </service>
                   </argument>
@@ -3062,9 +3339,22 @@
                 </call>
                 <call method="addDriver">
                   <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/home/manu/devellopement/fil_rouge/src/FilRougeBundle/Entity</argument>
+                        <argument>/home/manu/devellopement/fil_rouge/vendor/ideato/star-rating-bundle/Ideato/StarRatingBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Ideato\StarRatingBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
                         <argument key="/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/config/doctrine">FOS\CommentBundle\Entity</argument>
+                        <argument key="/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/config/doctrine">FOS\MessageBundle\Entity</argument>
                       </argument>
                       <call method="setGlobalBasename">
                         <argument>mapping</argument>
@@ -3072,6 +3362,20 @@
                     </service>
                   </argument>
                   <argument>FOS\CommentBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/config/doctrine">FOS\CommentBundle\Entity</argument>
+                        <argument key="/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/config/doctrine">FOS\MessageBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>FOS\MessageBundle\Entity</argument>
                 </call>
                 <call method="addDriver">
                   <argument type="service">
@@ -3173,6 +3477,111 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
+    <service id="assetic.filter_manager" class="Symfony\Bundle\AsseticBundle\FilterManager">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="cssrewrite">assetic.filter.cssrewrite</argument>
+      </argument>
+    </service>
+    <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
+      <argument type="service" id="assetic.asset_factory"/>
+      <argument type="collection">
+        <argument key="twig" type="service">
+          <service class="Assetic\Factory\Loader\CachedFormulaLoader" public="false">
+            <tag name="assetic.formula_loader" alias="twig"/>
+            <tag name="assetic.templating.twig"/>
+            <argument type="service">
+              <service class="Assetic\Extension\Twig\TwigFormulaLoader" public="false">
+                <tag name="assetic.templating.twig"/>
+                <tag name="monolog.logger" channel="assetic"/>
+                <argument type="service" id="twig"/>
+                <argument type="service" id="monolog.logger.assetic" on-invalid="ignore"/>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Assetic\Cache\ConfigCache" public="false">
+                <argument>/home/manu/devellopement/fil_rouge/app/cache/dev/assetic/config</argument>
+              </service>
+            </argument>
+            <argument>true</argument>
+          </service>
+        </argument>
+      </argument>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>FOSCommentBundle</argument>
+                  <argument>/home/manu/devellopement/fil_rouge/app/Resources/FOSCommentBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>FOSCommentBundle</argument>
+                  <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="service" id="templating.loader"/>
+            <argument></argument>
+            <argument>/home/manu/devellopement/fil_rouge/app/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+    </service>
+    <service id="assetic.asset_factory" class="Symfony\Bundle\AsseticBundle\Factory\AssetFactory" public="false">
+      <argument type="service" id="kernel"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service">
+        <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" public="false">
+          <factory service="service_container" method="getParameterBag"/>
+        </service>
+      </argument>
+      <argument>/home/manu/devellopement/fil_rouge/app/../web</argument>
+      <argument>true</argument>
+      <call method="addWorker">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker" public="false">
+            <tag name="assetic.factory_worker"/>
+          </service>
+        </argument>
+      </call>
+    </service>
+    <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
+      <tag name="assetic.filter" alias="cssrewrite"/>
+    </service>
+    <service id="assetic.controller" class="Symfony\Bundle\AsseticBundle\Controller\AsseticController">
+      <argument type="service" id="assetic.asset_manager"/>
+      <argument type="service">
+        <service class="Assetic\Cache\FilesystemCache" public="false">
+          <argument>/home/manu/devellopement/fil_rouge/app/cache/dev/assetic/assets</argument>
+        </service>
+      </argument>
+      <argument>false</argument>
+      <argument type="service" id="profiler" on-invalid="null"/>
+    </service>
+    <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+    </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="fos_user.user_manager"/>
@@ -3180,12 +3589,11 @@
     <service id="fos_user.security.login_manager" class="FOS\UserBundle\Security\LoginManager">
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.user_checker.main"/>
-      <argument type="service">
-        <service class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy" public="false">
-          <argument>migrate</argument>
-        </service>
-      </argument>
+      <argument type="service" id="security.authentication.session_strategy"/>
       <argument type="service" id="service_container"/>
+    </service>
+    <service id="fos_user.user_provider.username_email" class="FOS\UserBundle\Security\EmailUserProvider" public="false">
+      <argument type="service" id="fos_user.user_manager"/>
     </service>
     <service id="fos_user.util.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
       <argument type="service" id="fos_user.user_manager"/>
@@ -3202,11 +3610,10 @@
     </service>
     <service id="fos_user.username_form_type" class="FOS\UserBundle\Form\Type\UsernameFormType">
       <tag name="form.type" alias="fos_user_username"/>
-      <argument type="service">
-        <service class="FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer" public="false">
-          <argument type="service" id="fos_user.user_manager"/>
-        </service>
-      </argument>
+      <argument type="service" id="fos_user.user_to_username_transformer"/>
+    </service>
+    <service id="fos_user.user_to_username_transformer" class="FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer" public="false">
+      <argument type="service" id="fos_user.user_manager"/>
     </service>
     <service id="fos_user.profile.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
@@ -3359,7 +3766,7 @@
     <service id="fos_comment.manager.thread.default" class="FOS\CommentBundle\Entity\ThreadManager">
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="service" id="fos_comment.entity_manager"/>
-      <argument>FilRougeBundle\Entity\Thread</argument>
+      <argument>FilRougeBundle\Entity\ThreadComment</argument>
     </service>
     <service id="fos_comment.manager.comment.default" class="FOS\CommentBundle\Entity\CommentManager">
       <argument type="service" id="debug.event_dispatcher"/>
@@ -3370,7 +3777,7 @@
     <service id="fos_comment.manager.vote.default" class="FOS\CommentBundle\Entity\VoteManager">
       <argument type="service" id="debug.event_dispatcher"/>
       <argument type="service" id="fos_comment.entity_manager"/>
-      <argument>FOS\CommentBundle\Entity\Vote</argument>
+      <argument>FilRougeBundle\Entity\Vote</argument>
     </service>
     <service id="fos_comment.entity_manager" class="Doctrine\ORM\EntityManager" public="false">
       <argument>null</argument>
@@ -3408,7 +3815,7 @@
     </service>
     <service id="fos_comment.form_type.commentable_thread.default" class="FOS\CommentBundle\Form\CommentableThreadType">
       <tag name="form.type" alias="fos_comment_commentable_thread"/>
-      <argument>FilRougeBundle\Entity\Thread</argument>
+      <argument>FilRougeBundle\Entity\ThreadComment</argument>
     </service>
     <service id="fos_comment.form_type.delete_comment.default" class="FOS\CommentBundle\Form\DeleteCommentType">
       <tag name="form.type" alias="fos_comment_delete_comment"/>
@@ -3416,11 +3823,11 @@
     </service>
     <service id="fos_comment.form_type.thread.default" class="FOS\CommentBundle\Form\ThreadType">
       <tag name="form.type" alias="fos_comment_thread"/>
-      <argument>FilRougeBundle\Entity\Thread</argument>
+      <argument>FilRougeBundle\Entity\ThreadComment</argument>
     </service>
     <service id="fos_comment.form_type.vote.default" class="FOS\CommentBundle\Form\VoteType">
       <tag name="form.type" alias="fos_comment_vote"/>
-      <argument>FOS\CommentBundle\Entity\Vote</argument>
+      <argument>FilRougeBundle\Entity\Vote</argument>
     </service>
     <service id="fos_comment.sorting_factory" class="FOS\CommentBundle\Sorting\SortingFactory">
       <argument type="collection">
@@ -3438,6 +3845,42 @@
         </argument>
       </argument>
       <argument>date_desc</argument>
+    </service>
+    <service id="fos_message.search_query_factory.default" class="FOS\MessageBundle\Search\QueryFactory" scope="request">
+      <argument type="service" id="request"/>
+      <argument>q</argument>
+    </service>
+    <service id="fos_message.search_finder.default" class="FOS\MessageBundle\Search\Finder">
+      <argument type="service" id="fos_message.participant_provider"/>
+      <argument type="service" id="fos_message.thread_manager"/>
+    </service>
+    <service id="fos_message.recipients_selector" class="FOS\MessageBundle\FormType\RecipientsType">
+      <tag name="form.type" alias="recipients_selector"/>
+      <argument type="service">
+        <service class="FOS\MessageBundle\DataTransformer\RecipientsDataTransformer" public="false">
+          <argument type="service" id="fos_user.user_to_username_transformer"/>
+        </service>
+      </argument>
+    </service>
+    <service id="fos_message.validator.authorization" class="FOS\MessageBundle\Validator\AuthorizationValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.authorization"/>
+      <argument type="service" id="fos_message.authorizer"/>
+    </service>
+    <service id="fos_message.validator.reply_authorization" class="FOS\MessageBundle\Validator\ReplyAuthorizationValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.reply_authorization"/>
+      <argument type="service" id="fos_message.authorizer"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+    </service>
+    <service id="fos_message.validator.spam" class="FOS\MessageBundle\Validator\SpamValidator" scope="request">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.spam"/>
+      <argument type="service" id="fos_message.spam_detector"/>
+    </service>
+    <service id="fos_message.validator.self_recipient" class="FOS\MessageBundle\Validator\SelfRecipientValidator">
+      <tag name="validator.constraint_validator" alias="fos_message.validator.self_recipient"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+    </service>
+    <service id="ideato_starrating_service" class="Ideato\StarRatingBundle\Service\StarRatingService">
+      <argument key="entityManager" type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="jms_serializer.doctrine_proxy_subscriber" class="JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber">
       <tag name="jms_serializer.event_subscriber"/>
@@ -3811,12 +4254,6 @@
       <tag name="jms_serializer.serialization_visitor" format="yml"/>
       <argument type="service" id="jms_serializer.naming_strategy"/>
     </service>
-    <service id="fpn_thetvdb.http_client" class="FPN\TheTVDB\HttpClient\Buzz"/>
-    <service id="fpn_thetvdb.api" class="FPN\TheTVDB\Api">
-      <tag name="thetvdb" alias="thetvdb"/>
-      <argument type="service" id="fpn_thetvdb.http_client"/>
-      <argument>1D5E2965510E434F</argument>
-    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -4037,6 +4474,18 @@
         <argument type="service" id="monolog.handler.debug"/>
       </call>
     </service>
+    <service id="monolog.logger.assetic" class="Symfony\Bridge\Monolog\Logger">
+      <argument>assetic</argument>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.debug"/>
+      </call>
+    </service>
     <service id="monolog.handler.debug" class="Symfony\Bridge\Monolog\Handler\DebugHandler">
       <argument>100</argument>
       <argument>true</argument>
@@ -4066,7 +4515,7 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/home/manu/devellopement/fil_rouge/app/config/routing_dev.yml</argument>
+      <argument>/home/manu/devellopement/fil_rouge/app/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
         <argument key="cache_dir">/home/manu/devellopement/fil_rouge/app/cache/dev</argument>
         <argument key="debug">true</argument>
@@ -4079,6 +4528,7 @@
         <argument key="matcher_dumper_class">Symfony\Component\Routing\Matcher\Dumper\PhpMatcherDumper</argument>
         <argument key="matcher_cache_class">appDevUrlMatcher</argument>
         <argument key="strict_requirements">true</argument>
+        <argument key="resource_type">yaml</argument>
       </argument>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
@@ -4140,12 +4590,28 @@
         <argument>FilRouge</argument>
       </call>
       <call method="addPath">
+        <argument>/home/manu/devellopement/fil_rouge/app/Resources/FOSUserBundle/views</argument>
+        <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
         <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
         <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/views</argument>
         <argument>FOSComment</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/manu/devellopement/fil_rouge/app/Resources/FOSMessageBundle/views</argument>
+        <argument>FOSMessage</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/views</argument>
+        <argument>FOSMessage</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/manu/devellopement/fil_rouge/vendor/ideato/star-rating-bundle/Ideato/StarRatingBundle/Resources/views</argument>
+        <argument>IdeatoStarRating</argument>
       </call>
       <call method="addPath">
         <argument>/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -4318,6 +4784,87 @@
       <argument>fos_comment_vote</argument>
       <argument>fos_comment_vote</argument>
     </service>
+    <service id="fos_message.message_manager" class="FOS\MessageBundle\EntityManager\MessageManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>FilRougeBundle\Entity\Message</argument>
+      <argument>FilRougeBundle\Entity\MessageMetadata</argument>
+    </service>
+    <service id="fos_message.thread_manager" class="FOS\MessageBundle\EntityManager\ThreadManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>FilRougeBundle\Entity\Thread</argument>
+      <argument>FilRougeBundle\Entity\ThreadMetadata</argument>
+      <argument type="service" id="fos_message.message_manager"/>
+    </service>
+    <service id="fos_message.sender" class="FOS\MessageBundle\Sender\Sender">
+      <argument type="service" id="fos_message.message_manager"/>
+      <argument type="service" id="fos_message.thread_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.composer" class="FOS\MessageBundle\Composer\Composer">
+      <argument type="service" id="fos_message.message_manager"/>
+      <argument type="service" id="fos_message.thread_manager"/>
+    </service>
+    <service id="fos_message.provider" class="FOS\MessageBundle\Provider\Provider">
+      <argument type="service" id="fos_message.thread_manager"/>
+      <argument type="service" id="fos_message.message_manager"/>
+      <argument type="service" id="fos_message.thread_reader"/>
+      <argument type="service" id="fos_message.authorizer"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+    </service>
+    <service id="fos_message.participant_provider" class="FOS\MessageBundle\Security\ParticipantProvider">
+      <argument type="service" id="security.context"/>
+    </service>
+    <service id="fos_message.authorizer" class="FOS\MessageBundle\Security\Authorizer">
+      <argument type="service" id="fos_message.participant_provider"/>
+    </service>
+    <service id="fos_message.message_reader" class="FOS\MessageBundle\Reader\Reader">
+      <argument type="service" id="fos_message.participant_provider"/>
+      <argument type="service" id="fos_message.message_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.thread_reader" class="FOS\MessageBundle\Reader\Reader">
+      <argument type="service" id="fos_message.participant_provider"/>
+      <argument type="service" id="fos_message.thread_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.deleter" class="FOS\MessageBundle\Deleter\Deleter">
+      <argument type="service" id="fos_message.authorizer"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="fos_message.spam_detector" class="FOS\MessageBundle\SpamDetection\NoopSpamDetector"/>
+    <service id="fos_message.twig_extension" class="FOS\MessageBundle\Twig\Extension\MessageExtension">
+      <tag name="twig.extension" alias="fos_message"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+      <argument type="service" id="fos_message.provider"/>
+      <argument type="service" id="fos_message.authorizer"/>
+    </service>
+    <service id="fos_message.new_thread_form.type" class="FOS\MessageBundle\FormType\NewThreadMessageFormType"/>
+    <service id="fos_message.new_thread_form.factory" class="FOS\MessageBundle\FormFactory\NewThreadMessageFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="fos_message.new_thread_form.type"/>
+      <argument>message</argument>
+      <argument>FOS\MessageBundle\FormModel\NewThreadMessage</argument>
+    </service>
+    <service id="fos_message.new_thread_form.handler" class="FOS\MessageBundle\FormHandler\NewThreadMessageFormHandler" scope="request">
+      <argument type="service" id="request"/>
+      <argument type="service" id="fos_message.composer"/>
+      <argument type="service" id="fos_message.sender"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+    </service>
+    <service id="fos_message.reply_form.type" class="FOS\MessageBundle\FormType\ReplyMessageFormType"/>
+    <service id="fos_message.reply_form.factory" class="FOS\MessageBundle\FormFactory\ReplyMessageFormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="fos_message.reply_form.type"/>
+      <argument>message</argument>
+      <argument>FOS\MessageBundle\FormModel\ReplyMessage</argument>
+    </service>
+    <service id="fos_message.reply_form.handler" class="FOS\MessageBundle\FormHandler\ReplyMessageFormHandler" scope="request">
+      <argument type="service" id="request"/>
+      <argument type="service" id="fos_message.composer"/>
+      <argument type="service" id="fos_message.sender"/>
+      <argument type="service" id="fos_message.participant_provider"/>
+    </service>
     <service id="jms_serializer.metadata_driver" class="JMS\Serializer\Metadata\Driver\DoctrineTypeDriver">
       <argument type="service">
         <service class="Metadata\Driver\DriverChain" public="false">
@@ -4334,12 +4881,14 @@
                       <argument key="Symfony\Bundle\SwiftmailerBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/swiftmailer-bundle/Resources/config/serializer</argument>
                       <argument key="Doctrine\Bundle\DoctrineBundle">/home/manu/devellopement/fil_rouge/vendor/doctrine/doctrine-bundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\FrameworkExtraBundle">/home/manu/devellopement/fil_rouge/vendor/sensio/framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\AsseticBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/assetic-bundle/Resources/config/serializer</argument>
                       <argument key="FilRougeBundle">/home/manu/devellopement/fil_rouge/src/FilRougeBundle/Resources/config/serializer</argument>
                       <argument key="FOS\UserBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/config/serializer</argument>
                       <argument key="FOS\RestBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer</argument>
                       <argument key="FOS\CommentBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\MessageBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/config/serializer</argument>
+                      <argument key="Ideato\StarRatingBundle">/home/manu/devellopement/fil_rouge/vendor/ideato/star-rating-bundle/Ideato/StarRatingBundle/Resources/config/serializer</argument>
                       <argument key="JMS\SerializerBundle">/home/manu/devellopement/fil_rouge/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer</argument>
-                      <argument key="Tobiassjosten\TheTVDBBundle">/home/manu/devellopement/fil_rouge/vendor/tobiassjosten/thetvdb-bundle/Tobiassjosten/TheTVDBBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/home/manu/devellopement/fil_rouge/vendor/sensio/distribution-bundle/Resources/config/serializer</argument>
@@ -4361,12 +4910,14 @@
                       <argument key="Symfony\Bundle\SwiftmailerBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/swiftmailer-bundle/Resources/config/serializer</argument>
                       <argument key="Doctrine\Bundle\DoctrineBundle">/home/manu/devellopement/fil_rouge/vendor/doctrine/doctrine-bundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\FrameworkExtraBundle">/home/manu/devellopement/fil_rouge/vendor/sensio/framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\AsseticBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/assetic-bundle/Resources/config/serializer</argument>
                       <argument key="FilRougeBundle">/home/manu/devellopement/fil_rouge/src/FilRougeBundle/Resources/config/serializer</argument>
                       <argument key="FOS\UserBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/config/serializer</argument>
                       <argument key="FOS\RestBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer</argument>
                       <argument key="FOS\CommentBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\MessageBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/config/serializer</argument>
+                      <argument key="Ideato\StarRatingBundle">/home/manu/devellopement/fil_rouge/vendor/ideato/star-rating-bundle/Ideato/StarRatingBundle/Resources/config/serializer</argument>
                       <argument key="JMS\SerializerBundle">/home/manu/devellopement/fil_rouge/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer</argument>
-                      <argument key="Tobiassjosten\TheTVDBBundle">/home/manu/devellopement/fil_rouge/vendor/tobiassjosten/thetvdb-bundle/Tobiassjosten/TheTVDBBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/home/manu/devellopement/fil_rouge/vendor/sensio/distribution-bundle/Resources/config/serializer</argument>
@@ -4388,12 +4939,14 @@
                       <argument key="Symfony\Bundle\SwiftmailerBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/swiftmailer-bundle/Resources/config/serializer</argument>
                       <argument key="Doctrine\Bundle\DoctrineBundle">/home/manu/devellopement/fil_rouge/vendor/doctrine/doctrine-bundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\FrameworkExtraBundle">/home/manu/devellopement/fil_rouge/vendor/sensio/framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\AsseticBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/assetic-bundle/Resources/config/serializer</argument>
                       <argument key="FilRougeBundle">/home/manu/devellopement/fil_rouge/src/FilRougeBundle/Resources/config/serializer</argument>
                       <argument key="FOS\UserBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/user-bundle/Resources/config/serializer</argument>
                       <argument key="FOS\RestBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Resources/config/serializer</argument>
                       <argument key="FOS\CommentBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/comment-bundle/FOS/CommentBundle/Resources/config/serializer</argument>
+                      <argument key="FOS\MessageBundle">/home/manu/devellopement/fil_rouge/vendor/friendsofsymfony/message-bundle/FOS/MessageBundle/Resources/config/serializer</argument>
+                      <argument key="Ideato\StarRatingBundle">/home/manu/devellopement/fil_rouge/vendor/ideato/star-rating-bundle/Ideato/StarRatingBundle/Resources/config/serializer</argument>
                       <argument key="JMS\SerializerBundle">/home/manu/devellopement/fil_rouge/vendor/jms/serializer-bundle/JMS/SerializerBundle/Resources/config/serializer</argument>
-                      <argument key="Tobiassjosten\TheTVDBBundle">/home/manu/devellopement/fil_rouge/vendor/tobiassjosten/thetvdb-bundle/Tobiassjosten/TheTVDBBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">/home/manu/devellopement/fil_rouge/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">/home/manu/devellopement/fil_rouge/vendor/sensio/distribution-bundle/Resources/config/serializer</argument>
@@ -4527,8 +5080,9 @@
     <service id="fos_comment.manager.thread" alias="fos_comment.manager.thread.default"/>
     <service id="fos_comment.manager.comment" alias="fos_comment.manager.comment.default"/>
     <service id="fos_comment.manager.vote" alias="fos_comment.manager.vote.default"/>
+    <service id="fos_message.search_query_factory" alias="fos_message.search_query_factory.default"/>
+    <service id="fos_message.search_finder" alias="fos_message.search_finder.default"/>
     <service id="serializer" alias="jms_serializer"/>
-    <service id="thetvdb" alias="fpn_thetvdb.api"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
     <service id="fos_rest.serializer" alias="jms_serializer"/>
   </services>

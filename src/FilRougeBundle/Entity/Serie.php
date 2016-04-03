@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="serie")
  * @ORM\Entity(repositoryClass="FilRougeBundle\Repository\SerieRepository")
  */
-class Serie
+class Serie 
 {
     /**
      * @var int
@@ -187,4 +187,3 @@ class Serie
         return $this->episode;
     }
 }
-

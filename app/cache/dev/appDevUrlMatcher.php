@@ -27,6 +27,77 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/js')) {
+            if (0 === strpos($pathinfo, '/js/35a8e64')) {
+                // _assetic_35a8e64
+                if ($pathinfo === '/js/35a8e64.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '35a8e64',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_35a8e64',);
+                }
+
+                // _assetic_35a8e64_0
+                if ($pathinfo === '/js/35a8e64_comments_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '35a8e64',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_35a8e64_0',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/js/402b1e2')) {
+                // _assetic_402b1e2
+                if ($pathinfo === '/js/402b1e2.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '402b1e2',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_402b1e2',);
+                }
+
+                if (0 === strpos($pathinfo, '/js/402b1e2_')) {
+                    // _assetic_402b1e2_0
+                    if ($pathinfo === '/js/402b1e2_jquery.min_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '402b1e2',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_402b1e2_0',);
+                    }
+
+                    // _assetic_402b1e2_1
+                    if ($pathinfo === '/js/402b1e2_bootstrap.min_2.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '402b1e2',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_402b1e2_1',);
+                    }
+
+                    if (0 === strpos($pathinfo, '/js/402b1e2_jquery.')) {
+                        // _assetic_402b1e2_2
+                        if ($pathinfo === '/js/402b1e2_jquery.raty_3.js') {
+                            return array (  '_controller' => 'assetic.controller:render',  'name' => '402b1e2',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_402b1e2_2',);
+                        }
+
+                        // _assetic_402b1e2_3
+                        if ($pathinfo === '/js/402b1e2_jquery.starrating_4.js') {
+                            return array (  '_controller' => 'assetic.controller:render',  'name' => '402b1e2',  'pos' => 3,  '_format' => 'js',  '_route' => '_assetic_402b1e2_3',);
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/css/e56ee55')) {
+            // _assetic_e56ee55
+            if ($pathinfo === '/css/e56ee55.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'e56ee55',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_e56ee55',);
+            }
+
+            if (0 === strpos($pathinfo, '/css/e56ee55_')) {
+                // _assetic_e56ee55_0
+                if ($pathinfo === '/css/e56ee55_colorGuide_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'e56ee55',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_e56ee55_0',);
+                }
+
+                // _assetic_e56ee55_1
+                if ($pathinfo === '/css/e56ee55_jquery.raty_2.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'e56ee55',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_e56ee55_1',);
+                }
+
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -550,6 +621,70 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
             not_fos_comment_post_thread_comment_votes:
 
+        }
+
+        if (0 === strpos($pathinfo, '/message')) {
+            // fos_message_inbox
+            if (rtrim($pathinfo, '/') === '/message') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'fos_message_inbox');
+                }
+
+                return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::inboxAction',  '_route' => 'fos_message_inbox',);
+            }
+
+            // fos_message_sent
+            if ($pathinfo === '/message/sent') {
+                return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::sentAction',  '_route' => 'fos_message_sent',);
+            }
+
+            // fos_message_deleted
+            if ($pathinfo === '/message/deleted') {
+                return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::deletedAction',  '_route' => 'fos_message_deleted',);
+            }
+
+            // fos_message_search
+            if ($pathinfo === '/message/search') {
+                return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::searchAction',  '_route' => 'fos_message_search',);
+            }
+
+            // fos_message_thread_new
+            if ($pathinfo === '/message/new') {
+                return array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::newThreadAction',  '_route' => 'fos_message_thread_new',);
+            }
+
+            // fos_message_thread_delete
+            if (preg_match('#^/message/(?P<threadId>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_fos_message_thread_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_message_thread_delete')), array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::deleteAction',));
+            }
+            not_fos_message_thread_delete:
+
+            // fos_message_thread_undelete
+            if (preg_match('#^/message/(?P<threadId>[^/]++)/undelete$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_fos_message_thread_undelete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_message_thread_undelete')), array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::undeleteAction',));
+            }
+            not_fos_message_thread_undelete:
+
+            // fos_message_thread_view
+            if (preg_match('#^/message/(?P<threadId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'fos_message_thread_view')), array (  '_controller' => 'FOS\\MessageBundle\\Controller\\MessageController::threadAction',));
+            }
+
+        }
+
+        // ideato_star_rating_rate
+        if ($pathinfo === '/isr-rate') {
+            return array (  '_controller' => 'Ideato\\StarRatingBundle\\Controller\\StarRatingController::rateAction',  '_route' => 'ideato_star_rating_rate',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

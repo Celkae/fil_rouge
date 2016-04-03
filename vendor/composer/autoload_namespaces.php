@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'blackknight467\\StarRatingBundle' => array($vendorDir . '/blackknight467/star-rating-bundle'),
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Tobiassjosten\\TheTVDBBundle' => array($vendorDir . '/tobiassjosten/thetvdb-bundle'),
     'SensioLabs\\Security' => array($vendorDir . '/sensiolabs/security-checker'),
@@ -17,9 +18,11 @@ return array(
     'JMS\\SerializerBundle' => array($vendorDir . '/jms/serializer-bundle'),
     'JMS\\Serializer' => array($vendorDir . '/jms/serializer/src'),
     'JMS\\' => array($vendorDir . '/jms/parser-lib/src'),
+    'Ideato\\StarRatingBundle' => array($vendorDir . '/ideato/star-rating-bundle'),
     'FPN\\TheTVDB\\Test' => array($vendorDir . '/fpn/thetvdb/tests'),
     'FPN\\TheTVDB' => array($vendorDir . '/fpn/thetvdb/src'),
     'FOS\\RestBundle' => array($vendorDir . '/friendsofsymfony/rest-bundle'),
+    'FOS\\MessageBundle' => array($vendorDir . '/friendsofsymfony/message-bundle'),
     'FOS\\CommentBundle' => array($vendorDir . '/friendsofsymfony/comment-bundle'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
@@ -28,4 +31,5 @@ return array(
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
     'Buzz' => array($vendorDir . '/kriswallsmith/buzz/lib'),
+    'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
 );

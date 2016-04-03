@@ -79,7 +79,18 @@ fos_comment:
     class:
         model:
             comment: FilRougeBundle\Entity\Comment
-            thread: FilRougeBundle\Entity\Thread
+            thread: FilRougeBundle\Entity\ThreadComment
+            vote: FilRougeBundle\Entity\Vote
 
-# assetic:
-#     bundles: [ "FOSCommentBundle" ]
+fos_message:
+    db_driver: orm
+    thread_class: FilRougeBundle\Entity\Thread
+    message_class: FilRougeBundle\Entity\Message
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+    bundles: [ "FOSCommentBundle" ]
+    bundles: [ IdeatoStarRatingBundle ]

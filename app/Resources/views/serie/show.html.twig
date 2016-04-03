@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Serie</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -44,5 +44,19 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        <li>
+          {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id }) ) }}
+        </li>
     </ul>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': serie.id } %}
+    {% else %}
+      <!-- todo : outil de tradiction a mettre en place -->
+      <p>
+        Vous devez vous logger pour commenter cette serie.
+      </p>
+      <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</button>&nbsp;or&nbsp;
+      <button type="button" class="btn btn-primary">Sign up</button>
+    {% endif %}
+
 {% endblock %}
