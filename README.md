@@ -10,12 +10,15 @@ Require Symfony2 and Composer.
 ```
 $ Git clone http://github.com/celkae/fil_rouge.git
 ```
+```
 $ cd fil_rouge
+```
 ```
 $ composer Install
 ```
+```
 $ app/console server:run
-
+```
 
 ## To do:
 
