@@ -36,6 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -72,6 +74,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: FilRougeBundle\Entity\User
+    registration:
+        form:
+            type: FilRougeBundle\Form\RegistrationType
 
 #FOS Comment
 fos_comment:
@@ -94,3 +99,14 @@ assetic:
         cssrewrite: ~
     bundles: [ "FOSCommentBundle" ]
     bundles: [ IdeatoStarRatingBundle ]
+
+#vich_uploader
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            uri_prefix:         /pictures
+            upload_destination: %kernel.root_dir%/../web/pictures
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
