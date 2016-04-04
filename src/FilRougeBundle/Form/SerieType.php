@@ -19,8 +19,8 @@ class SerieType extends AbstractType
             ->add('title')
             ->add('imageFile', 'vich_image', array(
                 'required'      => false,
-                'allow_delete'  => true,
-                'download_link' => true,
+                'allow_delete'  => false,
+                'download_link' => false,
             ))
             ->add('resume')
             ->add('season')
