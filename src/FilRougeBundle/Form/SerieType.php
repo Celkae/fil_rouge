@@ -5,6 +5,7 @@ namespace FilRougeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SerieType extends AbstractType
 {
@@ -16,13 +17,17 @@ class SerieType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('poster')
+            ->add('imageFile', 'vich_image', array(
+                'required'      => false,
+                'allow_delete'  => true,
+                'download_link' => true,
+            ))
             ->add('resume')
             ->add('season')
             ->add('episode')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
