@@ -5,7 +5,6 @@ namespace FilRougeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -79,9 +78,10 @@ class Serie
     private $episode;
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * Get id
+     *
+     * @return int
      */
-
     public function getId()
     {
         return $this->id;
@@ -232,6 +232,6 @@ class Serie
      */
     public function getImageName()
     {
-        return $this->imageName;
+        return 'pictures/'.$this->imageName;
     }
 }
