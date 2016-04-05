@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <title>{% block title %}Hub Series{% endblock %}</title>
+<<<<<<< HEAD
 
   <link rel="stylesheet" href="css/carousel.css">
   <link rel="stylesheet" href="css/colorGuide.css">
@@ -17,6 +19,12 @@
           {% endstylesheets %}
         {% endblock %}
         <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+=======
+        <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+        <link rel="stylesheet" href="css/colorGuide.css">
+        <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('@IdeatoStarRatingBundle/Resources/public/jquery.raty.css') }}" type="text/css" />
+>>>>>>> testing
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="icon" type="image/x-icon" href="{{ asset('logo.png') }}" /> <!-- Icone d'onglet a revoir -->
     </head>
@@ -31,7 +39,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img style="width: 100px;" src="{{ asset('logo.png') }}"></a> <!-- custom css a integrer -->
+            <a class="navbar-brand" href="/"><img class="logo" src="{{ asset('logo.png') }}"></a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -84,6 +92,7 @@
           </div><!-- /.navbar-collapse -->
         </nav>
       </header> <!-- Header end -->
+
       <div>
         {% if app.request.hasPreviousSession %}
         {% for type, messages in app.session.flashbag.all() %}
@@ -95,22 +104,33 @@
         {% endfor %}
         {% endif %}
       </div> <!-- todo : placer flashbag -->
+
       <main>
+<<<<<<< HEAD
         <div class="container-carousel">
+=======
+        {% block carousel %}{% endblock %}
+        <div class="container-fluid">
+          <aside class="col-md-2">Panel</aside>
+          <div class="col-md-8">
+>>>>>>> testing
           {% block body %}{% endblock %}
           {% block fos_user_content %}{% endblock %}
           {% block fos_message_content %}{% endblock %}
-          {% block javascripts %}{% endblock %}
+          {% block javascripts %}{% endblock %}</div>
+          <div class="col-md-2">Side content</div>
+          <!-- responsive designe à faire -->
         </div>
       </main><!-- Main end -->
+
       <footer class="container">
         Projet Fil Rouge 2016 - Alex & Manu
       </footer><!-- Footer end -->
-      {% javascripts  '@FilRougeBundle/Resources/jquery/dist/jquery.min.js'
-                      '@FilRougeBundle/Resources/bootstrap/dist/js/bootstrap.min.js'
-                      '@IdeatoStarRatingBundle/Resources/public/jquery.raty.js'
-                      '@IdeatoStarRatingBundle/Resources/public/jquery.starrating.js' %}
-        <script src="{{ asset_url }}"></script>
-      {% endjavascripts %}
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="{{ asset('js/carousel.js') }}"></script>
+      <script src="{{ asset('@IdeatoStarRatingBundle/Resources/public/jquery.raty.js') }}"></script>
+      <script src="{{ asset('@IdeatoStarRatingBundle/Resources/public/jquery.starrating.js') }}"></script>
     </body>
 </html>

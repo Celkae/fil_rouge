@@ -9,7 +9,7 @@
             <tr>
                 <th>Id</th>
                 <th>Title</th>
-                <th>Poster</th>
+                <th>Poster </th>
                 <th>Resume</th>
                 <th>Season</th>
                 <th>Episode</th>
@@ -21,7 +21,7 @@
             <tr>
                 <td><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.id }}</a></td>
                 <td>{{ serie.title }}</td>
-                <td>{{ serie.poster }}</td>
+                <td><img src="{{ asset(serie.getImageName()) }}" /></td>
                 <td>{{ serie.resume }}</td>
                 <td>{{ serie.season }}</td>
                 <td>{{ serie.episode }}</td>

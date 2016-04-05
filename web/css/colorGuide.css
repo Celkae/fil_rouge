@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .blue{
 	background-color: #3fb9c7;
 }
@@ -10,6 +11,24 @@ ul li {
   padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
+=======
+.logo {
+	width: 140px;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.blue{
+	background-color: #3fb9c7;
+}
+
+.container-carousel {
+	margin: 0 auto;
+  padding-right: 0px;
+  padding-left: 0px;
+>>>>>>> testing
 }
 
 
@@ -108,4 +127,8 @@ fieldset[disabled] .navbar-perso .btn-link:hover,
 .navbar-perso .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-perso .btn-link:focus {
   color: #ccc;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> testing
