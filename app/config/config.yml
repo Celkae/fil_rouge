@@ -98,7 +98,7 @@ assetic:
     filters:
         cssrewrite: ~
     bundles: [ "FOSCommentBundle" ]
-    bundles: [ IdeatoStarRatingBundle ]
+    #bundles: [ IdeatoStarRatingBundle ]
 
 #vich_uploader
 vich_uploader:
