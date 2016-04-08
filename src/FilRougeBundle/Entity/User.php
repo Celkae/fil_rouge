@@ -120,7 +120,7 @@ class User extends BaseUser implements ParticipantInterface
      */
     public function getImageName()
     {
-        return 'pictures/'.$this->imageName;
+        return 'img/pictures/'.$this->imageName;
     }
 
 }

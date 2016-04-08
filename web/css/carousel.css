@@ -1,3 +1,8 @@
+.container-carousel {
+	margin: 0 auto;
+  padding-right: 0px;
+  padding-left: 0px;
+}
 
 .carousel{
     background: #2f4357;
