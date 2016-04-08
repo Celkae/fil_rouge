@@ -234,4 +234,9 @@ class Serie
     {
         return 'pictures/'.$this->imageName;
     }
+
+    public function __toString()
+    {
+      return $this->getTitle();
+    }
 }

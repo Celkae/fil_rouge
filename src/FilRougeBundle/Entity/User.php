@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use FOS\MessageBundle\Model\ParticipantInterface;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use FilRougeBundle\Entity\Serie as Serie;
 
 /**
  * @ORM\Entity
@@ -106,7 +107,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * @param string $imageName
      *
-     * @return Product
+     * @return User
      */
     public function setImageName($imageName)
     {
@@ -123,4 +124,15 @@ class User extends BaseUser implements ParticipantInterface
         return 'pictures/'.$this->imageName;
     }
 
+    /**
+     * @param string $followedSerie
+     *
+     * @return User
+     */
+    public function setFollowedSerie($followedSerie)
+    {
+        $this->followedSerie = $followedSerie;
+
+        return $this;
+    }
 }
