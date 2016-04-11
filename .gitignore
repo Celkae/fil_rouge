@@ -2,9 +2,13 @@
 /app/config/parameters.yml
 /app/phpunit.xml
 /app/cache/*
+<<<<<<< HEAD
 /app/logs/*
 /app/logs/dev.log
 !/app/logs/.gitkeep
+=======
+app/cache/dev.log
+>>>>>>> 202fc91b122ffde0ec1774e06ed1bce4fd3fab4a
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /var/bootstrap.php.cache
