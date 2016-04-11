@@ -7,11 +7,12 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use FilRougeBundle\Entity\User;
 
 /**
  * Serie
  *
- * @ORM\Table(name="serie")
+ * @ORM\Entity
  * @ORM\Entity(repositoryClass="FilRougeBundle\Repository\SerieRepository")
  * @Vich\Uploadable
  */
@@ -237,6 +238,6 @@ class Serie
 
     public function __toString()
     {
-      return $this->getTitle();
+      return $this->getId();
     }
 }
