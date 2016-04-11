@@ -155,5 +155,9 @@ class Episode
     {
         return $this->resume;
     }
-}
 
+    public function __toString()
+    {
+      return $this->getId();
+    }
+}

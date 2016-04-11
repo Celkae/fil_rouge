@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Episode</h1>
 
-    <table>
+    <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -36,9 +36,55 @@
             <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Edit</a>
         </li>
         <li>
+            <button id="seen" class="btn btn-primary btn-sm"></button>
+        </li>
+        <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      /**
+       * is seen ? Ajax request
+       *
+       * @data : seen id
+       */
+      $.ajax(
+        {
+          url:"/ajax/isseen",
+          data: { id: {{ episode.id}} },
+          success: function(data){
+            if (data) {
+              $("#seen").html(data);
+            }
+          },
+          error: function(error){
+            console.log(error);
+          }
+        }
+      );
+
+       $('#seen').click( function()
+       {
+         /**
+          * seen Ajax request
+          *
+          * @data : episode id
+          */
+         $.ajax(
+           {
+             url:"/ajax/seen",
+             data: { id: {{ episode.id}} },
+             success: function(data){
+                $("#seen").html(data);
+             },
+             error: function(error){
+               console.log(error);
+             }
+           }
+         );
+       });
+     </script>
 {% endblock %}

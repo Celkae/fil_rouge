@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping\JoinColumn;
 use FOS\MessageBundle\Model\ParticipantInterface;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use FilRougeBundle\Entity\Serie;
+use FilRougeBundle\Entity\Episode;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -25,22 +28,22 @@ class User extends BaseUser implements ParticipantInterface
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FilRougeBundle\Entity\Episode")
-     * @JoinTable(name="users_seenEpisodes",
+     * @ORM\ManyToMany(targetEntity="Episode")
+     * @JoinTable(name="users_episodes",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="episode_id", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $seenEpisode;
+    private $episodes;
 
     /**
-     * @ORM\ManyToMany(targetEntity="FilRougeBundle\Entity\Serie")
-     * @JoinTable(name="users_followedSeries",
+     * @ORM\ManyToMany(targetEntity="Serie")
+     * @JoinTable(name="users_series",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="serie_id", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $followedSerie;
+    private $series;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
@@ -69,6 +72,9 @@ class User extends BaseUser implements ParticipantInterface
     {
         parent::__construct();
         // your own logic
+
+        $this->series = new ArrayCollection();
+        $this->episodes = new ArrayCollection();
     }
 
     /**
@@ -106,7 +112,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * @param string $imageName
      *
-     * @return Product
+     * @return User
      */
     public function setImageName($imageName)
     {
@@ -123,4 +129,53 @@ class User extends BaseUser implements ParticipantInterface
         return 'pictures/'.$this->imageName;
     }
 
+    /**
+     * @param Serie $serie
+     *
+     * @return User
+     */
+    public function setSerie(Serie $serie)
+    {
+        $this->series[] = $serie;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getSeries()
+    {
+        return $this->series;
+    }
+
+    public function removeSerie($serie)
+    {
+        return $this->series->removeElement($serie);
+    }
+
+    /**
+     * @param Episode $episode
+     *
+     * @return User
+     */
+    public function setEpisode(Episode $episode)
+    {
+        $this->episodes[] = $episode;
+
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getEpisodes()
+    {
+        return $this->episodes;
+    }
+
+    public function removeEpisode($episode)
+    {
+        return $this->episodes->removeElement($episode);
+    }
 }
