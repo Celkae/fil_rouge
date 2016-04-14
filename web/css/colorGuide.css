@@ -17,6 +17,12 @@ font-style: normal;
   font-size: 1em;
 }
 
+
+.IntroFontCarousel{
+  font-family: 'IntroFont';
+  font-size: 2.5em;
+}
+
 /* Changes standart bootstrap settings
   .pagination (portfolio-section)
   .media-left (about-section)
@@ -138,4 +144,52 @@ margin-top: 50px;
  text-decoration: none;
  background-color: #666666;
  color: #ffffff;
+}
+
+.btn-carousel {
+  color: #ffffff;
+  background-color: #666666;
+  border-color: #666666;
+  font-family: 'IntroFont';
+  font-size: 1em;
+}
+
+.btn-carousel:hover{
+  color: #00b6de;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  font-family: 'IntroFont';
+  font-size: 1em;
+}
+
+.btn-carousel:focus{
+  color: #00b6de;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  font-family: 'IntroFont';
+  font-size: 1em;
+}
+
+.titre-serie {
+  font-family: 'IntroFont';
+  font-size: 1.2em;
+  color:#666666;
+  text-align: center;
+  text-decoration: none
+}
+
+.titre-serie:hover{
+  font-family: 'IntroFont';
+  font-size: 1.2em;
+  color:#00b6de;
+  text-align: center;
+  text-decoration: none;
+}
+
+.img-film-galerie{
+  width: 100%;
+}
+
+.marge-block{
+  margin-top: 30px;
 }

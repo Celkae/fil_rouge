@@ -41,9 +41,9 @@
       </div>
 
     <ul class="menu nav navbar-nav navbar-center">
-      <li class="IntroFont menu1"><a href="#">Accueil</a></li>
+      <li class="IntroFont menu1"><a href="/">Accueil</a></li>
       <li class="IntroFont menu2"><a href="#">Actualités</a></li>
-      <li class="IntroFont menu3"><a href="#">Series</a></li>
+      <li class="IntroFont menu3"><a href="{{ path('serie_index') }}">Series</a></li>
       <li class="IntroFont menu4"><a href="#">Top</a></li>
       <li class="IntroFont menu1"><a href="{{ path('serie_new')}}">Add a serie </a></li>
     </ul>
@@ -51,29 +51,29 @@
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <ul class="menu nav navbar-nav navbar-right ">
-              <li>
-                <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
+              <li class="menu-gris">
+                <a class="btn-menu dropdown-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a></li>
-                    <li><a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a></li>
-                    <li><a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a></li>
+                    <li class="menu-gris"><a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a></li>
+                    <li class="menu-gris"><a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a></li>
+                    <li class="menu-gris"><a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a></li>
                   </ul>
               </li>
               
-              <li>
-                <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i>
+              <li class="menu-gris">
+                <a class="btn-menu dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i>
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li>
+                    <li class="menu-gris"> 
                       <a href="{{ path('fos_user_profile_show')}}" >Profile</a>
                     </li>
-                    <li>
+                    <li class="menu-gris">
                       <a href="{{ path('fos_user_resetting_request')}}" >Reset</a>
                     </li>
                   </ul>
               </li>
 
-              <li>
+              <li class="menu-gris">
                 <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
               </li>
               </ul>
@@ -110,16 +110,18 @@
 
       <main>
         {% block carousel %}{% endblock %}
+        
  
-
-        <div class="container-fluid">
-          <aside class="col-md-2">Panel</aside>
+        
+        <div class="container-fluid marge-block"></div>
+        
+          <aside class="col-md-2">{% block menuDropdown %}{% endblock %}</aside>
           <div class="col-md-8">
           {% block body %}{% endblock %}
           {% block fos_user_content %}{% endblock %}
           {% block fos_message_content %}{% endblock %}
           {% block javascripts %}{% endblock %}</div>
-          <div class="col-md-2">Side content</div>
+          <div class="col-md-2">{% block sideContent %}{% endblock %}</div>
           <!-- responsive designe à faire -->
         </div>
       </main><!-- Main end -->
@@ -134,12 +136,5 @@
       <script src="{{ asset('js/navbar.js') }}"></script>
       <script src="{{ asset('@IdeatoStarRatingBundle/Resources/public/jquery.raty.js') }}"></script>
       <script src="{{ asset('@IdeatoStarRatingBundle/Resources/public/jquery.starrating.js') }}"></script>
-      <script>
-        $(document).ready(function(){
-          $("button").click(function(){
-            $("p").toggle();
-          });
-        });
-      </script>
     </body>
 </html>

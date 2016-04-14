@@ -232,6 +232,6 @@ class Serie
      */
     public function getImageName()
     {
-        return 'img/pictures/'.$this->imageName;
+        return 'pictures/'.$this->imageName;
     }
 }
