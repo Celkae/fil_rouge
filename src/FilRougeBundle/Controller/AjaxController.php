@@ -32,6 +32,8 @@ class AjaxController extends Controller
 
       $user = $this->container->get('security.context')->getToken()->getUser();
 
+      $serieTab[] = array();
+
       foreach ($user->getSeries() as $elem) {
         $serieTab[] = $elem;
       }
@@ -51,12 +53,17 @@ class AjaxController extends Controller
   */
   public function followAction(Request $request)
   {
-    $series = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Serie');
+      $series = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Serie');
 
       $id = intval($request->query->get('id'));
+
       $serie = $series->findOneById($id);
+
       $user = $this->container->get('security.context')->getToken()->getUser();
+
       $em = $this->getDoctrine()->getManager();
+
+      $serieTab[] = array();
 
       foreach ($user->getSeries() as $elem) {
         $serieTab[] = $elem;
@@ -73,7 +80,6 @@ class AjaxController extends Controller
         $em->flush();
         return new Response('<i class="fa fa-check"></i> Suivie');
       }
-
   }
 
     /**
@@ -91,6 +97,8 @@ class AjaxController extends Controller
         $episode = $episodes->findOneById($id);
 
         $user = $this->container->get('security.context')->getToken()->getUser();
+
+        $episodeTab = array();
 
         foreach ($user->getEpisodes() as $elem) {
           $episodeTab[] = $elem;
@@ -114,10 +122,15 @@ class AjaxController extends Controller
       $episodes = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Episode');
 
         $id = intval($request->query->get('id'));
+
         $episode = $episodes->findOneById($id);
+
         $user = $this->container->get('security.context')->getToken()->getUser();
+
         $em = $this->getDoctrine()->getManager();
+
         $episodeTab = array();
+
         foreach ($user->getEpisodes() as $elem) {
           $episodeTab[] = $elem;
         }

@@ -24,7 +24,6 @@ class SerieType extends AbstractType
             ))
             ->add('resume')
             ->add('season')
-            ->add('episode')
         ;
     }
 

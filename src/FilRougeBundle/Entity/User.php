@@ -28,7 +28,7 @@ class User extends BaseUser implements ParticipantInterface
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Episode")
+     * @ORM\ManyToMany(targetEntity="Episode", cascade={"persist"})
      * @JoinTable(name="users_episodes",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="episode_id", referencedColumnName="id", unique=true)}
@@ -37,7 +37,7 @@ class User extends BaseUser implements ParticipantInterface
     private $episodes;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Serie")
+     * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"})
      * @JoinTable(name="users_series",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@JoinColumn(name="serie_id", referencedColumnName="id", unique=true)}
@@ -55,14 +55,14 @@ class User extends BaseUser implements ParticipantInterface
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $imageName;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTime
      */

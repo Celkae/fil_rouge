@@ -4,6 +4,8 @@ namespace FilRougeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\JoinTable;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -44,14 +46,14 @@ class Serie
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $imageName;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTime
      */
@@ -65,18 +67,21 @@ class Serie
     private $resume;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="season", type="string", length=255)
+     * @ORM\Column(name="season", type="integer")
      */
     private $season;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="episode", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="Episode", mappedBy="serie", cascade={"remove", "persist"})
      */
     private $episode;
+
+    public function __construct()
+    {
+        $this->episode = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -163,13 +168,13 @@ class Serie
     /**
      * Set episode
      *
-     * @param string $episode
+     * @param array $episode
      *
      * @return Serie
      */
     public function setEpisode($episode)
     {
-        $this->episode = $episode;
+        $this->episode[] = $episode;
 
         return $this;
     }
@@ -177,7 +182,7 @@ class Serie
     /**
      * Get episode
      *
-     * @return string
+     * @return array
      */
     public function getEpisode()
     {
@@ -238,6 +243,6 @@ class Serie
 
     public function __toString()
     {
-      return $this->getId();
+      return $this->getTitle();
     }
 }

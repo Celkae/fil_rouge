@@ -24,8 +24,8 @@ Developpeurs web : Manu et Alexandra.
 
 * Livrables
 * Responsive Design
+* formulaires
 * Page d'accueil
-* Side menu (bootstrap panel) et navbar
 * Paginator pour toutes les listes
 
 ## To do:
@@ -44,4 +44,6 @@ Developpeurs web : Manu et Alexandra.
 * S’inscrire sur le site (Fos User)
 * Système de message personnel (Fos Message)
 * Entités et CRUDs
-* Bouton 'vue' & 'follow' (Ajax)
+* Boutons 'vue' & 'follow' (Ajax)
+* Noter les series
+* Like, disLike sur les commentaires

@@ -1,59 +1,82 @@
 {% extends 'base.html.twig' %}
 
+{% block panel %}
+  <ul class="nav nav-pills nav-stacked">
+    <li class="active">
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">Retour à la fiche</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block side_content %}
+  <div class="panel panel-default">
+    <div class="panel-heading">Menu admin</div>
+    <div class="panel-body">
+      <div class="col-md-12">
+        <div class="row">
+          <a href="{{ path('serie_edit', { 'id': episode.id }) }}">Edit</a>
+        </div>
+        <div class="row">
+          <a href="{{ path('episode_new', { 'id': episode.serie.id }) }}">Ajouter un épisode</a>
+        </div>
+        <div class="row">
+          {{ form_start(delete_form) }}
+          <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
+          {{ form_end(delete_form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 {% block body %}
-    <h1>Episode</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>{{ episode.serie }}, <small>Saison {{ episode.season }}, Episode {{ episode.episodeNumber }}</small></h2>
+      <h3>{{ episode.title }}</h3>
+      <p>{{ episode.resume }}</p>
+    </div>
+    <div class="col-md-4">
+      <button id="seen" class="btn btn-primary btn-sm"></button>
+      <h4>Notez cet épisode</h4>
+      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: episode.id }) ) }} <!-- Star Rating ! -->
+    </div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <!-- condition si authentifié -->
+      <div class="col-sm-12 jumbotron">
+        {% stylesheets 'css/comments.css' %}
+          <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': episode.id } %} <!-- affichage des commentaires et du formulaire -->
+      </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ episode.id }}</td>
-            </tr>
-            <tr>
-                <th>Serie</th>
-                <td>{{ episode.serie }}</td>
-            </tr>
-            <tr>
-                <th>Season</th>
-                <td>{{ episode.season }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ episode.title }}</td>
-            </tr>
-            <tr>
-                <th>Resume</th>
-                <td>{{ episode.resume }}</td>
-            </tr>
-        </tbody>
-    </table>
+      {% else %} <!-- todo : outil de tradiction à mettre en place -->
+        <p>
+          Vous devez vous logger pour commenter cette serie.
+        </p>
+        <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</button>&nbsp;or&nbsp;
+        <button type="button" class="btn btn-primary">Sign up</button>
+    {% endif %}
+  </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('episode_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Edit</a>
-        </li>
-        <li>
-            <button id="seen" class="btn btn-primary btn-sm"></button>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    {% javascripts
+      'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
+      '@IdeatoStarRatingBundle/Resources/public/jquery.raty.js'
+      '@IdeatoStarRatingBundle/Resources/public/jquery.starrating.js'
+      'js/ajaxServices.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
     <script type="text/javascript">
-      /**
-       * is seen ? Ajax request
-       *
-       * @data : seen id
-       */
+        /**
+         * is seen ? Ajax request
+         *
+         * @data : seen id
+         */
       $.ajax(
         {
-          url:"/ajax/isseen",
+          url:"{{ path('ajax_isseen') }}",
           data: { id: {{ episode.id}} },
           success: function(data){
             if (data) {
@@ -75,7 +98,7 @@
           */
          $.ajax(
            {
-             url:"/ajax/seen",
+             url:"{{ path('ajax_seen') }}",
              data: { id: {{ episode.id}} },
              success: function(data){
                 $("#seen").html(data);
@@ -86,5 +109,6 @@
            }
          );
        });
-     </script>
+    </script>
+    {% endjavascripts %}
 {% endblock %}

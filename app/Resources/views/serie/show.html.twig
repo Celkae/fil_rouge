@@ -1,108 +1,154 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Serie</h1>
+{% block panel %} <!-- surcharge du block panel gauche -->
+  <ul class="nav nav-pills nav-stacked">
+    <li class="active">
+      <a href="/">Home</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="{{ path('serie_index') }}">Back to the list</a>
+    </li>
+  </ul>
+{% endblock %}
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ serie.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ serie.title }}</td>
-            </tr>
-            <tr>
-                <th>Poster</th>
-                <td><img src="{{ asset(serie.getImageName()) }}" /></td>
-            </tr>
-            <tr>
-                <th>Resume</th>
-                <td>{{ serie.resume }}</td>
-            </tr>
-            <tr>
-                <th>Season</th>
-                <td>{{ serie.season }}</td>
-            </tr>
-            <tr>
-                <th>Episode</th>
-                <td>{{ serie.episode }}</td>
-            </tr>
-        </tbody>
-    </table>
+{% block side_content %} <!-- surcharge du block side_content droit -->
+  <div class="panel panel-default">
+    <div class="panel-heading">Menu admin</div>
+    <div class="panel-body">
+      <div class="col-md-12">
+        <div class="row">
+          <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+        </div>
+        <div class="row">
+          <a href="{{ path('episode_new', { 'id': serie.id }) }}">Ajouter un épisode</a>
+        </div>
+        <div class="row">
+          {{ form_start(delete_form) }}
+          <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
+          {{ form_end(delete_form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('serie_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
-        </li>
-        <li>
-            <button id="follow" class="btn btn-primary btn-sm"></button>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-        <li>
-          {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id }) ) }}
-        </li>
-    </ul>
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script type="text/javascript">
-      /**
-       * is Followed ? Ajax request
-       *
-       * @data : serie id
-       */
-      $.ajax(
-        {
-          url:"/ajax/isfollowed",
-          data: { id: {{ serie.id}} },
-          success: function(data){
-            if (data) {
-              $("#follow").html(data);
-            }
-          },
-          error: function(error){
-            console.log(error);
-          }
-        }
-      );
+{% block body %} <!-- contenu -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <img src="{{ asset(serie.getImageName()) }}" class="poster" />
+    </div>
+    <div class="col-xs-12  col-sm-4 col-md-6">
+      <h1>{{ serie.title }}</h1>
+      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id }) ) }} <!-- Star Rating ! -->
+      <h3>Synopsis</h3>
+      <p>{{ serie.resume }}</p>
+    </div>
+    <div class="col-xs-12 col-md-2 text-right">
+      <button id="follow" class="btn btn-primary btn-sm"></button>
+    </div>
+  </div>
 
-       $('#follow').click( function()
-       {
-         /**
-          * Follow Ajax request
-          *
-          * @data : serie id
-          */
-         $.ajax(
-           {
-             url:"/ajax/follow",
-             data: { id: {{ serie.id}} },
-             success: function(data){
-                $("#follow").html(data);
-             },
-             error: function(error){
-               console.log(error);
-             }
-           }
-         );
-       });
-     </script>
-    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': serie.id } %}
-    {% else %}
-      <!-- todo : outil de tradiction a mettre en place -->
+  <div class="row mt30p">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs"> <!-- Ongets -->
+        <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+        {% for i in 1..serie.season %}  <!-- boucle nombre saison -->
+          <li><a data-toggle="tab" href="#season{{ i }}">Saison {{ i }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <div class="tab-content mt30p"> <!--  -->
+        <div id="description" class="tab-pane fade in active">
+          <p>Status:</p>
+          <p>Nationalitée:</p>
+          <p>Nombre de saison: {{ serie.season }}</p>
+          <p>Realisateur:</p>
+          <p>Acteurs:</p>
+        </div>
+        {% for i in 1..serie.season %}
+          <div id="season{{ i }}" class="tab-pane fade">
+            <ul>
+            {% for episode in serie.episode %} <!-- Boucle d'affichage des episodes -->
+              {% if episode.season == i %}
+                <li>
+                  <a href="{{ path('episode_show', { 'id': episode.id }) }}">{{ episode.episodeNumber }}. {{ episode }} </a> <!-- affichage et lien vers l'épisode -->
+                </li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <!-- condition si authentifié -->
+    <div class="col-sm-12 jumbotron mt30p">
+      {% stylesheets 'css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+      {% endstylesheets %}
+      {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': serie.id } %} <!-- affichage des commentaires et du formulaire -->
+    </div>
+
+    {% else %} <!-- todo : outil de tradiction à mettre en place -->
       <p>
         Vous devez vous logger pour commenter cette serie.
       </p>
       <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</button>&nbsp;or&nbsp;
       <button type="button" class="btn btn-primary">Sign up</button>
-    {% endif %}
+
+  {% endif %}
+
+      <!-- chargement du JS -->
+      {% javascripts
+        'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
+        '@IdeatoStarRatingBundle/Resources/public/jquery.raty.js'
+        '@IdeatoStarRatingBundle/Resources/public/jquery.starrating.js'
+        'js/ajaxServices.js'
+      %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+      <script type="text/javascript">
+          /**
+          * is Followed ? Ajax request
+          *
+          * @data : serie id
+          */
+        $.ajax(
+          {
+            url:"{{ path('ajax_isfollowed') }}",
+            data: { id: {{ serie.id}} },
+            success: function(data){
+              if (data) {
+                $("#follow").html(data);
+              }
+            },
+            error: function(error){
+              console.log(error);
+            }
+          }
+        );
+
+        $('#follow').click( function()
+        {
+          /**
+          * Follow Ajax request
+          *
+          * @data : serie id
+          */
+          $.ajax(
+            {
+              url:"{{ path('ajax_follow') }}",
+              data: { id: {{ serie.id}} },
+              success: function(data){
+                $("#follow").html(data);
+              },
+              error: function(error){
+                console.log(error);
+              }
+            }
+          );
+        });
+      </script>
+      {% endjavascripts %}
 
 {% endblock %}

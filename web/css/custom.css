@@ -1,0 +1,27 @@
+.logo {
+	width: 179px;
+}
+nav {
+	margin:0;
+	padding-right:15px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	background-color:#fff;
+}
+ul li {
+  list-style-type: none;
+}
+.navbar-nav > li > a {
+	margin-right: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.avatar {
+	width:30px;
+	border-radius:30px;
+}
+.poster {
+	max-width:100%;
+}
+.mt30p {
+	margin-top:30px;
+}

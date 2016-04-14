@@ -3,6 +3,10 @@
 /app/phpunit.xml
 /app/cache/*
 /app/logs/*
+!/app/logs/.gitkeep
+/web/pictures/*
+app/cache/dev.log
+>>>>>>> 202fc91b122ffde0ec1774e06ed1bce4fd3fab4a
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /var/bootstrap.php.cache

@@ -15,13 +15,13 @@ class EpisodeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('serie')
             ->add('season')
+            ->add('episodeNumber')
             ->add('title')
             ->add('resume')
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FilRougeBundle\Entity\Episode;
+use FilRougeBundle\Entity\Serie;
 use FilRougeBundle\Form\EpisodeType;
 
 /**
@@ -36,21 +37,22 @@ class EpisodeController extends Controller
     /**
      * Creates a new Episode entity.
      *
-     * @Route("/new", name="episode_new")
+     * @Route("/{id}/new", name="episode_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Serie $serie)
     {
         $episode = new Episode();
         $form = $this->createForm('FilRougeBundle\Form\EpisodeType', $episode);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $episode->setSerie($serie);
             $em = $this->getDoctrine()->getManager();
             $em->persist($episode);
             $em->flush();
 
-            return $this->redirectToRoute('episode_show', array('id' => $episode->getId()));
+            return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
         }
 
         return $this->render('episode/new.html.twig', array(

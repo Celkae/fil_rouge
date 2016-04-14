@@ -3,6 +3,8 @@
 namespace FilRougeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use FilRougeBundle\Entity\Serie;
 
 /**
  * Episode
@@ -24,23 +26,31 @@ class Episode
     /**
      * @var string
      *
-     * @ORM\Column(name="serie", type="string", length=255)
-     */
-    private $serie;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="season", type="string", length=255)
-     */
-    private $season;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+
+    /**
+    * @var integer
+    *
+    * @ORM\Column(name="season", type="integer")
+    */
+    private $season;
+
+    /**
+    * @var string
+    *
+    * @ORM\ManyToOne(targetEntity="Serie", inversedBy="episode", cascade={"remove"})
+    * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
+    */
+    private $serie;
+
+    /**
+    * @var integer
+    *
+    * @ORM\Column(name="episode_number", type="integer")
+    */
+    private $episodeNumber;
 
     /**
      * @var string
@@ -61,9 +71,9 @@ class Episode
     }
 
     /**
-     * Set serie
+     * Set serie name
      *
-     * @param string $serie
+     * @param string
      *
      * @return Episode
      */
@@ -99,13 +109,37 @@ class Episode
     }
 
     /**
-     * Get season
+    * Get season
+    *
+    * @return string
+    */
+    public function getSeason()
+    {
+      return $this->season;
+    }
+
+    /**
+     * Get episodeNumber
      *
      * @return string
      */
-    public function getSeason()
+    public function getEpisodeNumber()
     {
-        return $this->season;
+        return $this->episodeNumber;
+    }
+
+    /**
+     * Set season
+     *
+     * @param string $episodeNumber
+     *
+     * @return Episode
+     */
+    public function setEpisodeNumber($episodeNumber)
+    {
+        $this->episodeNumber = $episodeNumber;
+
+        return $this;
     }
 
     /**
@@ -158,6 +192,6 @@ class Episode
 
     public function __toString()
     {
-      return $this->getId();
+      return $this->getTitle();
     }
 }
