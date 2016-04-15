@@ -39,12 +39,12 @@
       <h3>{{ episode.title }}</h3>
       <p>{{ episode.resume }}</p>
     </div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <!-- condition si authentifié -->
     <div class="col-md-4">
       <button id="seen" class="btn btn-primary btn-sm"></button>
       <h4>Notez cet épisode</h4>
       {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: episode.id }) ) }} <!-- Star Rating ! -->
     </div>
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <!-- condition si authentifié -->
       <div class="col-sm-12 jumbotron">
         {% stylesheets 'css/comments.css' %}
           <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />

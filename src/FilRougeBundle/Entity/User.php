@@ -46,6 +46,15 @@ class User extends BaseUser implements ParticipantInterface
     private $series;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"})
+     * @JoinTable(name="users_voted_contents",
+     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="voted_content_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $votedContent;
+
+    /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
@@ -75,6 +84,7 @@ class User extends BaseUser implements ParticipantInterface
 
         $this->series = new ArrayCollection();
         $this->episodes = new ArrayCollection();
+        $this->votedContent = new ArrayCollection();
     }
 
     /**
@@ -174,8 +184,23 @@ class User extends BaseUser implements ParticipantInterface
         return $this->episodes;
     }
 
-    public function removeEpisode($episode)
+    /**
+     * @param Serie $votedContent
+     *
+     * @return User
+     */
+    public function setVotedContent($votedContent)
     {
-        return $this->episodes->removeElement($episode);
+        $this->votedContent[] = $votedContent;
+
+        return $this;
+    }
+
+    /**
+    * @return array
+    */
+    public function getVotedContent()
+    {
+      return $this->votedContent;
     }
 }

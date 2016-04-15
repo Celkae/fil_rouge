@@ -24,7 +24,7 @@
         </div>
         <div class="row">
           {{ form_start(delete_form) }}
-          <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
+            <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
           {{ form_end(delete_form) }}
         </div>
       </div>
@@ -40,11 +40,14 @@
     <div class="col-xs-12  col-sm-4 col-md-6">
       <h1>{{ serie.title }}</h1>
       {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id }) ) }} <!-- Star Rating ! -->
+      
       <h3>Synopsis</h3>
       <p>{{ serie.resume }}</p>
     </div>
     <div class="col-xs-12 col-md-2 text-right">
-      <button id="follow" class="btn btn-primary btn-sm"></button>
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <button id="follow" class="btn btn-primary btn-sm"></button>
+      {% endif %}
     </div>
   </div>
 
