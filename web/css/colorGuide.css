@@ -238,17 +238,29 @@ margin-top: 50px;
 }
 
 
-.modal-header, h4, .close {
-      background-color: #00b6de;
-      color:#ffffff;
-      text-align: center;
-      font-size: 30px;
-      font-family: 'IntroFont';
+
+.gris{
+  color: #666666;
 }
 
-.modal-footer {
-      background-color: #ffffff;
+.page-title-serie{
+  font-family: 'Arial';
+  color: #5aba92;
+  padding-top: 18px;
+  padding-left: 10px;
+
 }
+
+.background-color{
+  background-color: #f3f2f0;
+}
+
+
+
+.block-color{
+  background-color: #ffffff;
+}
+
 
 .btn-login {
   color: #ffffff;
@@ -277,22 +289,124 @@ margin-top: 50px;
   font-size: 1em;
 }
 
-.gris{
-  color: #666666;
-}
 
-.page-title-serie{
+.txt-form-style{
   font-family: 'Arial';
-  color: #5aba92;
-  padding-top: 18px;
-  padding-left: 10px;
-
+  font-size: 0.8em;
+  color:#666666;
+  padding: 5px;
 }
 
-.background-color{
-  background-color: #f3f2f0;
+.input-style{
+  font-family: 'Arial';
+  font-size: 0.8em;
+  color:#444444;
+  border:1px solid #666666;
+  width: 500px;
+  height: 50px;
 }
 
-.block-color{
-  background-color: #ffffff;
+.input-style:hover{
+  font-family: 'Arial';
+  font-size: 0.8em;
+  color:#444444;
+border:1px solid #666666;
+  width: 500px;
+  height: 50px;
+}
+
+.input-style:focus{
+  font-family: 'Arial';
+  font-size: 0.8em;
+  color:#444444;
+border:1px solid #666666;
+  width: 500px;
+  height: 50px;
+}
+
+
+
+.modal-header, h4, .close {
+      background-color: #00b6de;
+      color:#ffffff;
+      text-align: center;
+      font-size: 30px;
+      font-family: 'IntroFont';
+}
+
+.modal-footer {
+      background-color: #ffffff;
+}
+
+.input-marge{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* .squaredFour */
+.squaredFour {
+  width: 20px;
+  position: relative;
+  margin: 20px auto;
+  label {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fcfff4;
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+    &:after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border: 3px solid #333;
+      border-top: none;
+      border-right: none;
+      background: transparent;
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+    &:hover::after {
+      opacity: 0.5;
+    }
+  }
+  input[type=checkbox] {
+    visibility: hidden;
+    &:checked + label:after {
+      opacity: 1;
+    }
+  }    
+}
+/* end .squaredFour */
+
+.rememberMe{
+  font-family: 'Arial';
+  font-size: 0.8em;
+   text-transform: uppercase;
+   color:#666666;
+}
+
+.rememberMe:hover{
+  font-family: 'Arial';
+  font-size: 0.8em;
+   text-transform: uppercase;
+   color:#00b6de;
+}
+
+.register-class{
+  font-family: 'Arial';
+  color:#666666;
+}
+
+.register-class a{
+  font-family: 'Arial';
+  color:#00b6de;
+  text-decoration: none;
 }
