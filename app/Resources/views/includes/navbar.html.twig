@@ -2,7 +2,7 @@
   <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a href="#" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-        <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-ellipsis-v fa-2x gris" aria-hidden="true"></i>
       </a>
       <a class="navbar-brand navbar-left" href="/"><img class="logo" src="{{ asset('logo.png') }}"></a>
     </div>
@@ -11,9 +11,9 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
 
       <div class="col-md-2 col-lg-3"></div>
-        <ul class="menu nav navbar-nav navbar-center IntroFont">
+        <ul class="menu nav navbar-nav navbar-center">
           <li class="menu2">
-            <a href="#">News</a>
+            <a href="#">Actualités</a>
           </li>
           <li class="menu3">
             <a href="{{ path('serie_index') }}">Series</a>
@@ -22,7 +22,7 @@
             <a href="#">Top</a>
           </li>
           <li class="menu1">
-            <a href="{{ path('serie_new')}}">Add a serie</a>
+            <a href="{{ path('serie_new')}}">Ajouter une serie</a>
           </li>
         </ul>
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}

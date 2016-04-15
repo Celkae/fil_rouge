@@ -4,11 +4,11 @@ src: url('../fonts/Intro.otf') format('truetype');
 font-weight: normal;
 font-style: normal;
 }
-.IntroFont{
-  font-family: 'IntroFont';
-  font-size: 1em;
-}
 
+@font-face {
+font-family: 'Arial';
+src: url('../fonts/arial.ttf') format('truetype');
+}
 
 .IntroFontCarousel{
   font-family: 'IntroFont';
@@ -52,90 +52,124 @@ margin-top: 50px;
   background-color: #ffffff;
   margin-right: 10px;
   position: relative;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu1 a {
   color:#666666;
   background-color: #ffffff;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu2 a{
   color:#666666;
   background-color: #ffffff;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu3 a{
   color:#666666;
   background-color: #ffffff;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu4 a{
   color:#666666;
   background-color: #ffffff;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu1:hover a:hover{
   color:#ffffff;
   background-color: #fdb515;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu2:hover a:hover{
   color:#ffffff;
   background-color: #00b6de;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu3:hover a:hover{
   color:#ffffff;
   background-color: #5aba92;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu4:hover a:hover{
   color:#ffffff;
   background-color: #e73229;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .grey{
   background-color: #666666;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu-gris a {
   color:#666666;
   background-color: #ffffff;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .menu-gris:hover a:hover{
   color:#ffffff;
   background-color: #666666;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
 }
 
 .nav > .menu1 > a:focus{
  text-decoration: none;
  background-color: #fdb515 ;
  color: #ffffff;
+ font-family: 'IntroFont';
+ letter-spacing: 0.1em;
 }
 
 .nav > .menu2 > a:focus{
  text-decoration: none;
  background-color: #00b6de ;
  color: #ffffff;
+ font-family: 'IntroFont';
+ letter-spacing: 0.1em;
 }
 
 .nav > .menu3 > a:focus{
  text-decoration: none;
  background-color: #5aba92 ;
  color: #ffffff;
+ font-family: 'IntroFont';
+ letter-spacing: 0.1em;
 }
 
 .nav > .menu4 > a:focus{
  text-decoration: none;
  background-color: #e73229 ;
  color: #ffffff;
+ font-family: 'IntroFont';
+ letter-spacing: 0.1em;
 }
 
 .nav > .menu-gris > a:focus{
  text-decoration: none;
  background-color: #666666;
  color: #ffffff;
+ font-family: 'IntroFont';
+ letter-spacing: 0.1em;
 }
 
 .btn-carousel {
@@ -144,35 +178,52 @@ margin-top: 50px;
   border-color: #666666;
   font-family: 'IntroFont';
   font-size: 1em;
+  letter-spacing: 0.1em;
 }
 
 .btn-carousel:hover{
-  color: #00b6de;
+  color: #000000;
   background-color: #ffffff;
   border-color: #ffffff;
   font-family: 'IntroFont';
   font-size: 1em;
+  letter-spacing: 0.1em;
 }
 
 .btn-carousel:focus{
-  color: #00b6de;
+  color: #000000;
   background-color: #ffffff;
   border-color: #ffffff;
   font-family: 'IntroFont';
   font-size: 1em;
+  letter-spacing: 0.1em;
 }
 
+.btn-carousel, .btn-span{
+  color: #ffffff;
+}
+
+.btn-carousel:hover .btn-span{
+  color: #00b6de;
+}
+
+.btn-carousel:focus .btn-span{
+  color: #00b6de;
+}
+
+
 .titre-serie {
-  font-family: 'IntroFont';
-  font-size: 1.2em;
+  font-family: 'Arial';
+  text-transform: uppercase;
+  font-weight: 500;
   color:#666666;
   text-align: center;
   text-decoration: none
 }
 
 .titre-serie:hover{
-  font-family: 'IntroFont';
-  font-size: 1.2em;
+  font-family: 'Arial';
+  text-transform: uppercase;
   color:#00b6de;
   text-align: center;
   text-decoration: none;
@@ -184,4 +235,64 @@ margin-top: 50px;
 
 .marge-block{
   margin-top: 30px;
+}
+
+
+.modal-header, h4, .close {
+      background-color: #00b6de;
+      color:#ffffff;
+      text-align: center;
+      font-size: 30px;
+      font-family: 'IntroFont';
+}
+
+.modal-footer {
+      background-color: #ffffff;
+}
+
+.btn-login {
+  color: #ffffff;
+  background-color: #666666;
+  border-color: #666666;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
+  font-size: 1em;
+}
+
+.btn-login:hover{
+  color: #ffffff;
+  background-color: #e73229;
+  border-color: #e73229;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
+  font-size: 1em;
+}
+
+.btn-login:focus{
+  color: #ffffff;
+  background-color: #e73229;
+  border-color: #e73229;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
+  font-size: 1em;
+}
+
+.gris{
+  color: #666666;
+}
+
+.page-title-serie{
+  font-family: 'Arial';
+  color: #5aba92;
+  padding-top: 18px;
+  padding-left: 10px;
+
+}
+
+.background-color{
+  background-color: #f3f2f0;
+}
+
+.block-color{
+  background-color: #ffffff;
 }
