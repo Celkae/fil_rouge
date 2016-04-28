@@ -78,19 +78,25 @@ class Serie
      */
     private $episode;
 
+    /**
+    * @ORM\Column(type="boolean")
+    * @var boolean
+    */
+    protected $moderated = false;
+
     public function __construct()
     {
         $this->episode = new ArrayCollection();
     }
 
     /**
-     * Get id
-     *
-     * @return int
-     */
+    * Get id
+    * @param null
+    * @return int
+    */
     public function getId()
     {
-        return $this->id;
+      return $this->id;
     }
 
     /**
@@ -239,6 +245,26 @@ class Serie
     public function getImageName()
     {
         return 'pictures/'.$this->imageName;
+    }
+
+    /**
+     * @param boolean $moderated
+     *
+     * @return Serie
+     */
+    public function setModerated($bool)
+    {
+        $this->moderated = $bool;
+
+        return $this;
+    }
+
+    /**
+    * @return boolean
+    */
+    public function getModerated()
+    {
+      return $this->moderated;
     }
 
     public function __toString()

@@ -37,6 +37,15 @@ class User extends BaseUser implements ParticipantInterface
     private $episodes;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Episode", cascade={"persist"})
+     * @JoinTable(name="users_voted_episodes",
+     *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="voted_episode_id", referencedColumnName="id", unique=true)}
+     *      )
+     */
+    private $votedEpisodes;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"})
      * @JoinTable(name="users_series",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
@@ -47,12 +56,12 @@ class User extends BaseUser implements ParticipantInterface
 
     /**
      * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"})
-     * @JoinTable(name="users_voted_contents",
+     * @JoinTable(name="users_voted_series",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="voted_content_id", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@JoinColumn(name="voted_serie_id", referencedColumnName="id", unique=true)}
      *      )
      */
-    private $votedContent;
+    private $votedSeries;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
@@ -77,6 +86,12 @@ class User extends BaseUser implements ParticipantInterface
      */
     private $updatedAt;
 
+    /**
+    * @ORM\Column(type="boolean")
+    * @var boolean
+    */
+    protected $moderated = false;
+
     public function __construct()
     {
         parent::__construct();
@@ -84,7 +99,7 @@ class User extends BaseUser implements ParticipantInterface
 
         $this->series = new ArrayCollection();
         $this->episodes = new ArrayCollection();
-        $this->votedContent = new ArrayCollection();
+        $this->votedSeries = new ArrayCollection();
     }
 
     /**
@@ -185,13 +200,13 @@ class User extends BaseUser implements ParticipantInterface
     }
 
     /**
-     * @param Serie $votedContent
+     * @param Serie $votedSeries
      *
      * @return User
      */
-    public function setVotedContent($votedContent)
+    public function setVotedSerie($votedSerie)
     {
-        $this->votedContent[] = $votedContent;
+        $this->votedSeries[] = $votedSerie;
 
         return $this;
     }
@@ -199,8 +214,48 @@ class User extends BaseUser implements ParticipantInterface
     /**
     * @return array
     */
-    public function getVotedContent()
+    public function getVotedSeries()
     {
-      return $this->votedContent;
+      return $this->votedSeries;
+    }
+
+    /**
+     * @param Serie $votedEpisodes
+     *
+     * @return User
+     */
+    public function setVotedEpisode($votedEpisode)
+    {
+        $this->votedEpisodes[] = $votedEpisode;
+
+        return $this;
+    }
+
+    /**
+    * @return array
+    */
+    public function getVotedEpisodes()
+    {
+      return $this->votedEpisodes;
+    }
+
+    /**
+     * @param boolean $moderated
+     *
+     * @return User
+     */
+    public function setModerated($bool)
+    {
+        $this->moderated = $bool;
+
+        return $this;
+    }
+
+    /**
+    * @return boolean
+    */
+    public function getModerated()
+    {
+      return $this->moderated;
     }
 }

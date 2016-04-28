@@ -1,6 +1,9 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
 parameters:
-#    parameter_name: value
+    fil_rouge.comments.vote_persistence_listener.class: FilRougeBundle\EventListener\CommentVotePersistenceListener
 
 services:
+    acme.comments.vote_persistence_listener:
+        class: %fil_rouge.comments.vote_persistence_listener.class%
+        arguments: [ @fos_comment.manager.vote.default, @security.context ]
+        tags:
+            - { name: kernel.event_subscriber }

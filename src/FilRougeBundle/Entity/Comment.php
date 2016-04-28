@@ -44,6 +44,12 @@ class Comment extends BaseComment implements SignedCommentInterface, VotableComm
     */
     protected $score = 0;
 
+    /**
+    * @ORM\Column(type="boolean")
+    * @var boolean
+    */
+    protected $moderated = false;
+
     public function setAuthor(UserInterface $author)
     {
         $this->author = $author;
@@ -94,5 +100,25 @@ class Comment extends BaseComment implements SignedCommentInterface, VotableComm
     public function incrementScore($by = 1)
     {
         $this->score += $by;
+    }
+
+    /**
+     * @param boolean $moderated
+     *
+     * @return Comment
+     */
+    public function setModerated($bool)
+    {
+        $this->moderated = $bool;
+
+        return $this;
+    }
+
+    /**
+    * @return boolean
+    */
+    public function getModerated()
+    {
+      return $this->moderated;
     }
 }

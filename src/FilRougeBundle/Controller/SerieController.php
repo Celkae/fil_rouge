@@ -26,7 +26,7 @@ class SerieController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $series = $em->getRepository('FilRougeBundle:Serie')->findAll();
+        $series = $em->getRepository('FilRougeBundle:Serie')->findBy(array('moderated' => true));
 
         return $this->render('serie/index.html.twig', array(
             'series' => $series,
@@ -89,10 +89,12 @@ class SerieController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($serie);
+            $serie_new = $serie;
+            $serie_new->clear();
+            $em->persist($serie_new);
             $em->flush();
 
-            return $this->redirectToRoute('serie_edit', array('id' => $serie->getId()));
+            return $this->redirectToRoute('serie_edit', array('id' => $serie_new->getId()));
         }
 
         return $this->render('serie/edit.html.twig', array(

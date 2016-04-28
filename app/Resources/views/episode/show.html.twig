@@ -43,7 +43,7 @@
     <div class="col-md-4">
       <button id="seen" class="btn btn-primary btn-sm"></button>
       <h4>Notez cet épisode</h4>
-      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: episode.id }) ) }} <!-- Star Rating ! -->
+      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: episode.id, contentType: 'Episode' }) ) }} <!-- Star Rating ! -->
     </div>
       <div class="col-sm-12 jumbotron">
         {% stylesheets 'css/comments.css' %}

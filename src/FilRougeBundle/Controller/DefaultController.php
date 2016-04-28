@@ -14,12 +14,4 @@ class DefaultController extends Controller
     {
         return $this->render('FilRougeBundle:Default:index.html.twig');
     }
-
-    /**
-     * @Route("/dashboard")
-     */
-    public function dashBoardAction()
-    {
-        return $this->render('FilRougeBundle:Default:dashboard.html.twig');
-    }
 }

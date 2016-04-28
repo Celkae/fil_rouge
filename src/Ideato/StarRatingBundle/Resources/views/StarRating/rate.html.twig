@@ -1,0 +1,7 @@
+<div class="isr-rate" data-contentid="{{ contentId }}" data-contenttype="{{ contentType }}" data-score="{{ score }}" data-route="{{ path('ideato_star_rating_rate') }}"></div>
+<div id="msg"></div>
+<script type="text/javascript">
+  $('.isr-rate').click(function(){
+    $('#msg').html('{{ msg }}');
+  });
+</script>

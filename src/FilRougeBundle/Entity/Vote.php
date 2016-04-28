@@ -4,12 +4,14 @@ namespace FilRougeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\CommentBundle\Entity\Vote as BaseVote;
+use FOS\CommentBundle\Model\SignedVoteInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Vote extends BaseVote
+class Vote extends BaseVote implements SignedVoteInterface
 {
     /**
      * @ORM\Id
@@ -25,4 +27,32 @@ class Vote extends BaseVote
      * @ORM\ManyToOne(targetEntity="FilRougeBundle\Entity\Comment")
      */
     protected $comment;
+
+    /**
+     * Author of the vote
+     *
+     * @ORM\ManyToOne(targetEntity="FilRougeBundle\Entity\User")
+     * @var User
+     */
+    protected $voter;
+
+    /**
+     * Sets the owner of the vote
+     *
+     * @param string $user
+     */
+    public function setVoter(UserInterface $voter)
+    {
+        $this->voter = $voter;
+    }
+
+    /**
+     * Gets the owner of the vote
+     *
+     * @return UserInterface
+     */
+    public function getVoter()
+    {
+        return $this->voter;
+    }
 }

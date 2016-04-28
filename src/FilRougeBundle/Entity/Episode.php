@@ -59,6 +59,11 @@ class Episode
      */
     private $resume;
 
+    /**
+    * @ORM\Column(type="boolean")
+    * @var boolean
+    */
+    protected $moderated = false;
 
     /**
      * Get id
@@ -193,5 +198,25 @@ class Episode
     public function __toString()
     {
       return $this->getTitle();
+    }
+
+    /**
+     * @param boolean $moderated
+     *
+     * @return Episode
+     */
+    public function setModerated($bool)
+    {
+        $this->moderated = $bool;
+
+        return $this;
+    }
+
+    /**
+    * @return boolean
+    */
+    public function getModerated()
+    {
+      return $this->moderated;
     }
 }
