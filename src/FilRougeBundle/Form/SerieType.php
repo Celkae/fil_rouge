@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use FilRougeBundle\Form\PictureType;
 
 class SerieType extends AbstractType
 {
@@ -17,11 +19,7 @@ class SerieType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('imageFile', 'vich_image', array(
-                'required'      => false,
-                'allow_delete'  => false,
-                'download_link' => false,
-            ))
+            ->add('picture', PictureType::class)
             ->add('resume')
             ->add('season')
         ;

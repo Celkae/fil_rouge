@@ -79,6 +79,12 @@ class Serie
     private $episode;
 
     /**
+     * @ORM\OneToOne(targetEntity="Picture", cascade={"remove", "persist"})
+     * @JoinColumn(name="picture_id", referencedColumnName="id")
+     */
+    private $picture;
+
+    /**
     * @ORM\Column(type="boolean")
     * @var boolean
     */
@@ -193,6 +199,30 @@ class Serie
     public function getEpisode()
     {
         return $this->episode;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param Picture
+     *
+     * @return Serie
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return array
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 
     /**

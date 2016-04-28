@@ -2,7 +2,7 @@ parameters:
     fil_rouge.comments.vote_persistence_listener.class: FilRougeBundle\EventListener\CommentVotePersistenceListener
 
 services:
-    acme.comments.vote_persistence_listener:
+    fil_rouge.comments.vote_persistence_listener:
         class: %fil_rouge.comments.vote_persistence_listener.class%
         arguments: [ @fos_comment.manager.vote.default, @security.context ]
         tags:

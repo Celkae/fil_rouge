@@ -23,7 +23,7 @@
             <ul>
               {% for user in users %}
               <li>
-                <a href="#">{{ user }}</a>
+                <a href="{{ path('fos_user_profile_show', { 'id': user.id }) }}">{{ user }}</a>
                 <button class="flt-r" id="users{{ user.id }}">Bloquer</button>
                 <script type="text/javascript">
                   $("#users"+{{ user.id }}).click(function(){
@@ -43,7 +43,7 @@
             <ul>
               {% for serie in series %}
               <li>
-                <a href="#">{{ serie.title }}</a>
+                <a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.title }}</a>
                 <button class="flt-r" id="series{{ serie.id }}">Valider</button>
                 <script type="text/javascript">
                   $("#series"+{{ serie.id }}).click(function(){
@@ -63,7 +63,7 @@
             <ul>
             {% for episode in episodes %}
               <li>
-                <a href="#">{{ episode.title }}</a>
+                <a href="{{ path('episode_show', { 'id': episode.id }) }}">{{ episode.title }}</a>
                 <button class="flt-r" id="episodes{{ episode.id }}">Valider</button>
                 <script type="text/javascript">
                   $("#episodes"+{{ episode.id }}).click(function(){

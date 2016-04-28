@@ -20,7 +20,9 @@
                     {% if comment is fos_comment_in_state(constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')) %}
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_deleted{% endtrans %}
                     {% else %}
+                      <a href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">
                         {{ comment.authorName }}
+                      </a>
                     {% endif %}
                 </span> - {{ comment.createdAt|date }}
             {% endblock fos_comment_comment_metas_authorline %}
