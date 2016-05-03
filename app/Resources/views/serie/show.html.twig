@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block panel %} <!-- surcharge du block panel gauche -->
-  <ul class="nav nav-pills nav-stacked">
-    <li class="active">
+  <ul class="nav nav-pills nav-stacked menu-gris">
+    <li class="">
       <a href="/">Home</a>
     </li>
     <li>
-      <a data-toggle="tab" href="{{ path('serie_index') }}">Back to the list</a>
+      <a href="{{ path('serie_index') }}">Back to the list</a>
     </li>
   </ul>
 {% endblock %}
@@ -24,7 +24,7 @@
         </div>
         <div class="row">
           {{ form_start(delete_form) }}
-          <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
+            <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
           {{ form_end(delete_form) }}
         </div>
       </div>
@@ -33,27 +33,32 @@
 {% endblock %}
 
 {% block body %} <!-- contenu -->
+
+<div class="container block-color">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4">
       <img src="{{ asset(serie.getImageName()) }}" class="poster" />
     </div>
     <div class="col-xs-12  col-sm-4 col-md-6">
-      <h1>{{ serie.title }}</h1>
-      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id }) ) }} <!-- Star Rating ! -->
-      <h3>Synopsis</h3>
+      <h1 class="page-header page-title-serie">{{ serie.title }}</h1>
+      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id, contentType: 'Serie' }) ) }} <!-- Star Rating ! -->
+
+      <h3 class="subtitle">Synopsis</h3>
       <p>{{ serie.resume }}</p>
     </div>
     <div class="col-xs-12 col-md-2 text-right">
-      <button id="follow" class="btn btn-primary btn-sm"></button>
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <button id="follow" class="btn btn-primary btn-sm"></button>
+      {% endif %}
     </div>
   </div>
 
   <div class="row mt30p">
     <div class="col-sm-12">
       <ul class="nav nav-tabs"> <!-- Ongets -->
-        <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+        <li class="active color-menu-serie"><a data-toggle="tab" href="#description">Description</a></li>
         {% for i in 1..serie.season %}  <!-- boucle nombre saison -->
-          <li><a data-toggle="tab" href="#season{{ i }}">Saison {{ i }}</a></li>
+          <li class="color-menu-serie"><a data-toggle="tab" href="#season{{ i }}">Saison {{ i }}</a></li>
         {% endfor %}
       </ul>
 
@@ -81,6 +86,7 @@
       </div>
     </div>
   </div>
+</div>
 
   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <!-- condition si authentifié -->
     <div class="col-sm-12 jumbotron mt30p">
@@ -127,7 +133,6 @@
             }
           }
         );
-
         $('#follow').click( function()
         {
           /**

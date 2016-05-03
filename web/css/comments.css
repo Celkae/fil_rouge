@@ -97,10 +97,12 @@ form.fos_comment_comment_form.error textarea {
     text-align: right;
 }
 .fos_comment_submit input {
-    font-size: 1.2em;
-    padding: 3px 12px;
-    margin-top: 3px;
+  color: #ffffff;
+  background-color: #666666;
+  border-color: #666666;
+  font-family: 'IntroFont';
 }
+
 a.fos_comment_thread_feed {
     width: 16px;
     height: 16px;
@@ -113,3 +115,5 @@ a.fos_comment_thread_feed {
 .fos_comment_comment_score {
     display: inline-block;
 }
+
+

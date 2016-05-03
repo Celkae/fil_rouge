@@ -120,12 +120,19 @@ margin-top: 50px;
 
 .menu-gris a {
   color:#666666;
-  background-color: #ffffff;
+  background-color: none;
   font-family: 'IntroFont';
   letter-spacing: 0.1em;
 }
 
 .menu-gris:hover a:hover{
+  color:#ffffff;
+  background-color: #666666;
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
+}
+
+.menu-gris:focus a:focus{
   color:#ffffff;
   background-color: #666666;
   font-family: 'IntroFont';
@@ -230,7 +237,8 @@ margin-top: 50px;
 }
 
 .img-film-galerie{
-  width: 100%;
+  width: 300px;
+  height: 409px,
 }
 
 .marge-block{
@@ -248,8 +256,17 @@ margin-top: 50px;
   color: #5aba92;
   padding-top: 18px;
   padding-left: 10px;
+  text-transform: uppercase;
 
 }
+
+.subtitle{
+  font-family: 'Arial';
+  color: #666666;
+  text-transform: uppercase;
+
+}
+
 
 .background-color{
   background-color: #f3f2f0;
@@ -324,9 +341,7 @@ border:1px solid #666666;
   height: 50px;
 }
 
-
-
-.modal-header, h4, .close {
+.modal-header, .modal-header h4, .close {
       background-color: #00b6de;
       color:#ffffff;
       text-align: center;
@@ -410,3 +425,19 @@ border:1px solid #666666;
   color:#00b6de;
   text-decoration: none;
 }
+
+.color-menu-serie{
+  color: #9E9E9E;
+}
+
+.color-menu-serie a {
+    color: #9E9E9E;
+    text-decoration: none;
+}
+
+.color-menu-serie a:hover {
+    color: #9E9E9E;
+    text-decoration: none;
+}
+
+.

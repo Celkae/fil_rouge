@@ -27,30 +27,30 @@
         </ul>
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <ul class="menu nav navbar-nav navbar-right ">
-          <li>
-            <a class="dropdown-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
+          <li class="menu-gris">
+            <a class="dropdown-toggle " type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li>
+              <li class="menu-gris">
                 <a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
               </li>
-              <li>
+              <li class="menu-gris">
                 <a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a>
               </li>
-              <li>
+              <li class="menu-gris">
                 <a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a>
               </li>
             </ul>
           </li>
-          <li>
+          <li class="menu-gris">
             <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li>
+                <li class="menu-gris">
                   <a href="{{ path('fos_user_profile_show')}}">
                     <img src="{{ asset(app.user.getImageName)}}" alt="Avatar" class="avatar" />&nbsp;
                     {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                   </a>
                 </li>
-                <li>
+                <li class="menu-gris">
                   <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
                 </li>
               </ul>
@@ -62,7 +62,7 @@
               <a href="#" id="myBtn"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             </li>
             <li class="menu-gris">
-              <a href="{{ path('fos_user_registration_register')}}"><i class="fa fa-user-plus"></i> Sign Up</a>
+              <a href="#" id="myBtn2"><i class="fa fa-user-plus"></i> Sign up</a>
             </li>
           </ul>
       {% endif %}
