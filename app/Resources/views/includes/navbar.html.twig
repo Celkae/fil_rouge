@@ -9,31 +9,31 @@
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <a href="#" class="navbar-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i><span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li>
+          <li class="grey-menu ">
             <a href="{{ path('fos_user_profile_show')}}">
               <img src="{{ asset(app.user.getPicture()) }}" alt="Avatar" class="avatar" />&nbsp;
               {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
             </a>
           </li>
-          <li>
+          <li class="grey-menu ">
             <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
           </li>
         </ul>
         <a href="#" class="navbar-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li>
+          <li class="grey-menu ">
             <a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
           </li>
-          <li>
+          <li class="grey-menu ">
             <a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a>
           </li>
-          <li>
+          <li class="grey-menu ">
             <a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a>
           </li>
         </ul>
       {% else %}
         <a href="#" class="navbar-toggle" id="myBtn"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-        <a href="#" class="navbar-toggle"><i class="fa fa-user-plus"></i> Sign Up</a>
+        <a href="#" class="navbar-toggle "><i class="fa fa-user-plus"></i> Sign Up</a>
       {% endif %}
     </div>
     <!-- navbar-collapse -->
@@ -55,13 +55,13 @@
       </ul>
       <ul class="menu nav navbar-nav navbar-right visible-lg visible-md visible-sm hidden-xs">
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <li>
+        <li class="grey-menu ">
           <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>
               <a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
             </li>
-            <li>
+            <li class="grey-menu ">
               <a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a>
             </li>
             <li>
@@ -69,16 +69,16 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="grey-menu ">
           <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i><span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li>
+            <li class="grey-menu ">
               <a href="{{ path('fos_user_profile_show')}}">
                 <img src="{{ asset(app.user.getPicture()) }}" alt="Avatar" class="avatar" />&nbsp;
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
               </a>
             </li>
-            <li>
+            <li class="grey-menu ">
               <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
             </li>
           </ul>
@@ -87,11 +87,11 @@
         <li>
           <a href="#" id="signin-button"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         </li>
-        <li>
+        <li class="grey-menu ">
           <a href="{{ path('fos_user_registration_register')}}"><i class="fa fa-user-plus"></i> Sign Up</a>
         </li>
         {% endif %}
-        <li>
+        <li class="grey-menu ">
           <a href="#" id="search_button_main"><i class="fa fa-search" aria-hidden="true"></i></a>
         </li>
       </ul>
