@@ -13,12 +13,12 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
   public function getSearchQuery($key)
     {
       $qb = $this->createQueryBuilder('s');
-      $qb ->select('s.title')
+      $qb //->select('s.title')
           ->addSelect('s.episode.title')
           //->from('FilRougeBundle:Episode', 'e')
-          ->where('s.title LIKE :key')
-          ->orWhere('s.actors LIKE :key')
-          ->orWhere('s.episode.title LIKE :key')
+          //->where('s.title LIKE :key')
+        //  ->orWhere('s.actors LIKE :key')
+          ->where('s.episode.title LIKE :key')
           ->setParameter('key', '%'.$key.'%');
       $results = $qb->getQuery()->getArrayResult();
       $tags = array();

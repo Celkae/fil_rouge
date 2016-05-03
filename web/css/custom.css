@@ -56,7 +56,8 @@ ul li {
 	border: 0;
 	background-color: transparent;
 }
-@media (max-width: 480px) {
+@media (max-width: 480px)
+{	
 	.logo {
 		width: 138px;
 	}
