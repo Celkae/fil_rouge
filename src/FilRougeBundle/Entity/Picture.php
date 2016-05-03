@@ -26,9 +26,10 @@ class Picture
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="picture", fileNameProperty="imageName")
      *
-     * @var File
+     * @var File $imageFile
+     *
      */
     private $imageFile;
 
@@ -110,6 +111,30 @@ class Picture
 
     public function __toString()
     {
-      return '/pictures/'.$this->getImageName();
+      return '\/pictures/'.$this->getImageName();
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Picture
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

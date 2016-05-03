@@ -27,7 +27,7 @@ class EpisodeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $episodes = $em->getRepository('FilRougeBundle:Episode')->findAll();
+        $episodes = $em->getRepository('FilRougeBundle:Episode')->findBy(array('moderated' => true));
 
         return $this->render('episode/index.html.twig', array(
             'episodes' => $episodes,

@@ -1,5 +1,5 @@
 <style>
-  .modal-header, h4, .close {
+  .modal-header, .modal-header h4, .close {
       background-color: #5cb85c;
       color:white !important;
       text-align: center;
@@ -24,7 +24,7 @@
           {{ render(controller("FOSUserBundle:Security:login")) }}
         </div>
         <div class="modal-footer">
-          <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+          <input type="submit" id="_submit" class="btn btn-success" name="_submit" value="Connexion" />
         </form>
           <p>Not a member? <a href="#">Sign Up</a></p>
           <p>Forgot <a href="#">Password?</a></p>
@@ -33,12 +33,3 @@
     </div>
   </div>
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#myModal").modal();
-    });
-});
-</script>

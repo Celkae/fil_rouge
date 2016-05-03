@@ -63,7 +63,6 @@ class StarRatingService {
      */
     public function getAverage($contentId, $contentType) {
         try {
-          return 4;
             return $this->load($contentId, $contentType)->getAverage();
         } catch( Exception\NotFoundException $e ) {
             return 0.0;

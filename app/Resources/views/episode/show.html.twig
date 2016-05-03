@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block side_content %}
+  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
   <div class="panel panel-default">
     <div class="panel-heading">Menu admin</div>
     <div class="panel-body">
@@ -23,13 +24,16 @@
           <a href="{{ path('episode_new', { 'id': episode.serie.id }) }}">Ajouter un épisode</a>
         </div>
         <div class="row">
+        {% if is_granted("ROLE_ADMIN") %}
           {{ form_start(delete_form) }}
           <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
           {{ form_end(delete_form) }}
+        {% endif %}
         </div>
       </div>
     </div>
   </div>
+  {% endif %}
 {% endblock %}
 
 {% block body %}
@@ -39,30 +43,25 @@
       <h3>{{ episode.title }}</h3>
       <p>{{ episode.resume }}</p>
     </div>
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <!-- condition si authentifié -->
     <div class="col-md-4">
-      <button id="seen" class="btn btn-primary btn-sm"></button>
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <button id="seen" class="btn btn-primary btn-sm"></button>
+      {% endif %}
       <h4>Notez cet épisode</h4>
       {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: episode.id, contentType: 'Episode' }) ) }} <!-- Star Rating ! -->
     </div>
-      <div class="col-sm-12 jumbotron">
+    <div class="col-sm-12 jumbotron">
         {% stylesheets 'css/comments.css' %}
           <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
+        {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %} <!-- condition si authentifié -->
+          {% include 'includes/not_logged.html.twig' %}
+        {% endif %}
         {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': episode.id } %} <!-- affichage des commentaires et du formulaire -->
       </div>
-
-      {% else %} <!-- todo : outil de tradiction à mettre en place -->
-        <p>
-          Vous devez vous logger pour commenter cette serie.
-        </p>
-        <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</button>&nbsp;or&nbsp;
-        <button type="button" class="btn btn-primary">Sign up</button>
-    {% endif %}
   </div>
 
     {% javascripts
-      'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'
       '@IdeatoStarRatingBundle/Resources/public/jquery.raty.js'
       '@IdeatoStarRatingBundle/Resources/public/jquery.starrating.js'
       'js/ajaxServices.js'
@@ -76,20 +75,19 @@
          */
       $.ajax(
         {
-          url:"{{ path('ajax_isseen') }}",
-          data: { id: {{ episode.id}} },
+          url:"{{ path('ajax_isseen', { 'id': episode.id }) }}",
           success: function(data){
             if (data) {
               $("#seen").html(data);
             }
           },
           error: function(error){
-            console.log(error);
+            //console.log(error);
           }
         }
       );
 
-       $('#seen').click( function()
+       $('#seen').off().on("click", function()
        {
          /**
           * seen Ajax request
@@ -98,13 +96,12 @@
           */
          $.ajax(
            {
-             url:"{{ path('ajax_seen') }}",
+             url:"{{ path('ajax_seen', { 'id': episode.id }) }}",
              data: { id: {{ episode.id}} },
              success: function(data){
                 $("#seen").html(data);
              },
              error: function(error){
-               console.log(error);
              }
            }
          );

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block panel %}
+  <ul class="nav nav-pills nav-stacked">
+    <li class="active">
+      <a href="/">Home</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block side_content %}
+
+{% endblock %}
+
+{% block body %}
+  <div class="row">
+      <div class="col-md-12">
+        <h1>Roles</h1>
+        <div class="panel panel-default">
+          <div class="panel-heading"><b>Rechercher un utilisateur</b></div>
+          <div class="panel-body">
+            <form class="" action="/admin/search" method="get">
+              <input type="text" name="name" placeholder="User name"/>
+              <input type="submit" value="Rechercher">
+            </form>
+          </div>
+          <div class="jumbotron text-center">
+          {% for user in users %}
+            {% if user != '' %}
+              <h2>{{ user.username() }}</h2> <button id="upgrade" class="btn btn-success">Upgrade to moderator</button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+  </div>
+  {% if user != '' %}
+  <script type="text/javascript">
+    $('#upgrade').off().on("click", function()
+    {
+      /**
+      * upgrade Ajax request
+      *
+      * @data : user id
+      */
+      $.ajax(
+        {
+          url:"{{ path('upgrade_index', { 'id': user.id }) }}",
+          success: function(data){
+            $("#upgrade").html(data);
+          },
+          error: function(error){
+          }
+        }
+      );
+    });
+  </script>
+  {% endif %}
+{% endfor %}
+{% endblock %}

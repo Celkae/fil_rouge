@@ -10,4 +10,42 @@ namespace FilRougeBundle\Repository;
  */
 class SerieRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getSearchQuery($key)
+    {
+      $qb = $this->createQueryBuilder('s');
+      $qb ->select('s.title')
+          ->addSelect('s.episode.title')
+          //->from('FilRougeBundle:Episode', 'e')
+          ->where('s.title LIKE :key')
+          ->orWhere('s.actors LIKE :key')
+          ->orWhere('s.episode.title LIKE :key')
+          ->setParameter('key', '%'.$key.'%');
+      $results = $qb->getQuery()->getArrayResult();
+      $tags = array();
+      foreach($results as $result)
+      {
+          $tags[] = $result['title'];
+      }
+      return $tags;
+    }
+
+  public function getResultsByTitle($key)
+    {
+      $qb = $this->createQueryBuilder('s');
+      $qb ->select('s')
+          ->where('s.title LIKE :key')
+          ->setParameter('key', '%'.$key.'%');
+      $results = $qb->getQuery()->getResult();
+      return $results;
+    }
+
+  public function getResultsByActors($key)
+    {
+      $qb = $this->createQueryBuilder('s');
+      $qb ->select('s')
+          ->where('s.actors LIKE :key')
+          ->setParameter('key', '%'.$key.'%');
+      $results = $qb->getQuery()->getResult();
+      return $results;
+    }
 }

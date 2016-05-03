@@ -93,19 +93,21 @@ class StarRatingController extends Controller
         $msg = '';
         $votedContent[] = array();
 
-        if ($content instanceof Serie) {
-          foreach ($user->getVotedSeries() as $elem) {
-            $votedContent[] = $elem;
-          }
-          if (in_array($content, $votedContent)) {
-            $msg = 'Déjà voté';
-          }
-        } else {
-          foreach ($user->getVotedEpisodes() as $elem) {
-            $votedContent[] = $elem;
-          }
-          if (in_array($content, $votedContent)) {
-            $msg = 'Déjà voté';
+        if ($user !== 'anon.') {
+          if ($content instanceof Serie) {
+            foreach ($user->getVotedSeries() as $elem) {
+              $votedContent[] = $elem;
+            }
+            if (in_array($content, $votedContent)) {
+              $msg = 'Déjà voté';
+            }
+          } else {
+            foreach ($user->getVotedEpisodes() as $elem) {
+              $votedContent[] = $elem;
+            }
+            if (in_array($content, $votedContent)) {
+              $msg = 'Déjà voté';
+            }
           }
         }
 

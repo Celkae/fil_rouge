@@ -29,6 +29,7 @@
         {% endblock %}
 
         {% block fos_comment_comment_new_form %}
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <form class="fos_comment_comment_new_form" action="{{ url('fos_comment_post_thread_comments', url_parameters) }}" data-parent="{{ parent.id|default() }}" method="POST">
 
                 {% block fos_comment_form_fields %}
@@ -51,6 +52,7 @@
                 </div>
 
             </form>
+          {% endif %}
         {% endblock fos_comment_comment_new_form %}
 
     </div>

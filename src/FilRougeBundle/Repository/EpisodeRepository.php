@@ -10,4 +10,13 @@ namespace FilRougeBundle\Repository;
  */
 class EpisodeRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function getSearchResults($key)
+    {
+      $qb = $this->createQueryBuilder('e');
+      $qb ->select('e')
+          ->where('e.title LIKE :key')
+          ->setParameter('key', '%'.$key.'%');
+      $results = $qb->getQuery()->getResult();
+      return $results;
+    }
 }

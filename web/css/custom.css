@@ -25,6 +25,39 @@ ul li {
 .mt30p {
 	margin-top:30px;
 }
+.navbar-toggle {
+	margin-right: 0;
+	padding: 15px 5px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border: 0;
+	color: #666666;
+	text-decoration: none;
+}
 .flt-r {
 	float: right;
+}
+.toggle-button {
+	float: left;
+	margin-left: 7px;
+	padding-top: 10px;
+}
+.navbar-brand {
+  padding-left: 7px;
+  padding-right: 0px;
+}
+.search-bar {
+	border: 0;
+}
+.search-bar:focus {
+	border-bottom: 1px solid blue;
+}
+.search-button {
+	border: 0;
+	background-color: transparent;
+}
+@media (max-width: 480px) {
+	.logo {
+		width: 138px;
+	}
 }

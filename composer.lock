@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9bee14839b2f4457ac946d1dad964f19",
-    "content-hash": "5840ce44e1e83ba16130ff829fd5cb36",
+    "hash": "74fd794a638bb631130a39b1aa4ea921",
+    "content-hash": "eae9eb99e519fec694193e93aa32fbcc",
     "packages": [
         {
             "name": "blackknight467/star-rating-bundle",
@@ -825,6 +825,58 @@
             "time": "2016-01-05 21:34:58"
         },
         {
+            "name": "emhar/search-doctrine-bundle",
+            "version": "dev-master",
+            "target-dir": "Emhar/SearchDoctrineBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/emhar/SearchDoctrineBundle.git",
+                "reference": "0844cda4a6972dd71c04c0b38dba1ebf9b15c238"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/emhar/SearchDoctrineBundle/zipball/0844cda4a6972dd71c04c0b38dba1ebf9b15c238",
+                "reference": "0844cda4a6972dd71c04c0b38dba1ebf9b15c238",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": ">=1.0.0",
+                "doctrine/cache": ">=1.0.0",
+                "doctrine/orm": ">=2.4.0",
+                "symfony/form": ">=2.3.0",
+                "symfony/framework-bundle": ">=2.1.8"
+            },
+            "require-dev": {
+                "beberlei/doctrineextensions": "*",
+                "halleck45/php-metrics": "*",
+                "phpunit/dbunit": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Emhar\\SearchDoctrineBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emhar"
+                }
+            ],
+            "description": "Simple way to create a search service in tiny web sites. It works without search engine, just with Doctrine ORM.",
+            "homepage": "https://github.com/emhar/SearchDoctrineBundle",
+            "keywords": [
+                "doctrine",
+                "search",
+                "search engine",
+                "symfony"
+            ],
+            "time": "2014-08-23 12:52:19"
+        },
+        {
             "name": "fpn/thetvdb",
             "version": "1.0.7",
             "source": {
@@ -948,6 +1000,87 @@
                 "threads"
             ],
             "time": "2015-11-16 08:38:13"
+        },
+        {
+            "name": "friendsofsymfony/elastica-bundle",
+            "version": "3.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSElasticaBundle.git",
+                "reference": "19ca605228c3baabd4e57f120528e3571c9d7647"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/19ca605228c3baabd4e57f120528e3571c9d7647",
+                "reference": "19ca605228c3baabd4e57f120528e3571c9d7647",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "psr/log": "~1.0",
+                "ruflin/elastica": "~2.1",
+                "symfony/console": "~2.1",
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/property-access": "~2.3"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "~1.2",
+                "doctrine/orm": "~2.4",
+                "jms/serializer-bundle": "@stable",
+                "knplabs/knp-components": "~1.2",
+                "knplabs/knp-paginator-bundle": "~2.4",
+                "pagerfanta/pagerfanta": "~1.0",
+                "phpunit/phpunit": "~4.1",
+                "propel/propel1": "1.6.*",
+                "symfony/browser-kit": "~2.3",
+                "symfony/expression-language": "~2.4",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FOS\\ElasticaBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Nagel",
+                    "email": "tim@nagel.com.au"
+                },
+                {
+                    "name": "Richard Miller",
+                    "email": "richard.miller@limethinking.co.uk"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/FriendsOfSymfony/FOSElasticaBundle/contributors"
+                },
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com"
+                }
+            ],
+            "description": "Elasticsearch PHP integration for your Symfony2 project using Elastica",
+            "homepage": "https://github.com/FriendsOfSymfony/FOSElasticaBundle",
+            "keywords": [
+                "doctrine2",
+                "elastica",
+                "elasticsearch",
+                "mongodb",
+                "propel",
+                "search"
+            ],
+            "time": "2016-01-07 04:54:39"
         },
         {
             "name": "friendsofsymfony/message",
@@ -1163,7 +1296,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/def27463609e24af410b2606f0062de46fab5662",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/16b04c49af05dd3fb381e4abe04f0e5e231ac76d",
                 "reference": "16b04c49af05dd3fb381e4abe04f0e5e231ac76d",
                 "shasum": ""
             },
@@ -1953,6 +2086,55 @@
             "time": "2015-08-09 04:28:19"
         },
         {
+            "name": "padam87/search-bundle",
+            "version": "v2.0.1",
+            "target-dir": "Padam87/SearchBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Padam87/SearchBundle.git",
+                "reference": "8d71284f8fad1e211c04f1693c1ddaf8e9700215"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Padam87/SearchBundle/zipball/8d71284f8fad1e211c04f1693c1ddaf8e9700215",
+                "reference": "8d71284f8fad1e211c04f1693c1ddaf8e9700215",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/orm": "*",
+                "php": ">=5.3.3",
+                "symfony/symfony": ">2.1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Padam87\\SearchBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Prager",
+                    "email": "prager.adam87@gmail.com"
+                }
+            ],
+            "description": "Symfony2 SearchBundle",
+            "homepage": "https://github.com/Padam87/SearchBundle",
+            "keywords": [
+                "search",
+                "symfony"
+            ],
+            "time": "2014-04-02 10:48:47"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v1.4.1",
             "source": {
@@ -2137,6 +2319,63 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "ruflin/elastica",
+            "version": "2.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ruflin/Elastica.git",
+                "reference": "0df1d7b513960ba11d3075652dcd71fcab8dd37a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/0df1d7b513960ba11d3075652dcd71fcab8dd37a",
+                "reference": "0df1d7b513960ba11d3075652dcd71fcab8dd37a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "5.3.*",
+                "munkie/elasticsearch-thrift-php": "1.4.*"
+            },
+            "suggest": {
+                "egeloen/http-adapter": "Allow using httpadapter transport",
+                "guzzlehttp/guzzle": "Allow using guzzle 5.3.x as the http transport (Requires php 5.4)",
+                "monolog/monolog": "Logging request",
+                "munkie/elasticsearch-thrift-php": "Allow using thrift transport"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elastica\\": "lib/Elastica/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Ruflin",
+                    "homepage": "http://ruflin.com/"
+                }
+            ],
+            "description": "Elasticsearch Client",
+            "homepage": "http://elastica.io/",
+            "keywords": [
+                "client",
+                "search"
+            ],
+            "time": "2015-10-19 07:09:10"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -3719,7 +3958,8 @@
     "stability-flags": {
         "friendsofsymfony/user-bundle": 20,
         "friendsofsymfony/message": 20,
-        "ideato/star-rating-bundle": 20
+        "ideato/star-rating-bundle": 20,
+        "emhar/search-doctrine-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

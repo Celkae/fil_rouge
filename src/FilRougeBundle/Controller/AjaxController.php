@@ -7,10 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use FilRougeBundle\Entity\Serie;
+use FilRougeBundle\Entity\Episode;
 use FilRougeBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
+
 /**
- * Renting controller.
+ * ajax controller.
  *
  * @Route("/ajax")
  */
@@ -19,25 +21,14 @@ class AjaxController extends Controller
   /**
   * Ajax request for follow.
   *
-  * @Route("/isfollowed", name="ajax_isfollowed")
+  * @Route("/{id}/isfollowed", name="ajax_isfollowed")
   * @Method({"GET", "POST"})
   */
-  public function isFollowed(Request $request)
+  public function isFollowed(Request $request, Serie $serie)
   {
-    $series = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Serie');
-
-      $id = intval($request->query->get('id'));
-
-      $serie = $series->findOneById($id);
-
       $user = $this->container->get('security.context')->getToken()->getUser();
 
-      $serieTab[] = array();
-
-      foreach ($user->getSeries() as $elem) {
-        $serieTab[] = $elem;
-      }
-      if (in_array($serie, $serieTab)) {
+      if ($user->getSeries()->contains($serie)) {
         return new Response('<i class="fa fa-check"></i> Suivie');
       }
       else {
@@ -48,27 +39,16 @@ class AjaxController extends Controller
   /**
   * Ajax request for follow.
   *
-  * @Route("/follow", name="ajax_follow")
+  * @Route("/{id}/follow", name="ajax_follow")
   * @Method({"GET", "POST"})
   */
-  public function followAction(Request $request)
+  public function followAction(Request $request, Serie $serie)
   {
-      $series = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Serie');
-
-      $id = intval($request->query->get('id'));
-
-      $serie = $series->findOneById($id);
-
       $user = $this->container->get('security.context')->getToken()->getUser();
 
       $em = $this->getDoctrine()->getManager();
 
-      $serieTab[] = array();
-
-      foreach ($user->getSeries() as $elem) {
-        $serieTab[] = $elem;
-      }
-      if (in_array($serie, $serieTab)) {
+      if ($user->getSeries()->contains($serie)) {
         $user->removeSerie($serie);
         $em->persist($user);
         $em->flush();
@@ -85,25 +65,14 @@ class AjaxController extends Controller
     /**
     * Ajax request for seen.
     *
-    * @Route("/isseen", name="ajax_isseen")
+    * @Route("/{id}/isseen", name="ajax_isseen")
     * @Method({"GET", "POST"})
     */
-    public function isSeen(Request $request)
+    public function isSeen(Request $request, Episode $episode)
     {
-      $episodes = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Episode');
-
-        $id = intval($request->query->get('id'));
-
-        $episode = $episodes->findOneById($id);
-
         $user = $this->container->get('security.context')->getToken()->getUser();
 
-        $episodeTab = array();
-
-        foreach ($user->getEpisodes() as $elem) {
-          $episodeTab[] = $elem;
-        }
-        if (in_array($episode, $episodeTab)) {
+        if ($user->getEpisodes()->contains($episode)) {
           return new Response('<i class="fa fa-eye"></i> Vue');
         }
         else {
@@ -114,27 +83,16 @@ class AjaxController extends Controller
     /**
     * Ajax request for seen.
     *
-    * @Route("/seen", name="ajax_seen")
+    * @Route("/{id}/seen", name="ajax_seen")
     * @Method({"GET", "POST"})
     */
-    public function seenAction(Request $request)
+    public function seenAction(Request $request, Episode $episode)
     {
-      $episodes = $this->getDoctrine()->getManager()->getRepository('FilRougeBundle:Episode');
-
-        $id = intval($request->query->get('id'));
-
-        $episode = $episodes->findOneById($id);
-
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         $em = $this->getDoctrine()->getManager();
 
-        $episodeTab = array();
-
-        foreach ($user->getEpisodes() as $elem) {
-          $episodeTab[] = $elem;
-        }
-        if (in_array($episode, $episodeTab)) {
+        if ($user->getEpisodes()->contains($episode)) {
           $user->removeEpisode($episode);
           $em->persist($user);
           $em->flush();
@@ -147,4 +105,4 @@ class AjaxController extends Controller
           return new Response('<i class="fa fa-eye"></i> Vue');
         }
     }
-  }
+}

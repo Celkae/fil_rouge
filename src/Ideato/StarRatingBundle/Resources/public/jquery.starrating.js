@@ -20,7 +20,7 @@ jQuery(function($){
                     t.trigger('isr-rated', { score: score, average: result });
                 })
                 .fail(function(){
-                    alert('An error occurred. Please try again');
+                    $('#msg').html('Please log in to vote');
                     t.raty('readOnly', false);
                 });
         }

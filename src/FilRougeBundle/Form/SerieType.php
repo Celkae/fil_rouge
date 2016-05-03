@@ -22,6 +22,10 @@ class SerieType extends AbstractType
             ->add('picture', PictureType::class)
             ->add('resume')
             ->add('season')
+            ->add('status')
+            ->add('nationality')
+            ->add('director')
+            ->add('actors')
         ;
     }
 

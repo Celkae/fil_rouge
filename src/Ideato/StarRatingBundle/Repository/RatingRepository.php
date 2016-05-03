@@ -22,7 +22,7 @@ class RatingRepository extends \Doctrine\ORM\EntityRepository
     ;
     return $qb
       ->getQuery()
-      ->getResult()
+      ->getSingleResult()
     ;
   }
 }

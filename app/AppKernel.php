@@ -23,8 +23,7 @@ class AppKernel extends Kernel
             new FOS\MessageBundle\FOSMessageBundle(),
             new Ideato\StarRatingBundle\IdeatoStarRatingBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new LiipSearchBundle\LiipSearchBundle()
+            new JMS\SerializerBundle\JMSSerializerBundle($this)
             //new Tobiassjosten\TheTVDBBundle\TobiassjostenTheTVDBBundle()
         );
 

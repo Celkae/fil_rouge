@@ -7,8 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinTable;
 use Doctrine\ORM\Mapping\JoinColumn;
 use FOS\MessageBundle\Model\ParticipantInterface;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use FilRougeBundle\Entity\Serie;
 use FilRougeBundle\Entity\Episode;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -16,7 +14,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
- * @Vich\Uploadable
  */
 class User extends BaseUser implements ParticipantInterface
 {
@@ -40,7 +37,7 @@ class User extends BaseUser implements ParticipantInterface
      * @ORM\ManyToMany(targetEntity="Episode", cascade={"persist"})
      * @JoinTable(name="users_voted_episodes",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="voted_episode_id", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@JoinColumn(name="voted_episode_id", referencedColumnName="id")}
      *      )
      */
     private $votedEpisodes;
@@ -58,100 +55,30 @@ class User extends BaseUser implements ParticipantInterface
      * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"})
      * @JoinTable(name="users_voted_series",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="voted_serie_id", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@JoinColumn(name="voted_serie_id", referencedColumnName="id")}
      *      )
      */
     private $votedSeries;
 
     /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
-     *
-     * @var File
+     * @ORM\OneToOne(targetEntity="Picture", cascade={"remove", "persist"})
+     * @JoinColumn(name="picture_id", referencedColumnName="id")
      */
-    private $imageFile;
+    private $picture;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @var string
+     * @ORM\Column(type="boolean")
+     * @var boolean
      */
-    private $imageName;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     *
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-    /**
-    * @ORM\Column(type="boolean")
-    * @var boolean
-    */
     protected $moderated = false;
 
     public function __construct()
     {
         parent::__construct();
-        // your own logic
 
         $this->series = new ArrayCollection();
         $this->episodes = new ArrayCollection();
         $this->votedSeries = new ArrayCollection();
-    }
-
-    /**
-     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
-     * of 'UploadedFile' is injected into this setter to trigger the  update. If this
-     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
-     * must be able to accept an instance of 'File' as the bundle will inject one here
-     * during Doctrine hydration.
-     *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
-     *
-     * @return Product
-     */
-    public function setImageFile(File $image = null)
-    {
-        $this->imageFile = $image;
-
-        if ($image) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @param string $imageName
-     *
-     * @return User
-     */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getImageName()
-    {
-        return 'pictures/'.$this->imageName;
     }
 
     /**
@@ -199,6 +126,11 @@ class User extends BaseUser implements ParticipantInterface
         return $this->episodes;
     }
 
+    public function removeEpisode($episode)
+    {
+        return $this->episodes->removeElement($episode);
+    }
+
     /**
      * @param Serie $votedSeries
      *
@@ -232,11 +164,35 @@ class User extends BaseUser implements ParticipantInterface
     }
 
     /**
-    * @return array
-    */
+     * @return array
+     */
     public function getVotedEpisodes()
     {
       return $this->votedEpisodes;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param Picture
+     *
+     * @return User
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return array
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 
     /**
@@ -252,10 +208,96 @@ class User extends BaseUser implements ParticipantInterface
     }
 
     /**
-    * @return boolean
-    */
+     * @return boolean
+     */
     public function getModerated()
     {
       return $this->moderated;
+    }
+
+    /**
+     * Add episode
+     *
+     * @param \FilRougeBundle\Entity\Episode $episode
+     *
+     * @return User
+     */
+    public function addEpisode(\FilRougeBundle\Entity\Episode $episode)
+    {
+        $this->episodes[] = $episode;
+
+        return $this;
+    }
+
+    /**
+     * Add votedEpisode
+     *
+     * @param \FilRougeBundle\Entity\Episode $votedEpisode
+     *
+     * @return User
+     */
+    public function addVotedEpisode(\FilRougeBundle\Entity\Episode $votedEpisode)
+    {
+        $this->votedEpisodes[] = $votedEpisode;
+
+        return $this;
+    }
+
+    /**
+     * Remove votedEpisode
+     *
+     * @param \FilRougeBundle\Entity\Episode $votedEpisode
+     */
+    public function removeVotedEpisode(\FilRougeBundle\Entity\Episode $votedEpisode)
+    {
+        $this->votedEpisodes->removeElement($votedEpisode);
+    }
+
+    /**
+     * Add series
+     *
+     * @param \FilRougeBundle\Entity\Serie $series
+     *
+     * @return User
+     */
+    public function addSeries(\FilRougeBundle\Entity\Serie $series)
+    {
+        $this->series[] = $series;
+
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param \FilRougeBundle\Entity\Serie $series
+     */
+    public function removeSeries(\FilRougeBundle\Entity\Serie $series)
+    {
+        $this->series->removeElement($series);
+    }
+
+    /**
+     * Add votedSeries
+     *
+     * @param \FilRougeBundle\Entity\Serie $votedSeries
+     *
+     * @return User
+     */
+    public function addVotedSeries(\FilRougeBundle\Entity\Serie $votedSeries)
+    {
+        $this->votedSeries[] = $votedSeries;
+
+        return $this;
+    }
+
+    /**
+     * Remove votedSeries
+     *
+     * @param \FilRougeBundle\Entity\Serie $votedSeries
+     */
+    public function removeVotedSeries(\FilRougeBundle\Entity\Serie $votedSeries)
+    {
+        $this->votedSeries->removeElement($votedSeries);
     }
 }

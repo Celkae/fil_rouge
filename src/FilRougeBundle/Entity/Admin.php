@@ -5,12 +5,12 @@ namespace FilRougeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Moderate
+ * Admin
  *
- * @ORM\Table(name="moderate")
- * @ORM\Entity(repositoryClass="FilRougeBundle\Repository\ModerateRepository")
+ * @ORM\Table(name="admin")
+ * @ORM\Entity(repositoryClass="FilRougeBundle\Repository\AdminRepository")
  */
-class Moderate
+class Admin
 {
     /**
      * @var int
@@ -65,7 +65,7 @@ class Moderate
      *
      * @param string $users
      *
-     * @return Moderate
+     * @return Admin
      */
     public function setUsers($users)
     {
@@ -89,7 +89,7 @@ class Moderate
      *
      * @param string $series
      *
-     * @return Moderate
+     * @return Admin
      */
     public function setSeries($series)
     {
@@ -113,7 +113,7 @@ class Moderate
      *
      * @param string $episodes
      *
-     * @return Moderate
+     * @return Admin
      */
     public function setEpisodes($episodes)
     {
@@ -137,7 +137,7 @@ class Moderate
      *
      * @param string $comments
      *
-     * @return Moderate
+     * @return Admin
      */
     public function setComments($comments)
     {
@@ -156,4 +156,3 @@ class Moderate
         return $this->comments;
     }
 }
-

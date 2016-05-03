@@ -104,7 +104,7 @@ assetic:
 vich_uploader:
     db_driver: orm
     mappings:
-        product_image:
+        picture:
             uri_prefix:         /pictures
             upload_destination: %kernel.root_dir%/../web/pictures
             namer:              vich_uploader.namer_uniqid

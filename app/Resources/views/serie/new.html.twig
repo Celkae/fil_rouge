@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     <h1>Serie creation</h1>
 
     {{ form_start(form) }}
@@ -14,7 +13,4 @@
             <a href="{{ path('serie_index') }}">Back to the list</a>
         </li>
     </ul>
-    {% else %}
-      {% include 'includes/not_logged.html.twig' %}
-    {% endif %}
 {% endblock %}
