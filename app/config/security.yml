@@ -32,9 +32,9 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/upgrade, roles: ROLE_SUPER_ADMIN }
         - { path: ^/admin, role: ROLE_ADMIN }
-        - { path: ^/serie/new, role: IS_AUTHENTICATED_REMEMBERED }
-        - { path: ^/serie/\d+/edit, role: ROLE_ADMIN }
-        - { path: ^/episode/new, role: IS_AUTHENTICATED_REMEMBERED }
-        - { path: ^/episode/\d+/edit, role: ROLE_ADMIN }
+        - { path: ^/admin/upgrade, role: ROLE_SUPER_ADMIN }
+        - { path: ^/serie/new, role: ROLE_USER }
+        - { path: ^/serie/\d+/edit, role: ROLE_USER }
+        - { path: ^/episode/new, role: ROLE_USER }
+        - { path: ^/episode/\d+/edit, role: ROLE_USER }

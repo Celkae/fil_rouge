@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block panel %}
-  <ul class="nav nav-pills nav-stacked">
+  <ul class="nav nav-pills nav-stacked mt20p">
     <li class="active">
-      <a href="/">Home</a>
+      <a href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">Retour à la fiche</a>
+      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'serie.show.back_list'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
@@ -39,7 +39,7 @@
 {% block body %}
   <div class="row">
     <div class="col-md-8">
-      <h2>{{ episode.serie }}, <small>Saison {{ episode.season }}, Episode {{ episode.episodeNumber }}</small></h2>
+      <h2><a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ episode.serie }}</a>, <small>Saison {{ episode.season }}, Episode {{ episode.episodeNumber }}</small></h2>
       <h3>{{ episode.title }}</h3>
       <p>{{ episode.resume }}</p>
     </div>
@@ -54,7 +54,7 @@
         {% stylesheets 'css/comments.css' %}
           <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
         {% endstylesheets %}
-        {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %} <!-- condition si authentifié -->
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %} <!-- condition si authentifié -->
           {% include 'includes/not_logged.html.twig' %}
         {% endif %}
         {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': episode.id } %} <!-- affichage des commentaires et du formulaire -->

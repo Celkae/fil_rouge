@@ -76,18 +76,13 @@ class Serie
     private $season;
 
     /**
-     * @ORM\OneToMany(targetEntity="Episode", mappedBy="serie", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Episode", mappedBy="serie", cascade={"remove"})
      */
     private $episode;
 
     /**
-     * @Assert\File(
-     *     maxSize="2M",
-     *     mimeTypes={"image/png", "image/jpeg", "image/gif", "image/pjpeg"},
-     *     mimeTypesMessage = "Please upload a valid Image"
-     * )
      * @ORM\OneToOne(targetEntity="Picture", cascade={"remove", "persist"})
-     * @JoinColumn(name="picture_id", referencedColumnName="id")
+     * @JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $picture;
 
@@ -169,7 +164,7 @@ class Serie
      */
     public function setSeason($season)
     {
-        $this->season = $season;
+        $this->season = abs($season);
 
         return $this;
     }

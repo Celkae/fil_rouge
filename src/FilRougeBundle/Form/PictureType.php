@@ -13,7 +13,8 @@ class PictureType extends AbstractType
         $builder->add('imageFile', 'vich_file', array(
             'required'      => false,
             'allow_delete'  => true,
-            'download_link' => true, 
+            'download_link' => false,
+            'label' => ' '
         ));
     }
 

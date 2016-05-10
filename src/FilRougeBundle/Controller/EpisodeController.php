@@ -18,23 +18,6 @@ use FilRougeBundle\Form\EpisodeType;
 class EpisodeController extends Controller
 {
     /**
-     * Lists all Episode entities.
-     *
-     * @Route("/", name="episode_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $episodes = $em->getRepository('FilRougeBundle:Episode')->findBy(array('moderated' => true));
-
-        return $this->render('episode/index.html.twig', array(
-            'episodes' => $episodes,
-        ));
-    }
-
-    /**
      * Creates a new Episode entity.
      *
      * @Route("/{id}/new", name="episode_new")
@@ -121,7 +104,8 @@ class EpisodeController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('episode_index');
+        //return $this->redirectToRoute('episode_index');
+        return $this->redirectToRoute('serie_show', array('id' => $episode->getSerie()->getId()));
     }
 
     /**

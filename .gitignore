@@ -4,7 +4,6 @@
 /app/cache/*
 /app/logs/*
 !/app/logs/.gitkeep
-/web/pictures/*
 app/cache/dev.log
 >>>>>>> 202fc91b122ffde0ec1774e06ed1bce4fd3fab4a
 !app/cache/.gitkeep
@@ -24,6 +23,7 @@ app/cache/dev.log
 /composer.phar
 /web/bundles/
 /web/config.php
+/web/pictures/*
 /phpunit.xml
 /node_modules
 

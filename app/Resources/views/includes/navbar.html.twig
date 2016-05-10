@@ -15,6 +15,16 @@
               {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
             </a>
           </li>
+          {% if is_granted("ROLE_ADMIN") %}
+          <li>
+            <a href="{{ path('admin_index') }}">Administration</a>
+          </li>
+          {% endif %}
+          {% if is_granted("ROLE_SUPER_ADMIN") %}
+          <li>
+            <a href="{{ path('search_admin_index') }}">Promote User</a>
+          </li>
+          {% endif %}
           <li>
             <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
           </li>
@@ -78,6 +88,16 @@
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
               </a>
             </li>
+            {% if is_granted("ROLE_ADMIN") %}
+            <li>
+              <a href="{{ path('admin_index') }}">Administration</a>
+            </li>
+            {% endif %}
+            {% if is_granted("ROLE_SUPER_ADMIN") %}
+            <li>
+              <a href="{{ path('search_admin_index') }}">Promote User</a>
+            </li>
+            {% endif %}
             <li>
               <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
             </li>
@@ -85,10 +105,10 @@
         </li>
         {% else %}
         <li>
-          <a href="#" id="signin-button"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+          <a href="#0" id="signin-modal"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         </li>
         <li>
-          <a href="{{ path('fos_user_registration_register')}}"><i class="fa fa-user-plus"></i> Sign Up</a>
+          <a href="#0" id="signup-modal"><i class="fa fa-user-plus"></i> Sign Up</a>
         </li>
         {% endif %}
         <li>

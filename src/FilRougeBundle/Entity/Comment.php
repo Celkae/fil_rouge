@@ -12,6 +12,7 @@ use FOS\CommentBundle\Model\VotableCommentInterface;
 /**
  * @ORM\Entity
  * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
+ * @ORM\Entity(repositoryClass="FilRougeBundle\Repository\CommentRepository")
  */
 class Comment extends BaseComment implements SignedCommentInterface, VotableCommentInterface
 {

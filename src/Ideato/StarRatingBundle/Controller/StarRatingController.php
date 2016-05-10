@@ -85,7 +85,6 @@ class StarRatingController extends Controller
     {
         $starrating = $this->get('ideato_starrating_service');
         $average = $starrating->getAverage($contentId, $contentType);
-
         $user = $this->container->get('security.context')->getToken()->getUser();
         $entity = 'FilRougeBundle:'.ucfirst($contentType);
         $contents = $this->getDoctrine()->getManager()->getRepository($entity);

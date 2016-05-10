@@ -34,10 +34,10 @@ class User extends BaseUser implements ParticipantInterface
     private $episodes;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Episode", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Episode", cascade={"persist"}, orphanRemoval=TRUE)
      * @JoinTable(name="users_voted_episodes",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="voted_episode_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@JoinColumn(name="voted_episode_id", referencedColumnName="id", onDelete="CASCADE")}
      *      )
      */
     private $votedEpisodes;
@@ -52,16 +52,16 @@ class User extends BaseUser implements ParticipantInterface
     private $series;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Serie", cascade={"persist"}, orphanRemoval=TRUE)
      * @JoinTable(name="users_voted_series",
      *      joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="voted_serie_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@JoinColumn(name="voted_serie_id", referencedColumnName="id", onDelete="CASCADE")}
      *      )
      */
     private $votedSeries;
 
     /**
-     * @ORM\OneToOne(targetEntity="Picture", cascade={"remove", "persist"})
+     * @ORM\OneToOne(targetEntity="Picture", cascade={"remove"})
      * @JoinColumn(name="picture_id", referencedColumnName="id")
      */
     private $picture;

@@ -29,7 +29,8 @@
         "symfony/assetic-bundle": "^2.8",
         "friendsofsymfony/message": "1.0.x-dev",
         "friendsofsymfony/message-bundle": "^1.2",
-        "vich/uploader-bundle": "^1.0"
+        "vich/uploader-bundle": "^1.0",
+        "phpunit/phpunit": "^5.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

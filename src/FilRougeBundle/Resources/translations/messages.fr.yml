@@ -1,0 +1,39 @@
+serie:
+    show:
+        back_list: 'Liste des séries'
+        home: 'Accueil'
+        edit: 'Editer'
+        add_episode: 'Ajouter un episode'
+        delete: 'Supprimer'
+        season: 'Saison'
+        nationality: 'Nationalité'
+        number_of_season: 'Nombre de saison'
+        director: 'Réalisateur'
+        actors: 'Acteurs'
+    new:
+        create: 'Créer'
+        new: 'Nouvelle série'
+        title: 'Titre'
+        resume: 'Resumé'
+        number_of_season: 'Nombre de saison'
+        nationality: 'Nationalité'
+        director: 'Réalisateur'
+        actors: 'Acteurs'
+        picture: 'Affiche'
+        file: 'Selection un fichier de type image (jpeg, png...)'
+episode:
+    new:
+        new: 'Nouvelle épisode'
+        title: 'Titre'
+        resume: 'Resumé'
+        season_number: 'Saison'
+        episode_number: 'Numero'
+    edit:
+        edit: 'Édition'
+        title: 'Titre'
+        resume: 'Resumé'
+        season_number: 'Saison'
+        episode_number: 'Numero'
+exception:
+    error404: 'Page non trouvée'
+    error: 'Erreur... '

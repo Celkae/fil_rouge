@@ -40,8 +40,8 @@ class Episode
     /**
     * @var string
     *
-    * @ORM\ManyToOne(targetEntity="Serie", inversedBy="episode", cascade={"remove"})
-    * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
+    * @ORM\ManyToOne(targetEntity="Serie", inversedBy="episode")
+    * @ORM\JoinColumn(name="serie_id", referencedColumnName="id", onDelete="CASCADE")
     */
     private $serie;
 
@@ -142,7 +142,7 @@ class Episode
      */
     public function setEpisodeNumber($episodeNumber)
     {
-        $this->episodeNumber = $episodeNumber;
+        $this->episodeNumber = abs($episodeNumber);
 
         return $this;
     }

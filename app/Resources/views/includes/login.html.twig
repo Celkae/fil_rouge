@@ -1,35 +1,38 @@
-<style>
-  .modal-header, .modal-header h4, .close {
-      background-color: #5cb85c;
-      color:white !important;
-      text-align: center;
-      font-size: 30px;
-  }
-  .modal-footer {
-      background-color: #f9f9f9;
-  }
-</style>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+<div class="user-modal">
+    <div class="user-modal-container ">
+      <ul class="switcher ">
+        <li><a href="#0">Sign in</a></li>
+        <li><a href="#0">New account</a></li>
+      </ul>
+      <!--login template-->
+      {{ render(controller("FOSUserBundle:Security:login")) }}
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-        </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          {{ render(controller("FOSUserBundle:Security:login")) }}
-        </div>
-        <div class="modal-footer">
-          <input type="submit" id="_submit" class="btn btn-success" name="_submit" value="Connexion" />
-        </form>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
-        </div>
+      <!--register template-->
+      {{ render(controller("FOSUserBundle:Registration:Register")) }}
+      
+
+
+        <!-- <a href="#0" class="cd-close-form">Close</a>
       </div>
+
+      <div id="reset-password">
+        <p class="form-message">Lost your password? Please enter your email address.</br> You will receive a link to create a new password.</p>
+
+        <form class="form">
+          <p class="fieldset">
+            <label class="image-replace email" for="reset-email">E-mail</label>
+            <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+            <span class="error-message">An account with this email does not exist!</span>
+          </p>
+
+          <p class="fieldset">
+            <input class="full-width has-padding" type="submit" value="Reset password">
+          </p>
+        </form>
+
+        <p class="form-bottom-message"><a href="#0">Back to log-in</a></p>
+      </div>
+      <a href="#0" class="close-form">Close</a>-->
     </div>
   </div>
-</div>

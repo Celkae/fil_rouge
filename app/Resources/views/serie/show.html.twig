@@ -3,10 +3,10 @@
 {% block panel %} <!-- surcharge du block panel gauche -->
   <ul class="nav nav-pills nav-stacked">
     <li class="active">
-      <a href="/">Home</a>
+      <a href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a data-toggle="tab" href="{{ path('serie_index') }}">Back to the list</a>
+      <a data-toggle="tab" href="{{ path('serie_index') }}">{{ 'serie.show.back_list'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
@@ -14,19 +14,19 @@
 {% block side_content %}
   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
   <div class="panel panel-default">
-    <div class="panel-heading">Menu admin</div>
+    <div class="panel-heading">Administration</div>
     <div class="panel-body">
       <div class="col-md-12">
         <div class="row">
-          <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+          <a href="{{ path('serie_edit', { 'id': serie.id }) }}">{{ 'serie.show.edit'|trans }}</a>
         </div>
         <div class="row">
-          <a href="{{ path('episode_new', { 'id': serie.id }) }}">Ajouter un épisode</a>
+          <a href="{{ path('episode_new', { 'id': serie.id }) }}">{{ 'serie.show.add_episode'|trans }}</a>
         </div>
         <div class="row">
         {% if is_granted("ROLE_ADMIN") %}
           {{ form_start(delete_form) }}
-            <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Delete</button>
+            <button type="submit" id="delete" class="btn btn-xs btn-danger"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> {{ 'serie.show.delete'|trans }}</button>
           {{ form_end(delete_form) }}
         {% endif %}
         </div>
@@ -44,7 +44,6 @@
     <div class="col-xs-12  col-sm-4 col-md-6">
       <h1>{{ serie.title }}</h1>
       {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id, contentType: 'Serie' }) ) }} <!-- Star Rating ! -->
-
       <h3>Synopsis</h3>
       <p>{{ serie.resume }}</p>
     </div>
@@ -60,17 +59,17 @@
       <ul class="nav nav-tabs"> <!-- Ongets -->
         <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
         {% for i in 1..serie.season %}  <!-- boucle nombre saison -->
-          <li><a data-toggle="tab" href="#season{{ i }}">Saison {{ i }}</a></li>
+          <li><a data-toggle="tab" href="#season{{ i }}">{{ 'serie.show.season'|trans }} {{ i }}</a></li>
         {% endfor %}
       </ul>
 
       <div class="tab-content mt30p"> <!--  -->
         <div id="description" class="tab-pane fade in active">
           <p>Status:</p>
-          <p>Nationalitée:</p>
-          <p>Nombre de saison: {{ serie.season }}</p>
-          <p>Realisateur:</p>
-          <p>Acteurs:</p>
+          <p>{{ 'serie.show.nationality'|trans }}:</p>
+          <p>{{ 'serie.show.number_of_season'|trans }}: {{ serie.season }}</p>
+          <p>{{ 'serie.show.director'|trans }}:</p>
+          <p>{{ 'serie.show.actors'|trans }}:</p>
         </div>
         {% for i in 1..serie.season %}
           <div id="season{{ i }}" class="tab-pane fade">
@@ -93,7 +92,7 @@
     {% stylesheets 'css/comments.css' %}
       <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
-    {% if is_granted("IS_AUTHENTICATED_ANONYMOUSLY") %} <!-- condition si authentifié -->
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %} <!-- condition si authentifié -->
       {% include 'includes/not_logged.html.twig' %}
     {% endif %}
     {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': serie.id } %} <!-- affichage des commentaires et du formulaire -->
