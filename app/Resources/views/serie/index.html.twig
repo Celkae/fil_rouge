@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <div class="container">
+  <div class="container ">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Serie list</h1>
+            <h1 class="page-header block-color page-title-serie">Serie list</h1>
         </div>
     </div>
   {% for serie in series %}
@@ -18,5 +18,5 @@
 {% endblock %}
 
 {% block side_content %}
-  <a href="{{ path('serie_new') }}">Create a new entry</a>
+  <a class="btn btn-login" href="{{ path('serie_new') }}">Create a new entry</a>
 {% endblock %}

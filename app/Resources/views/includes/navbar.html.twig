@@ -32,8 +32,8 @@
           </li>
         </ul>
       {% else %}
-        <a href="#" class="navbar-toggle" id="myBtn"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-        <a href="#" class="navbar-toggle "><i class="fa fa-user-plus"></i> Sign Up</a>
+        <a href="#" class="navbar-toggle grey-menu" id="myBtn"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        <a href="#" class="navbar-toggle grey-menu "><i class="fa fa-user-plus"></i> Sign Up</a>
       {% endif %}
     </div>
     <!-- navbar-collapse -->
@@ -84,7 +84,7 @@
           </ul>
         </li>
         {% else %}
-        <li>
+        <li class="grey-menu">
           <a href="#" id="signin-button"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         </li>
         <li class="grey-menu ">
