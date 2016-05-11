@@ -117,24 +117,31 @@ margin-top: 50px;
   letter-spacing: 0.1em;
 }
 
-.menu-gris a {
+.grey-menu a {
   color:#666666;
   background-color: #ffffff;
-  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
+}
+.grey-menu {
+  color:#666666;
+  background-color: #ffffff;
+
+  letter-spacing: 0.1em;
+}
+.grey-menu:hover a:hover{
+  color:#ffffff;
+  background-color: #666666;
+  letter-spacing: 0.1em;
+}
+.grey-menu:hover{
+  color:#ffffff;
+  background-color: #666666;
   letter-spacing: 0.1em;
 }
 
-.menu-gris:hover a:hover{
+.grey-menu:focus a:focus{
   color:#ffffff;
   background-color: #666666;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
-}
-
-.menu-gris:focus a:focus{
-  color:#ffffff;
-  background-color: #666666;
-  font-family: 'IntroFont';
   letter-spacing: 0.1em;
 }
 
@@ -170,11 +177,10 @@ margin-top: 50px;
  letter-spacing: 0.1em;
 }
 
-.nav > .menu-gris > a:focus{
+.nav > .grey-menu > a:focus{
  text-decoration: none;
  background-color: #666666;
  color: #ffffff;
- font-family: 'IntroFont';
  letter-spacing: 0.1em;
 }
 
@@ -301,6 +307,12 @@ margin-top: 50px;
   font-size: 0.8em;
   color:#666666;
   padding: 5px;
+}
+
+.dropdown-txt {
+  font-family: arial, verdana;
+  font-size: 0.8em;
+  color:#000;
 }
 
 .input-style{

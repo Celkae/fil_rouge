@@ -1,0 +1,51 @@
+serie:
+    show:
+        back_list: 'Series list'
+        home: 'Home'
+        edit: 'Edit'
+        add_episode: 'Add an episode'
+        delete: 'Delete'
+        season: 'Season'
+        nationality: 'Nationality'
+        number_of_season: 'Nomber of season'
+        director: 'Director'
+        actors: 'Actors'
+    new:
+        create: 'Create'
+        new: 'New show'
+        title: 'Title'
+        resume: 'Resume'
+        number_of_season: 'Nomber of season'
+        nationality: 'Nationality'
+        director: 'Director'
+        actors: 'Actors'
+        picture: 'Poster'
+        file: 'Sectect a file of type (jpeg, png...)'
+    edit:
+        edit: 'Edit'
+episode:
+    new:
+        new: 'New episode'
+        title: 'Titre'
+        resume: 'Resumé'
+        season_number: 'Season'
+        episode_number: 'Numero'
+    edit:
+        edit: 'Edit'
+    show:
+        back_serie: 'Back to the series'
+exception:
+    error404: 'Page not found'
+    error: 'An error occured... '
+result:
+    request: 'Search results'
+modal:
+    signin: 'Sign in'
+    signup: 'New account'
+navbar:
+    promote: 'Handle roles'
+    add: 'Add a series'
+index:
+    news: 'Last news !'
+    commentaires: 'Last commentaires !'
+    on: 'about'

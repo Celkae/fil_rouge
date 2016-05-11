@@ -1,4 +1,4 @@
 <div class="text-center">
-  <a href="#" id="myBtn" class="btn btn-primary"><i class="fa fa-sign-in"></i> Sign in</a>&nbsp;or&nbsp;
-  <a href="{{ path('fos_user_registration_register')}}" class="btn btn-primary">Sign up</a>
+  <a href="{{ path('fos_user_security_login')}}" id="myBtn" class="btn btn-primary"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>&nbsp;or&nbsp;
+  <a href="{{ path('fos_user_registration_register')}}" class="btn btn-primary">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
 </div>

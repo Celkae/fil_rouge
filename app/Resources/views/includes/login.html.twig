@@ -1,38 +1,14 @@
 
 <div class="user-modal">
-    <div class="user-modal-container ">
-      <ul class="switcher ">
-        <li><a href="#0">Sign in</a></li>
-        <li><a href="#0">New account</a></li>
-      </ul>
-      <!--login template-->
-      {{ render(controller("FOSUserBundle:Security:login")) }}
+  <div class="user-modal-container ">
+    <ul class="switcher ">
+      <li><a href="#0">{{ 'modal.signin'|trans }}</a></li>
+      <li><a href="#0">{{ 'modal.signup'|trans }}</a></li>
+    </ul>
+    <!--login template-->
+    {{ render(controller("FOSUserBundle:Security:login")) }}
 
-      <!--register template-->
-      {{ render(controller("FOSUserBundle:Registration:Register")) }}
-      
-
-
-        <!-- <a href="#0" class="cd-close-form">Close</a>
-      </div>
-
-      <div id="reset-password">
-        <p class="form-message">Lost your password? Please enter your email address.</br> You will receive a link to create a new password.</p>
-
-        <form class="form">
-          <p class="fieldset">
-            <label class="image-replace email" for="reset-email">E-mail</label>
-            <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
-            <span class="error-message">An account with this email does not exist!</span>
-          </p>
-
-          <p class="fieldset">
-            <input class="full-width has-padding" type="submit" value="Reset password">
-          </p>
-        </form>
-
-        <p class="form-bottom-message"><a href="#0">Back to log-in</a></p>
-      </div>
-      <a href="#0" class="close-form">Close</a>-->
-    </div>
+    <!--register template-->
+    {{ render(controller("FOSUserBundle:Registration:Register")) }}
   </div>
+</div>

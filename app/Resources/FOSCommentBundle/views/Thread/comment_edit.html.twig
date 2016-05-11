@@ -9,8 +9,8 @@
 
 #}
 
-<div class="fos_comment_comment_form_holder">
-    <form class="fos_comment_comment_edit_form" action="{{ url('fos_comment_put_thread_comments', {'id': comment.thread.id, 'commentId': comment.id}) }}" method="POST">
+<div class="">
+    <form class="form" action="{{ url('fos_comment_put_thread_comments', {'id': comment.thread.id, 'commentId': comment.id}) }}" method="POST">
 
         {% block fos_comment_form_fields %}
             {{ form_errors(form) }}
@@ -19,10 +19,10 @@
             {{ form_widget(form._token) }}
         {% endblock %}
 
-        <div class="fos_comment_submit">
-            <button type="button" class="fos_comment_comment_edit_cancel">{% trans from 'FOSCommentBundle' %}fos_comment_comment_edit_cancel{% endtrans %}</button>
+        <div class="">
+            <button type="button" class="btn btn-primary">{% trans from 'FOSCommentBundle' %}fos_comment_comment_edit_cancel{% endtrans %}</button>
             {% block fos_comment_form_submit %}
-                <input type="submit" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_edit_submit{% endtrans %}" />
+                <button type="submit" class="btn btn-primary">{% trans from 'FOSCommentBundle' %}fos_comment_comment_edit_submit{% endtrans %}</button>
             {% endblock %}
         </div>
 

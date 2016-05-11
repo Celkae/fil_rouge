@@ -6,7 +6,7 @@
       <a href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'serie.show.back_list'|trans }}</a>
+      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
@@ -18,7 +18,7 @@
     <div class="panel-body">
       <div class="col-md-12">
         <div class="row">
-          <a href="{{ path('serie_edit', { 'id': episode.id }) }}">Edit</a>
+          <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Edit</a>
         </div>
         <div class="row">
           <a href="{{ path('episode_new', { 'id': episode.serie.id }) }}">Ajouter un épisode</a>
@@ -45,19 +45,19 @@
     </div>
     <div class="col-md-4">
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <button id="seen" class="btn btn-primary btn-sm"></button>
+        <button id="seen" class="btn btn-primary btn-sm flt-r"></button>
       {% endif %}
       <h4>Notez cet épisode</h4>
       {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: episode.id, contentType: 'Episode' }) ) }} <!-- Star Rating ! -->
     </div>
     <div class="col-sm-12 jumbotron">
-        {% stylesheets 'css/comments.css' %}
-          <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-        {% endstylesheets %}
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %} <!-- condition si authentifié -->
-          {% include 'includes/not_logged.html.twig' %}
-        {% endif %}
-        {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': episode.id } %} <!-- affichage des commentaires et du formulaire -->
+      {% stylesheets 'css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+      {% endstylesheets %}
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %} <!-- condition si authentifié -->
+        {% include 'includes/not_logged.html.twig' %}
+      {% endif %}
+      {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': episode.id } %} <!-- affichage des commentaires et du formulaire -->
       </div>
   </div>
 

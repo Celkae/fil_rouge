@@ -22,14 +22,22 @@ class SerieController extends Controller
      * @Route("/", name="serie_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $series = $em->getRepository('FilRougeBundle:Serie')->findBy(array('moderated' => true));
+        $dql   = "SELECT s FROM FilRougeBundle:Serie s";
+        $query = $em->createQuery($dql);
 
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->get('page', 1)/*page number*/,
+            4/*limit per page*/
+        );
         return $this->render('serie/index.html.twig', array(
-            'series' => $series,
+            //'series' => $series,
+            'pagination' => $pagination
         ));
     }
 
@@ -139,4 +147,5 @@ class SerieController extends Controller
             ->getForm()
         ;
     }
+
 }

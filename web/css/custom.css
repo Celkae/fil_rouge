@@ -32,6 +32,17 @@ ul li {
 .mb20p {
 	margin-bottom: 20px;
 }
+.mb10p {
+	margin-bottom: 10px;
+}
+.no-border {
+	border: 0;
+	box-shadow: 0;
+}
+.reply {
+	background-color: #5aba92 ;
+  color: #ffffff;
+}
 .navbar-toggle {
 	margin-right: 0;
 	padding: 15px 5px;
@@ -62,6 +73,10 @@ ul li {
 .search-button {
 	border: 0;
 	background-color: transparent;
+}
+footer {
+	position: absolute;;
+	bottom: 0;
 }
 @media (max-width: 480px)
 {

@@ -11,62 +11,62 @@ namespace FilRougeBundle\Repository;
 class SerieRepository extends \Doctrine\ORM\EntityRepository
 {
   public function getSearchQuery($key)
+  {
+    $qb = $this->createQueryBuilder('s')
+        //->distinct()
+        ->addSelect('s.title')
+        ->join('s.episode', 'e')
+        //->from('FilRougeBundle:Episode', 'e')
+        ->where('s.title LIKE :key')
+        ->orWhere('e.title LIKE :key')
+        ->orWhere('s.actors LIKE :key')
+        ->setParameter('key', '%'.$key.'%')
+        //->setMaxResults(5);
+      ;
+    $results = $qb->getQuery()->getArrayResult();
+    $tags = array();
+    foreach($results as $result)
     {
-      $qb = $this->createQueryBuilder('s')
-          //->distinct()
-          ->addSelect('s.title')
-          ->join('s.episode', 'e')
-          //->from('FilRougeBundle:Episode', 'e')
-          ->where('s.title LIKE :key')
-          ->orWhere('e.title LIKE :key')
-          ->orWhere('s.actors LIKE :key')
-          ->setParameter('key', '%'.$key.'%')
-          //->setMaxResults(5);
-        ;
-      $results = $qb->getQuery()->getArrayResult();
-      $tags = array();
-      foreach($results as $result)
-      {
-          $tags[] = $result['title'];
-      }
-      return $tags;
+        $tags[] = $result['title'];
     }
+    return $tags;
+  }
 
   public function getResultsByTitle($key)
-    {
-      $qb = $this->createQueryBuilder('s');
-      $qb ->select('s')
-          ->where('s.title LIKE :key')
-          ->setParameter('key', '%'.$key.'%');
-      $results = $qb->getQuery()->getResult();
-      return $results;
-    }
+  {
+    $qb = $this->createQueryBuilder('s');
+    $qb ->select('s')
+        ->where('s.title LIKE :key')
+        ->setParameter('key', '%'.$key.'%');
+    $results = $qb->getQuery()->getResult();
+    return $results;
+  }
 
   public function getResultsByActors($key)
-    {
-      $qb = $this->createQueryBuilder('s');
-      $qb ->select('s')
-          ->where('s.actors LIKE :key')
-          ->setParameter('key', '%'.$key.'%')
-        ;
-      $results = $qb->getQuery()->getResult();
-      return $results;
-    }
+  {
+    $qb = $this->createQueryBuilder('s');
+    $qb ->select('s')
+        ->where('s.actors LIKE :key')
+        ->setParameter('key', '%'.$key.'%')
+      ;
+    $results = $qb->getQuery()->getResult();
+    return $results;
+  }
 
   public function getTopFive()
-    {
-      $qb = $this->createQueryBuilder('s');
-      $qb ->select('s')
-          //->from('IdeatoStarRatingBundle:Rating', 'r')
-          ->leftJoin('IdeatoStarRatingBundle:Rating', 'r',
-            \Doctrine\ORM\Query\Expr\Join::WITH,
-            'r.contentId = s.id')
-          ->where('r.contentType LIKE :type')
-          ->orderBy('r.average')
-          ->setMaxResults(5)
-          ->setParameter('type', '%erie')
-        ;
-      $results = $qb->getQuery()->getResult();
-      return $results;
-    }
+  {
+    $qb = $this->createQueryBuilder('s');
+    $qb ->select('s')
+        //->from('IdeatoStarRatingBundle:Rating', 'r')
+        ->leftJoin('IdeatoStarRatingBundle:Rating', 'r',
+          \Doctrine\ORM\Query\Expr\Join::WITH,
+          'r.contentId = s.id')
+        ->where('r.contentType LIKE :type')
+        ->orderBy('r.average')
+        ->setMaxResults(5)
+        ->setParameter('type', '%erie')
+      ;
+    $results = $qb->getQuery()->getResult();
+    return $results;
+  }
 }

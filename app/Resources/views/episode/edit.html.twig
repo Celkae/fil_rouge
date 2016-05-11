@@ -6,13 +6,13 @@
       <a href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a data-toggle="tab" href="{{ path('serie_index') }}">{{ 'serie.show.back_list'|trans }}</a>
+      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
 
 {% block body %}
-  <h1>{{ 'episode.new.edit'|trans }}</h1>
+  <h1>{{ 'episode.edit.edit'|trans }}</h1>
   <hr>
   {{ form_start(edit_form, {'attr': {'class': 'form'}}) }}
   <div class="form-group">

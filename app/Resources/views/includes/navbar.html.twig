@@ -22,7 +22,7 @@
           {% endif %}
           {% if is_granted("ROLE_SUPER_ADMIN") %}
           <li>
-            <a href="{{ path('search_admin_index') }}">Promote User</a>
+            <a href="{{ path('search_admin_index') }}">{{ 'navbar.promote'|trans }}</a>
           </li>
           {% endif %}
           <li>
@@ -42,8 +42,8 @@
           </li>
         </ul>
       {% else %}
-        <a href="#" class="navbar-toggle" id="myBtn"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-        <a href="#" class="navbar-toggle"><i class="fa fa-user-plus"></i> Sign Up</a>
+        <a href="#" class="navbar-toggle" class="grey-menu"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        <a href="#" class="navbar-toggle" class="grey-menu"><i class="fa fa-user-plus"></i> {{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
       {% endif %}
     </div>
     <!-- navbar-collapse -->
@@ -60,14 +60,14 @@
           <a href="#">Top</a>
         </li>
         <li class="menu1">
-          <a href="{{ path('serie_new')}}">Add a serie</a>
+          <a href="{{ path('serie_new')}}">{{ 'navbar.add'|trans }}</a>
         </li>
       </ul>
-      <ul class="menu nav navbar-nav navbar-right visible-lg visible-md visible-sm hidden-xs">
+      <ul class="menu nav navbar-nav navbar-right visible-lg visible-md visible-sm hidden-xs grey-menu">
       {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <li>
           <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-txt">
             <li>
               <a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
             </li>
@@ -81,7 +81,7 @@
         </li>
         <li>
           <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i><span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-txt">
             <li>
               <a href="{{ path('fos_user_profile_show')}}">
                 <img src="{{ asset(app.user.getPicture()) }}" alt="Avatar" class="avatar" />&nbsp;
@@ -95,7 +95,7 @@
             {% endif %}
             {% if is_granted("ROLE_SUPER_ADMIN") %}
             <li>
-              <a href="{{ path('search_admin_index') }}">Promote User</a>
+              <a href="{{ path('search_admin_index') }}">{{ 'navbar.promote'|trans }}</a>
             </li>
             {% endif %}
             <li>
@@ -108,7 +108,7 @@
           <a href="#0" id="signin-modal"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
         </li>
         <li>
-          <a href="#0" id="signup-modal"><i class="fa fa-user-plus"></i> Sign Up</a>
+          <a href="#0" id="signup-modal"><i class="fa fa-user-plus"></i> {{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
         </li>
         {% endif %}
         <li>

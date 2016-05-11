@@ -2,7 +2,7 @@ serie:
     show:
         back_list: 'Liste des séries'
         home: 'Accueil'
-        edit: 'Editer'
+        edit: 'Éditer'
         add_episode: 'Ajouter un episode'
         delete: 'Supprimer'
         season: 'Saison'
@@ -21,6 +21,8 @@ serie:
         actors: 'Acteurs'
         picture: 'Affiche'
         file: 'Selection un fichier de type image (jpeg, png...)'
+    edit:
+        edit: 'Édition'
 episode:
     new:
         new: 'Nouvelle épisode'
@@ -30,10 +32,20 @@ episode:
         episode_number: 'Numero'
     edit:
         edit: 'Édition'
-        title: 'Titre'
-        resume: 'Resumé'
-        season_number: 'Saison'
-        episode_number: 'Numero'
+    show:
+        back_serie: 'Retour à la serie'
 exception:
     error404: 'Page non trouvée'
     error: 'Erreur... '
+result:
+    request: 'Resultats pour la recherche'
+modal:
+    signin: 'Se connecter'
+    signup: 'Créer un compte'
+navbar:
+    promote: 'Gerer les moderateurs'
+    add: 'Ajouter une serie'
+index:
+    news: 'Dernières news !'
+    commentaires: 'Derniers commentaires !'
+    on: 'sur'

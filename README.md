@@ -24,16 +24,14 @@ Developpeurs web : Manu et Alexandra.
 
 * Livrables
 * Responsive Design
-* formulaires
+* finalisation design et clean css
+* traduction modal
 * Page d'accueil
-* Paginator pour toutes les listes
+* Moderation & administration (signaler commentaire)
 
 ## To do:
 
-* Traduction
 * Profile.html.twig à transformer en "wall"
-* Moderation & administration
-* Recherche: FOSElasticaBundle?
 * Thetvdb api & notifiction
 * Budget
 * Propriétés et droits
@@ -41,6 +39,9 @@ Developpeurs web : Manu et Alexandra.
 
 ## Done:
 
+* Paginator
+* Tradiction
+* Recherche
 * S’inscrire sur le site (Fos User)
 * Système de message personnel (Fos Message)
 * Entités et CRUDs
