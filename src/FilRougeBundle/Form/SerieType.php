@@ -20,10 +20,10 @@ class SerieType extends AbstractType
         $builder
             ->add('title')
             ->add('picture', PictureType::class)
-            ->add('resume')
-            ->add('season')
-            ->add('status')
-            ->add('nationality')
+            ->add('resume', 'textarea')
+            ->add('season' ,'choice',array('choices' => array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29)))
+            ->add('status' ,'choice',array('choices' => array('En production', 'Arretée', 'En attente', 'Prochainement'))) // To do : Redifine
+            ->add('nationality') // To do : choice list for countries
             ->add('director')
             ->add('actors')
         ;

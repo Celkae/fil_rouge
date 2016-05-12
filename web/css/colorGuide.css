@@ -9,11 +9,97 @@ font-style: normal;
 font-family: 'Arial';
 src: url('../fonts/arial.ttf') format('truetype');
 }
-
-.IntroFontCarousel{
-  font-family: 'IntroFont';
-  font-size: 2.5em;
+html, body {
+  background-color: #f3f2f0;
 }
+.introfont {
+  font-family: 'IntroFont';
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+.orange {
+    background-color: #fdb515;
+    color: #fff;
+}
+.orange > .panel-heading {
+  padding: 1px 15px 0 15px;
+  background-color: #fdb515;
+}
+.orange:hover {
+  background-color: #ef7a35;
+}
+.blue {
+  background-color: #00b6de;
+  color: #fff;
+}
+.blue > .panel-heading {
+  padding: 1px 15px 0 15px;
+  background-color: #00b6de;
+}
+.green {
+    background-color: #5aba92;
+    color: #fff;
+}
+.green-txt {
+    color: #5aba92;
+}
+.green > .panel-heading {
+  padding: 1px 15px 0 15px;
+  background-color: #5aba92;
+}
+.white {
+    background-color: #fff;
+}
+.white > .panel-heading {
+  padding: 1px 15px 0 15px;
+  background-color: #fff;
+}
+.red {
+  background-color: #e73229;
+}
+.red-txt {
+  color: #e73229;
+}
+.grey {
+  background-color: #666666;
+}
+.grey-txt {
+  color: #666666;
+}
+.grey-txt a {
+  color: #666666;
+}
+.lght-grey-txt {
+  color: #a2a1a1;
+}
+.lght-grey-txt p {
+  color: #a2a1a1;
+}
+.up-case {
+  text-transform: uppercase;
+}
+.panel {
+  border: 0;
+}
+.nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+  color: #a2a1a1;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: #fdb515;
+  color: #fff;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #00b6de;
+}
+.p20p30p {
+  padding: 20px 30px;
+}
+
+
+
+
+
+
 
 /* Changes standart bootstrap settings
   .pagination (portfolio-section)
@@ -107,12 +193,6 @@ margin-top: 50px;
 .menu4:hover a:hover{
   color:#ffffff;
   background-color: #e73229;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
-}
-
-.grey{
-  background-color: #666666;
   font-family: 'IntroFont';
   letter-spacing: 0.1em;
 }
@@ -224,20 +304,13 @@ margin-top: 50px;
 }
 
 
-.titre-serie {
-  font-family: 'Arial';
-  text-transform: uppercase;
+.series-title h3, .series-title {
   font-weight: 500;
   color:#666666;
   text-align: center;
-  text-decoration: none
 }
 
-.titre-serie:hover{
-  font-family: 'Arial';
-  text-transform: uppercase;
-  color:#00b6de;
-  text-align: center;
+.series-title:hover{
   text-decoration: none;
 }
 

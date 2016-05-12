@@ -61,8 +61,8 @@ class User extends BaseUser implements ParticipantInterface
     private $votedSeries;
 
     /**
-     * @ORM\OneToOne(targetEntity="Picture", cascade={"remove"})
-     * @JoinColumn(name="picture_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Picture", cascade={"remove", "persist"})
+     * @JoinColumn(name="picture_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $picture;
 

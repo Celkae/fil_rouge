@@ -20,11 +20,11 @@
     <div class="fos_comment_comment_form_holder">
         {% block fos_comment_form_title %}
             {% if first %}
-                <h3>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline_first{% endtrans %}</h3>
+                <h4 class="introfont lght-grey-txt">{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline_first{% endtrans %}</h4>
             {% elseif parent is not null %}
-                <h3>{% trans with {"%name%": parent.authorName } from 'FOSCommentBundle' %}fos_comment_comment_reply_reply_to{% endtrans %}</h3>
+                <h4 class="introfont lght-grey-txt">{% trans with {"%name%": parent.authorName } from 'FOSCommentBundle' %}fos_comment_comment_reply_reply_to{% endtrans %}</h4>
             {% else %}
-                <h3>{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline{% endtrans %}</h3>
+                <h4 class="introfont lght-grey-txt">{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_headline{% endtrans %}</h3>
             {% endif %}
         {% endblock %}
 
@@ -47,7 +47,7 @@
                         {% if parent is not null %}
                             <input type="button" value="{% trans from 'FOSCommentBundle' %}fos_comment_comment_reply_cancel{% endtrans %}" class="fos_comment_comment_reply_cancel" />
                         {% endif %}
-                        <button type="submit" class="btn btn-primary flt-r">{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}</button>
+                        <button type="submit" class="btn btn-primary flt-r blue no-border">{% trans from 'FOSCommentBundle' %}fos_comment_comment_new_submit{% endtrans %}</button>
                     {% endblock %}
                 </div>
 

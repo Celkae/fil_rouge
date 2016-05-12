@@ -18,7 +18,7 @@ class DefaultController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
 
-      $series = $em->getRepository('FilRougeBundle:Serie')->getTopFive();
+      $series = $em->getRepository('FilRougeBundle:Serie')->getTopFour();
       $comments = $em->getRepository('FilRougeBundle:Comment')->getLastFive();
 
       return $this->render('Default/index.html.twig', array(

@@ -53,7 +53,7 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
     return $results;
   }
 
-  public function getTopFive()
+  public function getTopFour()
   {
     $qb = $this->createQueryBuilder('s');
     $qb ->select('s')
@@ -63,7 +63,7 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
           'r.contentId = s.id')
         ->where('r.contentType LIKE :type')
         ->orderBy('r.average')
-        ->setMaxResults(5)
+        ->setMaxResults(4)
         ->setParameter('type', '%erie')
       ;
     $results = $qb->getQuery()->getResult();

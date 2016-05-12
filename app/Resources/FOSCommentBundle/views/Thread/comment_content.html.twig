@@ -15,16 +15,17 @@
     <div class="fos_comment_comment_metas">
         {% block fos_comment_comment_metas %}
             {% block fos_comment_comment_metas_authorline %}
+              <img class="avatar-comment" src="{{ asset(comment.author.getPicture()) }}" alt="" />
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_show_by{% endtrans %}
                 <span class="fos_comment_comment_authorname">
                     {% if comment is fos_comment_in_state(constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')) %}
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_deleted{% endtrans %}
                     {% else %}
-                      <a href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">
+                      <a class="red-txt" href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">
                         {{ comment.authorName }}
                       </a>
                     {% endif %}
-                </span> - {{ comment.createdAt|date }}
+                </span> <i class="fa fa-commenting-o" aria-hidden="true"></i> {{ comment.createdAt|date }}
             {% endblock fos_comment_comment_metas_authorline %}
 
             {% block fos_comment_comment_metas_edit %}
@@ -48,6 +49,7 @@
             {% block fos_comment_comment_metas_voting %}
                 {% if fos_comment_can_vote(comment) %}
                     <div class="fos_comment_comment_voting">
+                        <button data-url="{{ url("admin_comments", {"id": comment.id}) }}" class="no-border"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></button>
                         <button data-url="{{ url("fos_comment_new_thread_comment_votes", {"id": comment.thread.id, "commentId": comment.id, "value": 1}) }}" class="no-border"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
                         <button data-url="{{ url("fos_comment_new_thread_comment_votes", {"id": comment.thread.id, "commentId": comment.id, "value": -1}) }}" class="no-border"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>
                         <div class="fos_comment_comment_score" id="fos_comment_score_{{ comment.id }}">{% include "FOSCommentBundle:Thread:comment_votes.html.twig" with { 'commentScore': comment.score } %}</div>
@@ -93,5 +95,26 @@
         {% endif %}
     {% endblock fos_comment_comment_children %}
 
-</div>
+  </div>
+  <script type="text/javascript">
+
+    $('#signal').off().on("click", function()
+    {
+      /**
+      * Ajax request for signaled comment
+      *
+      * @data :id
+      */
+      $.ajax(
+        {
+          url:"{{ path('admin_comments', { 'id':  comment.id }) }}",
+          success: function(data){
+            $("#signal").html('<i class="fa fa-check" aria-hidden="true"></i>');
+          },
+          error: function(error){
+          }
+        }
+      );
+    });
+  </script>
 {% endblock fos_comment_comment %}

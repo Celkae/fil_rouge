@@ -26,8 +26,8 @@ Developpeurs web : Manu et Alexandra.
 * Responsive Design
 * finalisation design et clean css
 * traduction modal
-* Page d'accueil
-* Moderation & administration (signaler commentaire)
+* Moderation & administration
+* pagination resultats recherche
 
 ## To do:
 
@@ -35,10 +35,13 @@ Developpeurs web : Manu et Alexandra.
 * Thetvdb api & notifiction
 * Budget
 * Propriétés et droits
+* page top
+* page news
 * Bonus
 
 ## Done:
 
+* Page d'accueil
 * Paginator
 * Tradiction
 * Recherche

@@ -7,10 +7,6 @@ ul, li {
 	padding: 0;
 }
 
-body {
-	background: #ffffff;
-}
-
 .user-modal {
   position: fixed;
   top: 20px;
@@ -97,23 +93,23 @@ body {
   }
 }
 
-.form {
+.user-modal .form {
   padding: 1.4em;
 }
-.form .fieldset {
+.user-modal .form .fieldset {
   position: relative;
   margin: 1.4em 0;
 }
-.form .fieldset:first-child {
+.user-modal .form .fieldset:first-child {
   margin-top: 0;
 }
-.form .fieldset:last-child {
+.user-modal .form .fieldset:last-child {
   margin-bottom: 0;
 }
-.form label {
+.user-modal .form label {
   font-size: 14px;
 }
-.form label.image-replace {
+.user-modal .form label.image-replace {
   /* replace text with an icon */
   display: inline-block;
   position: absolute;
@@ -132,27 +128,27 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 0;
 }
-.form label.username {
+.user-modal .form label.username {
   background-image: url("http://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-username.svg");
 }
-.form label.email {
+.user-modal .form label.email {
   background-image: url("http://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-email.svg");
 }
-.form label.password {
+.user-modal .form label.password {
   background-image: url("http://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-password.svg");
 }
-.form input {
+.user-modal .form input {
   margin: 0;
   padding: 0;
 
 }
-.form input.full-width {
+.user-modal .form input.full-width {
   width: 100%;
 }
-.form input.has-padding {
+.user-modal .form input.has-padding {
   padding: 12px 20px 12px 50px;
 }
-.form input.has-border {
+.user-modal .form input.has-border {
   border: 1px solid #d2d8d8;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -160,19 +156,19 @@ body {
   -o-appearance: none;
   appearance: none;
 }
-.form input.has-border:focus {
+.user-modal .form input.has-border:focus {
   border-color: #343642;
   box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
   outline: none;
 }
-.form input.has-error {
+.user-modal .form input.has-error {
   border: 1px solid #d76666;
 }
-.form input[type=password] {
+.user-modal .form input[type=password] {
   /* space left for the HIDE button */
   padding-right: 65px;
 }
-.form input[type=submit] {
+.user-modal .form input[type=submit] {
   padding: 16px 0;
   cursor: pointer;
   background: #00b6de;
@@ -192,7 +188,7 @@ body {
   	-ms-transition: all 0.30s ease-in-out;
   	-o-transition: all 0.30s ease-in-out;
 }
-.form input[type=submit]:hover {
+.user-modal .form input[type=submit]:hover {
 	background: #fff;
   color:#00b6de;
   text-transform: uppercase;
@@ -201,11 +197,11 @@ body {
   letter-spacing: 0.1em;
   font-size: 1.5em;
 }
-.no-touch .form input[type=submit]:hover, .no-touch .form input[type=submit]:focus {
+.no-touch .user-modal .form input[type=submit]:hover, .no-touch .user-modal .form input[type=submit]:focus {
   background: #d83d3d;
   outline: none;
 }
-.form .hide-password {
+.user-modal .form .hide-password {
   display: inline-block;
   position: absolute;
 	text-decoration: none;
@@ -220,7 +216,7 @@ body {
   font-size: 14px;
   color: #343642;
 }
-.form .error-message {
+.user-modal .form .error-message {
   display: inline-block;
   position: absolute;
   left: -5px;
@@ -239,7 +235,7 @@ body {
   -webkit-transition: opacity 0.2s 0, visibility 0 0.2s;
   transition: opacity 0.2s 0, visibility 0 0.2s;
 }
-.form .error-message::after {
+.user-modal .form .error-message::after {
   /* triangle */
   content: '';
   position: absolute;
@@ -251,46 +247,46 @@ body {
   border-right: 8px solid transparent;
   border-bottom: 8px solid rgba(215, 102, 102, 0.9);
 }
-.form .error-message.is-visible {
+.user-modal .form .error-message.is-visible {
   opacity: 1;
   visibility: visible;
   -webkit-transition: opacity 0.2s 0, visibility 0 0;
   transition: opacity 0.2s 0, visibility 0 0;
 }
 @media only screen and (min-width: 600px) {
-  .form {
+  .user-modal .form {
     padding: 2em;
   }
-  .form .fieldset {
+  .user-modal .form .fieldset {
     margin: 2em 0;
   }
-  .form .fieldset:first-child {
+  .user-modal .form .fieldset:first-child {
     margin-top: 0;
   }
-  .form .fieldset:last-child {
+  .user-modal .form .fieldset:last-child {
     margin-bottom: 0;
   }
-  .form input.has-padding {
+  .user-modal .form input.has-padding {
     padding: 16px 20px 16px 50px;
   }
-  .form input[type=submit] {
+  .user-modal .form input[type=submit] {
     padding: 16px 0;
   }
 }
 
-.form-message {
+.user-modal .form-message {
   padding: 1.4em 1.4em 0;
   font-size: 1em;
   line-height: 1.4;
   text-align: center;
 }
 @media only screen and (min-width: 600px) {
-  .form-message {
+  .user-modal .form-message {
     padding: 2em 2em 0;
   }
 }
 
-.form-bottom-message {
+.user-modal .form-bottom-message {
   position: absolute;
   width: 100%;
   left: 0;
@@ -299,7 +295,7 @@ body {
   font-size: 1em;
 }
 
-.form-bottom-message a {
+.user-modal .form-bottom-message a {
   color: #FFF;
   text-decoration: none;
 	border-bottom: 1px solid rgba(255, 255, 255, .0);
@@ -309,7 +305,7 @@ body {
   	-ms-transition: all 0.30s ease-in-out;
   	-o-transition: all 0.30s ease-in-out;
 }
-.form-bottom-message a:hover {
+.user-modal .form-bottom-message a:hover {
 	-webkit-animation: borderslide-3px .5s;
 	        animation: borderslide-3px .5s;
 	border-bottom: 1px solid rgba(255, 255, 255, 1);

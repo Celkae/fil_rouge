@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block panel %} <!-- surcharge du block panel gauche -->
-  <ul class="nav nav-pills nav-stacked mt22p">
+  <ul class="nav nav-pills nav-stacked">
     <li class="active">
       <a href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
+      <a href="{{ path('serie_show', { 'id': serie_id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
 
 {% block body %}
+<div class="p20p30p">
   <h1>{{ 'episode.new.new'|trans }}</h1>
-  <hr>
   {{ form_start(form, {'attr': {'class': 'form'}}) }}
   <div class="form-group">
     <label for="title" class="control-label col-sm-2">{{ 'episode.new.title'|trans }}</label>
@@ -41,7 +41,8 @@
   </div>
   <div class="col-sm-12 mb20p">
     {{ form_widget(form) }}
-    <input type="submit" class="flt-r" value="&nbsp;&nbsp;{{ 'serie.new.create'|trans }}&nbsp;&nbsp;" />
+    <input type="submit" class="btn blue mb20p flt-r" value="&nbsp;&nbsp;{{ 'serie.new.create'|trans }}&nbsp;&nbsp;" />
   </div>
   {{ form_end(form) }}
+</div>
 {% endblock %}
