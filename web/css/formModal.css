@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'IntroFont';
+  src: url('../fonts/Intro.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *, *:after, *:before {
   box-sizing: border-box;
 }
@@ -470,16 +477,4 @@ ul, li {
 
 .modal-footer {
       background-color: #ffffff;
-}
-
-@font-face {
-font-family: 'IntroFont';
-src: url('../fonts/Intro.otf') format('truetype');
-font-weight: normal;
-font-style: normal;
-}
-
-@font-face {
-font-family: 'Arial';
-src: url('../fonts/arial.ttf') format('truetype');
 }
