@@ -1,3 +1,15 @@
+modal:
+    signin: 'Sign in'
+    username_email: 'Username or E-mail'
+    password: 'password'
+    show: 'Show'
+    signup: 'Create an account'
+    username: 'User name'
+    password_again: 'Password again'
+    password_forgotten: 'Password forgotten ?'
+    password_error: 'Your password has to be at least 6 characters long!'
+    username_error: 'Votre pseudonyme ne peut contenir que des caractères numerique et alphanumerique !'
+    email_error: 'Entrer une adresse Emial valide !'
 group:
     edit:
         submit: 'Update group'
@@ -19,6 +31,8 @@ security:
 
 profile:
     show:
+        home: 'home'
+        send_message: 'Send a message'
         username: Username
         email: Email
     edit:

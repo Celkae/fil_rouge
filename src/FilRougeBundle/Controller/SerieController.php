@@ -12,7 +12,7 @@ use FilRougeBundle\Form\SerieType;
 /**
  * Serie controller.
  *
- * @Route("/serie")
+ * @Route("/{_locale}/serie", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"})
  */
 class SerieController extends Controller
 {
@@ -26,16 +26,38 @@ class SerieController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $dql   = "SELECT s FROM FilRougeBundle:Serie s";
-        $query = $em->createQuery($dql);
+        $query = $em->getRepository('FilRougeBundle:Serie')->findAll();
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->get('page', 1)/*page number*/, 20/*limit per page*/
+        );
+        return $this->render('serie/index.html.twig', array(
+            //'series' => $series,
+            'pagination' => $pagination
+        ));
+    }
+
+    /**
+     * Lists all Serie entities.
+     *
+     * @Route("/top", name="serie_top")
+     * @Method("GET")
+     */
+    public function topAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $query = $em->getRepository('FilRougeBundle:Serie')->getTopSeries();
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $query,
             $request->query->get('page', 1)/*page number*/,
-            4/*limit per page*/
+            20/*limit per page*/
         );
-        return $this->render('serie/index.html.twig', array(
+        return $this->render('serie/top.html.twig', array(
             //'series' => $series,
             'pagination' => $pagination
         ));
@@ -97,12 +119,11 @@ class SerieController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $serie_new = $serie;
-            $serie_new->clear();
-            $em->persist($serie_new);
+            $serie->setModerated(false);
+            $em->persist($serie);
             $em->flush();
 
-            return $this->redirectToRoute('serie_edit', array('id' => $serie_new->getId()));
+            return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
         }
 
         return $this->render('serie/edit.html.twig', array(

@@ -1,11 +1,27 @@
 {% extends 'FOSMessageBundle::layout.html.twig' %}
 
+{% block panel %}
+  <ul class="nav nav-pills nav-stacked white">
+    <li class="active">
+      <a href="/" class="introfont blue">{{ 'serie.show.home'|trans }}</a>
+    </li>
+    <li>
+      <a href="{{ url('fos_message_thread_new' )}}" class="grey-txt">{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="{{ url('fos_message_sent') }}" class="grey-txt">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a>
+    </li>
+  </ul>
+{% endblock %}
+
 {% block fos_message_content %}
 
-<h2>{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</h2>
+<div class="p20p30p">
 
-<a href="{{ url('fos_message_thread_new' )}}">{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</a>
+  <h2 class="up-case lght-grey-txt">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</h2>
 
-{% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+  {% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+
+</div>
 
 {% endblock %}

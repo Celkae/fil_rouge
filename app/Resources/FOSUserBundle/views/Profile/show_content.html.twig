@@ -1,7 +1,46 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-    <img src="{{ asset(user.getPicture()) }}" />
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
-    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
-</div>
+{% extends 'base.html.twig' %}
+
+{% block panel %}
+  <ul class="nav nav-pills nav-stacked white">
+    <li class="active">
+      <a href="/" class="introfont blue">{{ 'profile.show.home'|trans }}</a>
+    </li>
+    <li>
+      <a href="{{ path('new_message', { 'id': user.id }) }}">{{ 'send_message'|trans }}</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block body %}
+  <div class="fos_user_user_show p20p30p">
+    <div class="row">
+      <p><img class="avatar-comment" src="{{ asset(user.getPicture()) }}" />
+      <h3>{{ user.username }}</h3></p>
+      <p>{{ user.email }}</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Dernière activités</h3>
+        {% for activity in activity_service.getLastActivities(user.id).series %}
+          A commencer à suivre <a href="{{ path('serie_show', { 'id': activity.getid() }) }}">{{ activity.getTitle() }}</a><br>
+        {% endfor %}
+        {% for activity in activity_service.getLastActivities(user.id).episodes %}
+          A vu <a href="{{ path('episode_show', { 'id': activity.getid() }) }}">{{ activity.getTitle() }} de <a href="{{ path('serie_show', { 'id': activity.serie.getid() }) }}">{{ activity.getSerie() }}</a><br>
+        {% endfor %}
+      </div>
+      <div class="col-md-6">
+        <h3>Derniers commentaires</h3>
+        {% for comment in comment_service.getUserLastComments(user) %}
+        <div class="row">
+          {{ 'index.on'|trans }} <a href="{{ path('serie_show', { 'id': comment.thread.id }) }}">{{ comment_service.getTitle(comment.thread.id) }}</a>
+          <p>
+            {{ comment.getBody() }}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

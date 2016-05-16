@@ -1,3 +1,15 @@
+modal:
+    signin: 'Se connecter'
+    username_email: 'Pseudo ou E-mail'
+    password: 'Mot de passe'
+    show: 'Montrer'
+    signup: 'Créer un compte'
+    username: 'Pseudo'
+    password_again: 'Valider mot de passe'
+    password_forgotten: 'Mot de passe oublié ?'
+    password_error: 'Votre mot de passe doit faire au moins 6 caractère !'
+    username_error: 'Your username can only contain numeric and alphabetic symbols !'
+    email_error: 'Please enter a valid Email adress !'
 group:
     edit:
         submit: 'Mettre à jour le groupe'
@@ -17,6 +29,8 @@ security:
         submit: Connexion
 profile:
     show:
+        home: 'Accueil'
+        send_message: 'Envoyer un message'
         username: 'Nom d''utilisateur'
         email: 'Adresse e-mail'
     edit:

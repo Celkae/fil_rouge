@@ -40,7 +40,7 @@
 
 {% block panel %}
   <div class="panel panel-default blue">
-    <div class="panel-heading"><h4 class="introfont">{{ 'index.news'|trans }}</h4></div>
+    <div class="panel-heading"><h4 class="introfont">{{ 'news'|trans }}</h4></div>
     <div class="panel-body white">
       <h3>HBO veut mettre fin au piratage</h3>
       <p>
@@ -70,9 +70,9 @@
 
 {% block body %}
   <div class="panel panel-default orange">
-    <div class="panel-heading" style="position:relative;margin:0 -15px"><h4 class="introfont">Vos series preferées</h4></div>
+    <div class="panel-heading" style="position:relative;margin:0 -15px"><h4 class="introfont">{{ 'favorite_series'|trans }}</h4></div>
     <div class="panel-body white">
-      {% for serie in series %}
+      {% for serie in top_service.getTopFour() %}
         <a class="" href="{{ path('serie_show', { 'id': serie.id }) }}">
           <div class="col-sm-3 series-title">
               <h3 class="">{{ serie.title }}</h3>
@@ -87,12 +87,15 @@
 
 {% block side_content %}
   <div class="panel panel-default green">
-    <div class="panel-heading"><h4 class="introfont">{{ 'index.commentaires'|trans }}</h4></div>
+    <div class="panel-heading"><h4 class="introfont">{{ 'last_commentaires'|trans }}</h4></div>
     <div class="panel-body white">
-      {% for comment in comments %}
+      {% for comment in comment_service.getLastComments() %}
         <div class="col-sm-3"><img src="{{ comment.author.getPicture() }}" alt="" class="avatar-comment"/></div>
         <div class="col-sm-9">
-          <h4><a href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">{{ comment.getAuthorName() }}</a> {{ 'index.on'|trans }} {{ render(controller('FilRougeBundle:Default:getTitle', { id: comment.thread.id }) ) }}</h4>
+          <h4>
+            <a href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">{{ comment.getAuthorName() }}</a>&nbsp;
+            {{ 'index.on'|trans }} <a href="{{ path('serie_show', { 'id': comment.thread.id }) }}">{{ comment_service.getTitle(comment.thread.id) }}</a>
+          </h4>
           <p>
             {{ comment.getBody() }}
           </p>

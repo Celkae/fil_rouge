@@ -16,29 +16,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-      $em = $this->getDoctrine()->getManager();
-
-      $series = $em->getRepository('FilRougeBundle:Serie')->getTopFour();
-      $comments = $em->getRepository('FilRougeBundle:Comment')->getLastFive();
-
-      return $this->render('Default/index.html.twig', array(
-          'series' => $series,
-          'comments' => $comments
-      ));
-    }
-
-    /**
-     * Finds and displays a Serie entity.
-     * @param int $id
-     * @return title
-     */
-    public function getTitleAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $serie = $em->getRepository('FilRougeBundle:Serie')->find($id);
-        $response = new Response($serie->getTitle());
-        //return $serie.getTitle();
-        return $response;
+      return $this->render('Default/index.html.twig');
     }
 
    /**

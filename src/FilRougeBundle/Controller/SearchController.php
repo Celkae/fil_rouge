@@ -37,7 +37,7 @@ class SearchController extends Controller
   /**
    * Get results for search entries.
    *
-   * @Route("/results", name="results")
+   * @Route("/{_locale}/results", name="results", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"})
    * @Method("GET")
    */
   public function getSearchResults(Request $request)
@@ -53,11 +53,14 @@ class SearchController extends Controller
       $actors = $em
         ->getRepository('FilRougeBundle:Serie')
         ->getResultsByActors($q);
-
+      $query = $series + $episodes + $actors;
+      $paginator  = $this->get('knp_paginator');
+      $pagination = $paginator->paginate(
+        $query,
+        $request->query->get('page', 1)/*page number*/, 20/*limit per page*/
+        );
       return $this->render('results.html.twig', array(
-          'series' => $series,
-          'episodes' => $episodes,
-          'actors' => $actors,
+          'pagination' => $pagination,
           'q' => $q
       ));
   }

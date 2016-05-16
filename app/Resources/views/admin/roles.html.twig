@@ -3,7 +3,7 @@
 {% block panel %}
   <ul class="nav nav-pills nav-stacked">
     <li class="active">
-      <a href="/">Home</a>
+      <a href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
@@ -17,9 +17,9 @@
       <div class="col-md-12">
         <h1>Roles</h1>
         <div class="panel panel-default">
-          <div class="panel-heading"><b>Rechercher un utilisateur</b></div>
+          <div class="panel-heading"><b>{{ 'roles.search'|trans }}</b></div>
           <div class="panel-body">
-            <form class="" action="/admin/search" method="get">
+            <form class="" action="{{ path('search_admin_index') }}" method="get">
               <input type="text" name="name" placeholder="User name"/>
               <input type="submit" value="Rechercher">
             </form>
@@ -27,7 +27,7 @@
           <div class="jumbotron text-center">
           {% for user in users %}
             {% if user != '' %}
-              <h2>{{ user.username() }}</h2> <button id="upgrade" class="btn btn-success">Upgrade to moderator</button>
+              <h2>{{ user.username() }}</h2> <button id="upgrade" class="btn btn-success">{{ 'roles.upgrade'|trans }}</button>
             {% endif %}
           </div>
         </div>

@@ -1,497 +1,484 @@
 @font-face {
-font-family: 'IntroFont';
-src: url('../fonts/Intro.otf') format('truetype');
-font-weight: normal;
-font-style: normal;
+    font-family: 'IntroFont';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/Intro.otf') format('truetype');
 }
 
-html, body {
-  background-color: #f3f2f0;
+html,
+body {
+    background-color: #f3f2f0;
 }
+
+body {
+    padding-top: 50px;
+}
+
 .introfont {
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
-  color: #fff;
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #fff;
 }
+
 .orange {
+    color: #fff;
     background-color: #fdb515;
-    color: #fff;
 }
+
 .orange > .panel-heading {
-  padding: 1px 15px 0 15px;
-  background-color: #fdb515;
+    padding: 1px 15px 0 15px;
+    background-color: #fdb515;
 }
+
 .orange:hover {
-  background-color: #ef7a35;
+    background-color: #ef7a35;
 }
+
 .blue {
-  background-color: #00b6de;
-  color: #fff;
-}
-.blue > .panel-heading {
-  padding: 1px 15px 0 15px;
-  background-color: #00b6de;
-}
-.green {
-    background-color: #5aba92;
     color: #fff;
+    background-color: #00b6de;
 }
+
+.blue > .panel-heading {
+    padding: 1px 15px 0 15px;
+    background-color: #00b6de;
+}
+
+.green {
+    color: #fff;
+    background-color: #5aba92;
+}
+
 .green-txt {
     color: #5aba92;
 }
+
 .green > .panel-heading {
-  padding: 1px 15px 0 15px;
-  background-color: #5aba92;
+    padding: 1px 15px 0 15px;
+    background-color: #5aba92;
 }
+
 .white {
+    color: #000;
     background-color: #fff;
 }
+
 .white > .panel-heading {
-  padding: 1px 15px 0 15px;
-  background-color: #fff;
+    padding: 1px 15px 0 15px;
+    background-color: #fff;
 }
+
 .red {
-  background-color: #e73229;
+    background-color: #e73229;
 }
+
 .red-txt {
-  color: #e73229;
+    color: #e73229;
 }
+
 .grey {
-  background-color: #666666;
+    background-color: #666666;
 }
+
 .grey-txt {
-  color: #666666;
+    color: #666666;
 }
+
 .grey-txt a {
-  color: #666666;
+    color: #666666;
 }
+
 .lght-grey-txt {
-  color: #a2a1a1;
+    color: #a2a1a1;
 }
+
 .lght-grey-txt p {
-  color: #a2a1a1;
+    color: #a2a1a1;
 }
+
 .up-case {
-  text-transform: uppercase;
+    text-transform: uppercase;
+    font-family: Arial;
 }
+
 .panel {
-  border: 0;
+    border: 0;
 }
-.nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
-  color: #a2a1a1;
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+    color: #a2a1a1;
 }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-  background-color: #fdb515;
-  color: #fff;
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #fff;
+    background-color: #fdb515;
 }
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
     background-color: #00b6de;
 }
+
 .p20p30p {
-  padding: 20px 30px;
+    padding: 20px 30px;
 }
-
-
-
-
-
-
-
-/* Changes standart bootstrap settings
-  .pagination (portfolio-section)
-  .media-left (about-section)
-  .media-body (about-section)
-  .author-name (navbar)
-  .container
-  .navbar
-*/
-
-body { padding-top: 50px; } /* http://getbootstrap.com/components/#navbar-fixed-top */
-
-
 
 .navigation {
-position: fixed;
-z-index: 10;
+    z-index: 10;
+    position: fixed;
 }
-
-.entete {
-margin-top: 50px;
-}
-
-.navbar-blanc{
-  padding-top:10px;
-  padding-bottom: 10px;
-  padding-left:5px;
-  padding-right:5px;
-  background-color: #ffffff;
-}
-
-
 
 .menu a {
-  color:#666666;
-  background-color: #ffffff;
-  margin-right: 10px;
-  position: relative;
-  letter-spacing: 0.1em;
+    position: relative;
+    margin-right: 10px;
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
 
 .menu1 a {
-  color:#666666;
-  background-color: #ffffff;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
 
-.menu2 a{
-  color:#666666;
-  background-color: #ffffff;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu2 a {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
 
-.menu3 a{
-  color:#666666;
-  background-color: #ffffff;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu3 a {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
 
-.menu4 a{
-  color:#666666;
-  background-color: #ffffff;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu4 a {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
 
-.menu1:hover a:hover{
-  color:#ffffff;
-  background-color: #fdb515;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu1:hover a:hover {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #fdb515;
 }
 
-.menu2:hover a:hover{
-  color:#ffffff;
-  background-color: #00b6de;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu2:hover a:hover {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #00b6de;
 }
 
-.menu3:hover a:hover{
-  color:#ffffff;
-  background-color: #5aba92;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu3:hover a:hover {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #5aba92;
 }
 
-.menu4:hover a:hover{
-  color:#ffffff;
-  background-color: #e73229;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
+.menu4:hover a:hover {
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #e73229;
 }
 
 .grey-menu a {
-  color:#666666;
-  background-color: #ffffff;
-  letter-spacing: 0.1em;
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
+
 .grey-menu {
-  color:#666666;
-  background-color: #ffffff;
-
-  letter-spacing: 0.1em;
-}
-.grey-menu:hover a:hover{
-  color:#ffffff;
-  background-color: #666666;
-  letter-spacing: 0.1em;
-}
-.grey-menu:hover{
-  color:#ffffff;
-  background-color: #666666;
-  letter-spacing: 0.1em;
+    letter-spacing: 0.1em;
+    color: #666666;
+    background-color: #ffffff;
 }
 
-.grey-menu:focus a:focus{
-  color:#ffffff;
-  background-color: #666666;
-  letter-spacing: 0.1em;
+.grey-menu:hover a:hover {
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #666666;
 }
 
-.nav > .menu1 > a:focus{
- text-decoration: none;
- background-color: #fdb515 ;
- color: #ffffff;
- font-family: 'IntroFont';
- letter-spacing: 0.1em;
+.grey-menu:hover {
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #666666;
 }
 
-.nav > .menu2 > a:focus{
- text-decoration: none;
- background-color: #00b6de ;
- color: #ffffff;
- font-family: 'IntroFont';
- letter-spacing: 0.1em;
+.grey-menu:focus a:focus {
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #666666;
 }
 
-.nav > .menu3 > a:focus{
- text-decoration: none;
- background-color: #5aba92 ;
- color: #ffffff;
- font-family: 'IntroFont';
- letter-spacing: 0.1em;
+.nav > .menu1 > a:focus {
+    text-decoration: none;
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #fdb515;
 }
 
-.nav > .menu4 > a:focus{
- text-decoration: none;
- background-color: #e73229 ;
- color: #ffffff;
- font-family: 'IntroFont';
- letter-spacing: 0.1em;
+.nav > .menu2 > a:focus {
+    text-decoration: none;
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #00b6de;
 }
 
-.nav > .grey-menu > a:focus{
- text-decoration: none;
- background-color: #666666;
- color: #ffffff;
- letter-spacing: 0.1em;
+.nav > .menu3 > a:focus {
+    text-decoration: none;
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #5aba92;
+}
+
+.nav > .menu4 > a:focus {
+    text-decoration: none;
+    font-family: 'IntroFont';
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #e73229;
+}
+
+.nav > .grey-menu > a:focus {
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #666666;
 }
 
 .btn-carousel {
-  color: #ffffff;
-  background-color: #666666;
-  border-color: #666666;
-  font-family: 'IntroFont';
-  font-size: 1em;
-  letter-spacing: 0.1em;
+    border-color: #666666;
+    font-family: 'IntroFont';
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #666666;
 }
 
-.btn-carousel:hover{
-  color: #000000;
-  background-color: #ffffff;
-  border-color: #ffffff;
-  font-family: 'IntroFont';
-  font-size: 1em;
-  letter-spacing: 0.1em;
+.btn-carousel:hover {
+    border-color: #ffffff;
+    font-family: 'IntroFont';
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #000000;
+    background-color: #ffffff;
 }
 
-.btn-carousel:focus{
-  color: #000000;
-  background-color: #ffffff;
-  border-color: #ffffff;
-  font-family: 'IntroFont';
-  font-size: 1em;
-  letter-spacing: 0.1em;
+.btn-carousel:focus {
+    border-color: #ffffff;
+    font-family: 'IntroFont';
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #000000;
+    background-color: #ffffff;
 }
 
-.btn-carousel, .btn-span{
-  color: #ffffff;
+.btn-carousel,
+.btn-span {
+    color: #ffffff;
 }
 
-.btn-carousel:hover .btn-span{
-  color: #00b6de;
+.btn-carousel:hover .btn-span {
+    color: #00b6de;
 }
 
-.btn-carousel:focus .btn-span{
-  color: #00b6de;
+.btn-carousel:focus .btn-span {
+    color: #00b6de;
 }
 
-
-.series-title h3, .series-title {
-  font-weight: 500;
-  color:#666666;
-  text-align: center;
+.series-title h3,
+.series-title {
+    text-align: center;
+    font-weight: 500;
+    color: #666666;
 }
 
-.series-title:hover{
-  text-decoration: none;
+.series-title:hover {
+    text-decoration: none;
 }
 
-.img-film-galerie{
-  width: 100%;
+.marge-block {
+    margin-top: 30px;
 }
 
-.marge-block{
-  margin-top: 30px;
+.page-title-serie {
+    padding-top: 18px;
+    padding-left: 10px;
+    font-family: 'Arial';
+    color: #5aba92;
 }
-
-
-
-.gris{
-  color: #666666;
-}
-
-.page-title-serie{
-  font-family: 'Arial';
-  color: #5aba92;
-  padding-top: 18px;
-  padding-left: 10px;
-
-}
-
-.background-color{
-  background-color: #f3f2f0;
-}
-
-
-
-.block-color{
-  background-color: #ffffff;
-}
-
 
 .btn-login {
-  color: #ffffff;
-  background-color: #666666;
-  border-color: #666666;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
-  font-size: 1em;
+    border-color: #666666;
+    font-family: 'IntroFont';
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #666666;
 }
 
-.btn-login:hover{
-  color: #ffffff;
-  background-color: #e73229;
-  border-color: #e73229;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
-  font-size: 1em;
+.btn-login:hover {
+    border-color: #e73229;
+    font-family: 'IntroFont';
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #e73229;
 }
 
-.btn-login:focus{
-  color: #ffffff;
-  background-color: #e73229;
-  border-color: #e73229;
-  font-family: 'IntroFont';
-  letter-spacing: 0.1em;
-  font-size: 1em;
+.btn-login:focus {
+    border-color: #e73229;
+    font-family: 'IntroFont';
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #e73229;
 }
 
-
-.txt-form-style{
-  font-family: 'Arial';
-  font-size: 0.8em;
-  color:#666666;
-  padding: 5px;
+.txt-form-style {
+    padding: 5px;
+    font-family: 'Arial';
+    font-size: 0.8em;
+    color: #666666;
 }
 
 .dropdown-txt {
-  font-family: arial, verdana;
-  font-size: 0.8em;
-  color:#000;
+    font-family: arial,verdana;
+    font-size: 0.8em;
+    color: #000;
 }
 
-.input-style{
-  font-family: 'Arial';
-  font-size: 0.8em;
-  color:#444444;
-  border:1px solid #666666;
-  width: 500px;
-  height: 50px;
+.input-style {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #666666;
+    font-family: 'Arial';
+    font-size: 0.8em;
+    color: #444444;
 }
 
-.input-style:hover{
-  font-family: 'Arial';
-  font-size: 0.8em;
-  color:#444444;
-border:1px solid #666666;
-  width: 500px;
-  height: 50px;
+.input-style:hover {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #666666;
+    font-family: 'Arial';
+    font-size: 0.8em;
+    color: #444444;
 }
 
-.input-style:focus{
-  font-family: 'Arial';
-  font-size: 0.8em;
-  color:#444444;
-border:1px solid #666666;
-  width: 500px;
-  height: 50px;
+.input-style:focus {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #666666;
+    font-family: 'Arial';
+    font-size: 0.8em;
+    color: #444444;
 }
 
-.modal-header, .modal-header h4, .close {
-      background-color: #00b6de;
-      color:#ffffff;
-      text-align: center;
-      font-size: 30px;
-      font-family: 'IntroFont';
+.modal-header,
+.modal-header h4,
+.close {
+    text-align: center;
+    font-family: 'IntroFont';
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #00b6de;
 }
 
 .modal-footer {
-      background-color: #ffffff;
+    background-color: #ffffff;
 }
 
-.input-marge{
-  margin-top: 10px;
-  margin-bottom: 10px;
+.input-marge {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* .squaredFour */
+
 .squaredFour {
-  width: 20px;
-  position: relative;
-  margin: 20px auto;
-  label {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+label {
+&:after {
+    content: '';
+    position: relative;
     position: absolute;
     top: 0;
+    top: 4px;
     left: 0;
-    background: #fcfff4;
-    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    left: 4px;
+    width: 20px;
+    width: 9px;
+    height: 20px;
+    height: 5px;
+    margin: 20px auto;
+    border: 3px solid #333;
     border-radius: 4px;
-    box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-    &:after {
-      content: '';
-      width: 9px;
-      height: 5px;
-      position: absolute;
-      top: 4px;
-      left: 4px;
-      border: 3px solid #333;
-      border-top: none;
-      border-right: none;
-      background: transparent;
-      opacity: 0;
-      transform: rotate(-45deg);
-    }
-    &:hover::after {
-      opacity: 0.5;
-    }
-  }
-  input[type=checkbox] {
-    visibility: hidden;
-    &:checked + label:after {
-      opacity: 1;
-    }
-  }
+    border-top: none;
+    border-right: none;
+    opacity: 0;
+    background: #fcfff4;
+    background: linear-gradient(top,#fcfff4 0,#dfe5d7 40%,#b3bead 100%);
+    background: transparent;
+    box-shadow: inset 0 1px 1px white,0 1px 3px rgba(0,0,0,0.5);
+    transform: rotate(-45deg);
+    cursor: pointer;
 }
+
+&:hover::after {
+    opacity: 0.5;
+}
+
+input[type=checkbox] {
+    &:checked + label:after {
+        visibility: hidden;
+        opacity: 1;
+    }
+}
+
+
 /* end .squaredFour */
 
-.rememberMe{
-  font-family: 'Arial';
-  font-size: 0.8em;
-   text-transform: uppercase;
-   color:#666666;
+.rememberMe {
+    text-transform: uppercase;
+    font-family: 'Arial';
+    font-size: 0.8em;
+    color: #666666;
 }
 
-.rememberMe:hover{
-  font-family: 'Arial';
-  font-size: 0.8em;
-   text-transform: uppercase;
-   color:#00b6de;
+.rememberMe:hover {
+    text-transform: uppercase;
+    font-family: 'Arial';
+    font-size: 0.8em;
+    color: #00b6de;
 }
 
-.register-class{
-  font-family: 'Arial';
-  color:#666666;
+.register-class {
+    font-family: 'Arial';
+    color: #666666;
 }
 
-.register-class a{
-  font-family: 'Arial';
-  color:#00b6de;
-  text-decoration: none;
+.register-class a {
+    text-decoration: none;
+    font-family: 'Arial';
+    color: #00b6de;
 }

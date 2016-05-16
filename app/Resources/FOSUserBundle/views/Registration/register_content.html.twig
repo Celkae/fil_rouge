@@ -6,32 +6,32 @@
     <p class="fieldset">
       <label class="image-replace email" for="signup-email">E-mail</label>
       {{ form_widget(form.email, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-email', 'placeholder': 'E-mail'}}) }}
-      <span class="error-message">Enter a valid email address!</span>
+      <span class="error-message">{{ 'modal.email_error'|trans }}</span>
     </p>
 
     <p class="fieldset">
       <label class="image-replace username" for="signup-username">Username</label>
-      {{ form_widget(form.username, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-username', 'placeholder': 'Username'}}) }}
-      <span class="error-message">Your username can only contain numeric and alphabetic symbols!</span>
+      {{ form_widget(form.username, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-username', 'placeholder': 'modal.username'|trans }}) }}
+      <span class="error-message">{{ 'modal.username_error'|trans }}</span>
     </p>
 
     <p class="fieldset">
       <label class="image-replace password" for="signup-password">Password</label>
-      {{ form_widget(form.plainPassword.first, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-password', 'placeholder': 'Password'}}) }}
-      <a href="#0" class="hide-password">Show</a>
-      <span class="error-message">Your password has to be at least 6 characters long!</span>
+      {{ form_widget(form.plainPassword.first, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-password', 'placeholder': 'modal.password'|trans }}) }}
+      <a href="#0" class="hide-password">{{ 'modal.show'|trans }}</a>
+      <span class="error-message">{{ 'modal.password_error'|trans }}</span>
     </p>
 
     <p class="fieldset">
       <label class="image-replace password" for="signup-password">Password verification</label>
-      {{ form_widget(form.plainPassword.second, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-password', 'placeholder': 'Password again'}}) }}
-      <a href="#0" class="hide-password">Show</a>
-      <span class="error-message">Your password has to be at least 6 characters long!</span>
+      {{ form_widget(form.plainPassword.second, {'attr': {'class': 'full-width has-padding has-border', 'id': 'signup-password', 'placeholder': 'modal.password_again'|trans }}) }}
+      <a href="#0" class="hide-password">{{ 'modal.show'|trans }}</a>
+      <span class="error-message">{{ 'modal.password_error'|trans }}</span>
     </p>
 
     <p class="fieldset">
       <label class="image-replace" for="picture">Avatar</label>
-      {{ form_widget(form.picture, {'attr': {'class': 'btn btn-info'}}) }}
+      {{ form_widget(form.picture, {'attr': {'class': 'btn'}}) }}
     </p>
 
     <p class="fieldset">

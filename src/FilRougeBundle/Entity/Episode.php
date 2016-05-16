@@ -55,9 +55,16 @@ class Episode
     /**
      * @var string
      *
-     * @ORM\Column(name="resume", type="string", length=255)
+     * @ORM\Column(name="resume_fr", type="string", length=1000, nullable=true)
      */
-    private $resume;
+    private $resumeFr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resume_en", type="string", length=1000, nullable=true)
+     */
+    private $resumeEn;
 
     /**
     * @ORM\Column(type="boolean")
@@ -73,6 +80,30 @@ class Episode
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+    * Set title
+    *
+    * @param string $title
+    *
+    * @return Episode
+    */
+    public function setTitle($title)
+    {
+      $this->title = $title;
+
+      return $this;
+    }
+
+    /**
+    * Get title
+    *
+    * @return string
+    */
+    public function getTitle()
+    {
+      return $this->title;
     }
 
     /**
@@ -148,56 +179,51 @@ class Episode
     }
 
     /**
-     * Set title
+     * Set resumeFr
      *
-     * @param string $title
+     * @param string $resumeFr
      *
      * @return Episode
      */
-    public function setTitle($title)
+    public function setResumeFr($resumeFr)
     {
-        $this->title = $title;
+        $this->resumeFr = $resumeFr;
 
         return $this;
     }
 
     /**
-     * Get title
+     * Get resumeFr
      *
      * @return string
      */
-    public function getTitle()
+    public function getResumeFr()
     {
-        return $this->title;
+        return $this->resumeFr;
     }
 
     /**
-     * Set resume
-     *
-     * @param string $resume
-     *
-     * @return Episode
-     */
-    public function setResume($resume)
+    * Set resumeEn
+    *
+    * @param string $resumeEn
+    *
+    * @return Episode
+    */
+    public function setResumeEn($resumeEn)
     {
-        $this->resume = $resume;
+      $this->resumeEn = $resumeEn;
 
-        return $this;
+      return $this;
     }
 
     /**
-     * Get resume
-     *
-     * @return string
-     */
-    public function getResume()
+    * Get resumeEn
+    *
+    * @return string
+    */
+    public function getResumeEn()
     {
-        return $this->resume;
-    }
-
-    public function __toString()
-    {
-      return $this->getTitle();
+      return $this->resumeEn;
     }
 
     /**
@@ -218,5 +244,10 @@ class Episode
     public function getModerated()
     {
       return $this->moderated;
+    }
+
+    public function __toString()
+    {
+      return $this->getTitle();
     }
 }

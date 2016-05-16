@@ -4,8 +4,8 @@
 {% endblock %}
 
 {% block list %}
-<div class="container">
-  <div class="p20p30p white">
+<div class="container p20p30p white">
+  <div class="row">
     <form action="/search/results" method="get" class="ui-widget form-inline">
       <div id="search_bar">
         <label for="tags"></label>
@@ -13,41 +13,28 @@
         <button type="submit" class="col-md-4 col-xs-2 search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
       </div>
     </form>
-    <div class="col-md-12">
-      <h2>{{ 'result.request'|trans }}: <i>{{ q }}</i></h2>
-        {% for serie in series %}
-          <a class="" href="{{ path('serie_show', { 'id': serie.id }) }}">
-            <div class="container col-lg-2 col-sm-3 col-xs-4">
-                <h2 class="titre-serie">{{ serie.title }}</h2>
-                <img class="img-responsive" src="{{ asset(serie.getPicture()) }}" alt="">
-            </div>
-          </a>
-        {% endfor %}
-
-        {% for actor in actors %}
-          {% if actor %}
-          <a class="" href="{{ path('serie_show', { 'id': actor.id }) }}">
-            <div class="container col-lg-2 col-sm-3 col-xs-4">
-              <h2 class="titre-serie">{{ actor.title }}</h2>
-              <img class="img-responsive" src="{{ asset(actor.getPicture()) }}" alt="">
-            </div>
-          </a>
-          {% endif %}
-        {% endfor %}
-
-        {% for episode in episodes %}
-          {% if episode.serie %}
-          <a class="" href="{{ path('episode_show', { 'id': episode.id }) }}">
-            <div class="container col-lg-2 col-sm-3 col-xs-4">
-                <h2 class="titre-serie">{{ episode.serie.title }}</h2><h3>{{ episode.title }}</h3>
-                <img class="img-responsive" src="{{ asset(episode.serie.getPicture()) }}" alt="">
-            </div>
-          </a>
-          {% endif %}
-        {% endfor %}
-
+  </div>
+  <div class="row">
+  {% for s in pagination %}
+    <a class="" href="{{ path('serie_show', { 'id': s.id }) }}">
+      <div class="col-lg-3 col-sm-4 col-xs-6">
+        {% if s.picture is defined %}
+          <h2 class="series-title up-case">{{ s.title }}</h2>
+          <img class="img-responsive" src="{{ asset(s.getPicture()) }}" alt="">
+        {% else %}
+          <h2 class="series-title up-case">{{ s.serie.title }}</h2>
+          <img class="img-responsive" src="{{ asset(s.serie.getPicture()) }}" alt="">
+          <h4 class="series-title">{{ s.title }}</h4>
+        {% endif %}
       </div>
+    </a>
+  {% endfor %}
+  </div>
+  <div class="row mt30p">
+    <div class="text-center">
+      {{ knp_pagination_render(pagination) }}
     </div>
   </div>
+</div>
 
 {% endblock %}

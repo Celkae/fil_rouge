@@ -17,13 +17,13 @@
   <main>
     {% block carousel %}{% endblock %}
     <div class="container-fluid mt30p">
-      <aside class="col-md-3 visible-md visible-lg hidden-sm">
+      <aside class="col-md-3 col-xs-12 mb20p">
         {% block panel %}{% endblock %}
       </aside>
-      
+
       {% block list %}{% endblock %}
 
-      <div class="col-md-6 white">
+      <div class="col-md-6 col-xs-12 mb20p white">
         {% block body %}{% endblock %}
         {% block fos_user_content %}
         {% endblock %}
@@ -31,7 +31,7 @@
         {% block javascripts %}{% endblock %}
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 col-xs-12">
         {% block side_content %}{% endblock %}
       </div>
     </div>

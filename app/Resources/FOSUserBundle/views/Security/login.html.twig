@@ -11,13 +11,13 @@
       <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
       <p class="fieldset">
         <label class="image-replace email" for="username">{{ 'security.login.username'|trans }}</label>
-        <input class="full-width has-padding has-border" name="_username" id="signin-email" placeholder="E-mail or Username" required="required">
+        <input class="full-width has-padding has-border" name="_username" id="signin-email" placeholder="{{ 'modal.username_email'|trans }}" required="required">
       </p>
 
       <p class="fieldset">
         <label class="image-replace password" for="password">{{ 'security.login.password'|trans }}</label>
-        <input class="full-width has-padding has-border" name="_password" id="signin-password" type="password"  placeholder="Password" required="required">
-        <a href="#0" class="hide-password">Show</a>
+        <input class="full-width has-padding has-border" name="_password" id="signin-password" type="password"  placeholder="{{ 'modal.password'|trans }}" required="required">
+        <a href="#0" class="hide-password">{{ 'modal.show'|trans }}</a>
       </p>
 
       <p class="fieldset">
@@ -28,7 +28,7 @@
       <p class="fieldset">
         <input class="full-width" type="submit" value="Login">
       </p>
-      <p class="form-bottom-message"><a href="#0">Forgot your password?</a></p>
+      <p class="form-bottom-message"><a href="#0">{{ 'modal.password_forgotten'|trans }}</a></p>
     </form>
   </div>
 {% endblock fos_user_content %}

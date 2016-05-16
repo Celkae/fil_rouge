@@ -13,7 +13,7 @@ use FilRougeBundle\Form\EpisodeType;
 /**
  * Episode controller.
  *
- * @Route("/episode")
+ * @Route("/{_locale}/episode", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"})
  */
 class EpisodeController extends Controller
 {
@@ -75,10 +75,11 @@ class EpisodeController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $episode->setModerated(false);
             $em->persist($episode);
             $em->flush();
 
-            return $this->redirectToRoute('episode_edit', array('id' => $episode->getId()));
+            return $this->redirectToRoute('serie_show', array('id' => $episode->getSerie()->getId()));
         }
 
         return $this->render('episode/edit.html.twig', array(

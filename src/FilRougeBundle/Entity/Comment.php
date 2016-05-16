@@ -49,7 +49,7 @@ class Comment extends BaseComment implements SignedCommentInterface, VotableComm
     * @ORM\Column(type="boolean")
     * @var boolean
     */
-    protected $moderated = false;
+    protected $moderated = true;
 
     public function setAuthor(UserInterface $author)
     {
@@ -122,4 +122,5 @@ class Comment extends BaseComment implements SignedCommentInterface, VotableComm
     {
       return $this->moderated;
     }
+
 }

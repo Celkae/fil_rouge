@@ -36,9 +36,16 @@ class Serie
     /**
      * @var string
      *
-     * @ORM\Column(name="resume", type="string", length=255)
+     * @ORM\Column(name="resume_fr", type="string", length=1000, nullable=true)
      */
-    private $resume;
+    private $resumeFr;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="resume_en", type="string", length=1000, nullable=true)
+     */
+    private $resumeEn;
 
     /**
      * @var string
@@ -132,27 +139,51 @@ class Serie
     }
 
     /**
-     * Set resume
+     * Set resumeFr
      *
-     * @param string $resume
+     * @param string $resumeFr
      *
-     * @return Serie
+     * @return Episode
      */
-    public function setResume($resume)
+    public function setResumeFr($resumeFr)
     {
-        $this->resume = $resume;
+        $this->resumeFr = $resumeFr;
 
         return $this;
     }
 
     /**
-     * Get resume
+     * Get resumeFr
      *
      * @return string
      */
-    public function getResume()
+    public function getResumeFr()
     {
-        return $this->resume;
+        return $this->resumeFr;
+    }
+
+    /**
+    * Set resumeEn
+    *
+    * @param string $resumeEn
+    *
+    * @return Episode
+    */
+    public function setResumeEn($resumeEn)
+    {
+      $this->resumeEn = $resumeEn;
+
+      return $this;
+    }
+
+    /**
+    * Get resumeEn
+    *
+    * @return string
+    */
+    public function getResumeEn()
+    {
+      return $this->resumeEn;
     }
 
     /**

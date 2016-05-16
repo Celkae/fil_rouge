@@ -7,3 +7,12 @@ services:
         arguments: [ @fos_comment.manager.vote.default, @security.context ]
         tags:
             - { name: kernel.event_subscriber }
+    fil_rouge.comment_service:
+        class: FilRougeBundle\Services\CommentService
+        arguments: [@doctrine.orm.entity_manager]
+    fil_rouge.top_service:
+        class: FilRougeBundle\Services\TopService
+        arguments: [@doctrine.orm.entity_manager]
+    fil_rouge.activity_service:
+        class: FilRougeBundle\Services\ActivityService
+        arguments: [@doctrine.orm.entity_manager]

@@ -6,7 +6,7 @@
       <a class="introfont blue" href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a data-toggle="tab" href="{{ path('serie_index') }}">{{ 'serie.show.back_list'|trans }}</a>
+      <a data-toggle="tab" href="{{ path('serie_index') }}" class="grey-txt">{{ 'serie.show.back_list'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
@@ -14,7 +14,7 @@
 {% block side_content %}
   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
   <div class="panel panel-default green">
-    <div class="panel-heading"><h5 class="introfont">Administration</h5></div>
+    <div class="panel-heading"><h5 class="introfont">{{ 'administration_menu'|trans }}</h5></div>
     <div class="panel-body white">
       <div class="col-md-12">
         <div class="row grey-txt">
@@ -39,18 +39,22 @@
 {% block body %}
 <div class="p20p30p">
   <div class="row"><!-- contenu -->
-    <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="col-sm-4 col-xs-12 mb20p">
       <img src="{{ asset(serie.getPicture()) }}" class="poster" />
     </div>
-    <div class="col-xs-12  col-sm-4 col-md-6">
+    <div class="col-sm-2 col-xs-12 flt-r">
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+      <button id="follow" class="btn btn-sm orange no-border"></button>
+      {% endif %}
+    </div>
+    <div class="col-sm-6 col-xs-12">
       <h1 class="up-case grey-txt">{{ serie.title }}</h1>
       {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id, contentType: 'Serie' }) ) }} <!-- Star Rating ! -->
       <h3 class="grey-txt">Synopsis</h3>
-      <p>{{ serie.resume }}</p>
-    </div>
-    <div class="col-xs-12 col-md-2 text-right">
-      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <button id="follow" class="btn btn-sm orange no-border"></button>
+      {% if app.request.getLocale() == 'fr' %}
+        <p>{{ serie.resumeFr }}</p>
+      {% else %}
+        <p>{{ serie.resumeEn }}</p>
       {% endif %}
     </div>
   </div>

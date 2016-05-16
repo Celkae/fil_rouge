@@ -14,6 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\Entity(repositoryClass="FilRougeBundle\Repository\UserRepository")
  */
 class User extends BaseUser implements ParticipantInterface
 {
@@ -70,7 +71,7 @@ class User extends BaseUser implements ParticipantInterface
      * @ORM\Column(type="boolean")
      * @var boolean
      */
-    protected $moderated = false;
+    protected $moderated = true;
 
     public function __construct()
     {

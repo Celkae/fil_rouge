@@ -10,12 +10,25 @@ namespace FilRougeBundle\Repository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
-  public function getLastFive()
+    public function getLastFive()
     {
       $qb = $this->createQueryBuilder('c');
       $qb ->select('c')
           ->orderBy('c.createdAt', 'Desc')
           ->setMaxResults(5)
+        ;
+      $results = $qb->getQuery()->getResult();
+      return $results;
+    }
+
+    public function getUserLastFive($user)
+    {
+      $qb = $this->createQueryBuilder('c');
+      $qb ->select('c')
+          ->where('c.author = :user')
+          ->orderBy('c.createdAt', 'Desc')
+          ->setMaxResults(5)
+          ->setParameter('user', $user)
         ;
       $results = $qb->getQuery()->getResult();
       return $results;

@@ -69,4 +69,20 @@ class SerieRepository extends \Doctrine\ORM\EntityRepository
     $results = $qb->getQuery()->getResult();
     return $results;
   }
+
+  public function getTopSeries()
+  {
+    $qb = $this->createQueryBuilder('s');
+    $qb ->select('s')
+        //->from('IdeatoStarRatingBundle:Rating', 'r')
+        ->leftJoin('IdeatoStarRatingBundle:Rating', 'r',
+          \Doctrine\ORM\Query\Expr\Join::WITH,
+          'r.contentId = s.id')
+        ->where('r.contentType LIKE :type')
+        ->orderBy('r.average')
+        ->setParameter('type', '%erie')
+      ;
+    $results = $qb->getQuery()->getResult();
+    return $results;
+  }
 }
