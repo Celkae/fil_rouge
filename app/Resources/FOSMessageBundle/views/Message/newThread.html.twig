@@ -29,7 +29,7 @@
       {{ form_widget(form.subject, {'attr': {'class': 'form-control mb20p', 'placeholder': 'Sujet'}}) }}
       {{ form_widget(form.body, {'attr': {'class': 'form-control textarea mb20p', 'placeholder': 'Message'}}) }}
 
-      <input type="submit" class="btn blue mb20p"/>
+      <button type="submit" class="btn blue mb20p">{% trans from 'FOSMessageBundle' %}send{% endtrans %}</button>
   </form>
 
 </div>

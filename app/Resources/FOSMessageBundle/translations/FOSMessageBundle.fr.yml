@@ -1,6 +1,7 @@
 messenger:      Messagerie
 inbox:          Boîte de réception
 sent:           Envoyés
+send:           Envoyer
 deleted:        Supprimés
 send_new:       Nouveau message
 search:         Rechercher

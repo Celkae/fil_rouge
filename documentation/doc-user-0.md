@@ -6,70 +6,74 @@ Manuel d'utilisation
 
 1. Cliquer en haut à droite sur Inscription, une fenêtre s'ouvre.
 
-2. Entrer Votre nom (ou pseudonyme), votre mot de passe (deux fois), vous aurez aussi la possibilité d'ajouter une photo (ou avatar).
+2. Entrez votre nom (ou pseudonyme), votre mot de passe (deux fois), vous aurez aussi la possibilité d'ajouter une image.
 
-3. Valider, une page s'ouvre vous indiquant que que tout s'est bien deroulé.
+3. Validez, une page s'ouvre vous indiquant que tout s'est bien deroulé.
 
-**en cas d'echec, un nouveau formulaire s'ouvre et vous indique le problème, dans ce cas recommencez à partir de l'étape 2**
+**en cas d'échec, un nouveau formulaire s'ouvre et vous indique le problème, dans ce cas recommencez à partir de l'étape 2**
 
 ## Connexion
 
-1. Cliquer en haut à droite sur Connexion, une fenêtre s'ouvre.
+1. Cliquez en haut à droite sur Connexion, une fenêtre s'ouvre.
 
-2. Entrer Votre nom (ou pseudonyme) et votre mot de passe.
+2. Entrez votre nom (ou pseudonyme) et votre mot de passe.
 
-3. Valider, la page d'accueil devrait s'afficher.
+3. Validez, la page d'accueil devrait s'afficher.
 
-**en cas d'echec, un nouveau formulaire s'ouvre et vous indique le problème, dans ce cas recommencez à partir de l'étape 2**
+**en cas d'échec, un nouveau formulaire s'ouvre et vous indique le problème, dans ce cas recommencez à partir de l'étape 2**
 
 ## Recherche
 
-1. Cliquer en haut à droite sur l'icone *loupe*, un bandeau apparaît.
+1. Cliquez en haut à droite sur l'icône *loupe*, un bandeau apparaît.
 
-2. Sur ce bandeau, taper un mot clé puis appuyer sur la touche *Entrer*.
+2. Sur ce bandeau, taper un mot clé puis appuyez sur la touche *Entrer*.
 
-3. Un page de resultats, si aucun resultat n'apparaît, affiner votre recherche.
+3. Une page de résultats s'affiche, si aucun résultat n'apparaît, affinez votre recherche.
 
 ## Langage
 
-Pour passer le site en langue anglaise, un liens *English version* est présent en bas de page.
-Pour repasser le site en français, un liens *Version française* sera aussi présent en bas de page.
+Pour passer le site en anglais, cliquez sur le lien *English version* présent en bas de page.
+Pour repasser le site en français, cliquez sur le lien *Version française* présent au même endroit.
 
 ## Ajouter une serie
 
-1. Cliquer sur *Ajouter une serie* dans le menu de navigation en haut, un formulaire apparaît.
+1. Cliquez sur *Ajouter une série* dans le menu de navigation en haut, un formulaire apparaît.
 
-2. Si le site est en version française, le synopsis doit être écrit en français, pour l'éditer en anglais il suffit de passer le site en anglais comme indiquer dans la rubrique *Langage*, aussi l'affichage du synopsis sera affiché la activé. // à Recevoir
+2. Si le site est en version française, le synopsis doit être rédigé en français, pour l'éditer en anglais il suffit de passer le site en anglais comme indiqué dans la rubrique *Langage*, ainsi le formulaire sera affiché dans la langue activée. 
 
-3. Cliquer sur créer après avoir bien rempli les champs.
+3. Cliquez sur créer après avoir bien rempli les champs.
 
-## Acceder à la fiche d'une serie
+## Accéder à la fiche d'une série
 
-Pour acceder à la fiche d'une serie, plusieurs moyens sont diposibles.
+Pour accéder à la fiche d'une série, plusieurs moyens sont disponibles.
 
-1. Le plus façile étant en cliquant sur *Serie* dans la barre de navigation principale en haut de page.
+1. Le plus facile étant en cliquant sur *Série* dans la barre de navigation principale en haut de page.
 
 2. Par la recherche (voir la rubrique *recherche*).
 
-3. Par le top en cliquant sur *top* dans la barre de navigation principale en haut de page où les series seront trier par popularité (les 4 les plus populaires sont visible sur la page d'accueil).
+3. Par le top en cliquant sur *top* dans la barre de navigation principale en haut de page où les séries seront triées par popularité (les 4 plus populaires sont visibles sur la page d'accueil).
 
-4. Vous avez la possibilité de Notez la serie, en cliquant sur les étoiles (Note faible à gauche et forte à droite), de la commenter grâce au formulaire en bas de page et de *Liker* les commentaires des autres, les episodes sont afficher par saison afficher en onglet.
+4. Vous avez la possibilité de noter la série, en cliquant sur les étoiles (Note faible à gauche et forte à droite), de la commenter grâce au formulaire en bas de page et de *Liker* les commentaires des autres, les épisodes sont affichés par saison. Onglet afficher
 
 ## Ajouter un épisode
 
-1. Se rendre sur la serie concernée (voir la rubrique *Acceder à la fiche d'une serie*).
+1. Se rendre sur la série concernée (voir la rubrique *Accéder à la fiche d'une série*).
 
-2. Dans Le menu à droite, Cliquer sur *Ajouter un épisodes*, un formulaire apparaît.
+2. Dans Le menu à droite, Cliquer sur *Ajouter un épisode*, un formulaire apparaît.
 
-3. Comme pour éditer une sairie, si le site est en version française, le synopsis doit être écrit en français, pour l'éditer en anglais il suffit de passer le site en anglais comme indiquer dans la rubrique *Langage*, aussi l'affichage du synopsis sera affiché la activé. // à Recevoir
+3. Comme pour éditer une série, si le site est en version française, le synopsis doit être écrit en français, pour l'éditer en anglais il suffit de passer le site en anglais comme indiqué dans la rubrique *Langage*, ainsi le synopsis sera affiché dans la langue activée.
 
-4. Cliquer sur créer après avoir bien rempli les champs.
+4. Cliquez sur créer après avoir rempli les champs.
 
 ## Messagerie
 
-Un systeme de Messagerie est disponible en haut de page à droite (Icone enveloppe),
+Un systeme de Messagerie est disponible en haut de page à droite (Icône enveloppe),
 
-  1. Cliquer sur l'icone enveloppe, un menu deroulant apparaît, celui-ci propose d'editer un nouveau message et d'acceder à la boite de reception.
+  1. Cliquer sur l'icône enveloppe, un menu déroulant apparaît, celui-ci propose d'éditer un nouveau message et d'accéder à la boite de réception.
+
+  2. Pour envoyer un message, saisissez le pseudonyme de votre destinataire, l'objet de votre message et votre texte, cliquez sur *envoyer*.
+
+  3. Vous pouvez consulter les messages reçus en cliquant sur l'onglet *boîte de réception*, cliquez sur le message à relire.
 
 ## upgrader un utilisateur
 
