@@ -37,15 +37,21 @@ Des **DataFixtures** peuvent être installer facilement.
 Pour mettre votre projet Symfony en production, pensez à donner les bons droits utilisateur aux dossier cache et logs
 
 `$ sudo chmod -R 777 app/cache/`
+
 `$ sudo chmod -R 777 app/logs/`
+
 `$ sudo chmod -R 775 ../fil_rouge`
+
 `$ sudo chown -R www-data:www-data ../fil_rouge`
 
 Puis lancer les commandes suivantes:
 
 `$ php app/console cache:clear`
+
 `$ php app/console cache:clear --env=prod --no-debug`
+
 `$ php app/console assets:install web`
+
 `$ php app/console assetic:dump --env=prod --no-debug`
 
 Et enfin paramétrer votre serveur web.
