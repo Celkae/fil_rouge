@@ -14,7 +14,7 @@
 {% block body %}
 
 <div class="p20p30p">
-  <h1>{{ 'serie.new.new'|trans }}</h1>
+  <h2 class="mb20p grey-txt up-case">{{ 'serie.new.new'|trans }}</h2>
   {{ form_start(form, {'method': 'post', 'action': path('serie_new'), 'attr': {'class': 'form'}}) }}
     <div class="form-group">
       <label for="title" class="control-label col-sm-2">{{ 'serie.new.title'|trans }}</label>

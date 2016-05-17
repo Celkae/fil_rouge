@@ -13,7 +13,7 @@
   {% for s in pagination %}
     <a class="" href="{{ path('serie_show', { 'id': s.id }) }}">
       <div class="col-lg-3 col-sm-4 col-xs-6">
-        <h2 class="series-title up-case">{{ s.title }}</h2>
+        <h3 class="series-title up-case">{{ s.title }}</h3>
         <img class="img-responsive" src="{{ asset(s.getPicture()) }}" alt="">
       </div>
     </a>

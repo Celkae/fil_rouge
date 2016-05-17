@@ -1,26 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block panel %}
-  <ul class="nav nav-pills nav-stacked mt20p">
+  <ul class="nav nav-pills nav-stacked white">
     <li class="active">
-      <a href="/">{{ 'serie.show.home'|trans }}</a>
+      <a class="introfont blue" href="/">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
+      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}" class="grey-txt">{{ 'episode.show.back_serie'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
 
 {% block side_content %}
   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-  <div class="panel panel-default">
-    <div class="panel-heading">{{ 'administration_menu'|trans }}</div>
-    <div class="panel-body">
+  <div class="panel panel-default green">
+    <div class="panel-heading"><h5 class="introfont">{{ 'administration_menu'|trans }}</h5></div>
+    <div class="panel-body white">
       <div class="col-md-12">
-        <div class="row">
+        <div class="row grey-txt">
           <a href="{{ path('episode_edit', { 'id': episode.id }) }}">{{ 'episode.edit.edit'|trans }}</a>
         </div>
-        <div class="row">
+        <div class="row grey-txt">
           <a href="{{ path('episode_new', { 'id': episode.serie.id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
         </div>
         <div class="row">
@@ -39,8 +39,8 @@
 {% block body %}
   <div class="row p20p30p">
     <div class="col-md-8">
-      <h2><a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ episode.serie }}</a>, <small>{{ 'serie.show.season'|trans }} {{ episode.season }}, Episode {{ episode.episodeNumber }}</small></h2>
-      <h3>{{ episode.title }}</h3>
+      <h2><a class="grey-txt up-case" href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ episode.serie }}</a>, <small>{{ 'serie.show.season'|trans }} {{ episode.season }}, Episode {{ episode.episodeNumber }}</small></h2>
+      <h3 class="">{{ episode.title }}</h3>
       {% if app.request.getLocale() == 'fr' %}
         <p>{{ episode.resumeFr }}</p>
       {% else %}

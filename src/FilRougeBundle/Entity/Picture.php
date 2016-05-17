@@ -112,7 +112,7 @@ class Picture
 
     public function __toString()
     {
-      return '\/pictures/'.$this->getImageName();
+      return '/pictures/'.$this->getImageName();
     }
 
     /**

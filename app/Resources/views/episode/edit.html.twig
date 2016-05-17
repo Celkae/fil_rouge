@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block panel %} <!-- surcharge du block panel gauche -->
-  <ul class="nav nav-pills nav-stacked mt22p">
+  <ul class="nav nav-pills nav-stacked white">
     <li class="active">
-      <a href="/">{{ 'serie.show.home'|trans }}</a>
+      <a href="/" class="introfont blue">{{ 'serie.show.home'|trans }}</a>
     </li>
     <li>
-      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}">{{ 'episode.show.back_serie'|trans }}</a>
+      <a href="{{ path('serie_show', { 'id': episode.serie.id }) }}"class="grey-txt">{{ 'episode.show.back_serie'|trans }}</a>
     </li>
   </ul>
 {% endblock %}
 
 {% block body %}
-  <h1>{{ 'episode.edit.edit'|trans }}</h1>
+  <h2 class="mb20p grey-txt up-case">{{ 'episode.edit.edit'|trans }}</h2>
   <hr>
   {{ form_start(edit_form, {'attr': {'class': 'form'}}) }}
   <div class="form-group">

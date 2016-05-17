@@ -21,7 +21,7 @@
   <h2 class="up-case lght-grey-txt mb20p">{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</h2>
 
   <form action="{{ url('fos_message_thread_new') }}" method="post" class="form">
-    {% if user_name %}
+    {% if user_name is defined %}
       {{ form_widget(form.recipient, {'attr': {'class': 'form-control mb20p', 'placeholder': 'Pseudonyme du destinataire', 'value': user_name }}) }}
     {% else %}
       {{ form_widget(form.recipient, {'attr': {'class': 'form-control mb20p', 'placeholder': 'Pseudonyme du destinataire' }}) }}
