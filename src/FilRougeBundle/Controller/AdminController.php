@@ -15,14 +15,14 @@ use FilRougeBundle\Entity\Comment;
 /**
  * Admin controller.
  *
- * @Route("/{_locale}/admin", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"})
+ * @Route("/admin")
  */
 class AdminController extends Controller
 {
     /**
      * Lists all admin entities.
      *
-     * @Route("/", name="admin_index")
+     * @Route("/{_locale}", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"}, name="admin_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -45,7 +45,7 @@ class AdminController extends Controller
     /**
      * Lists all admin entities.
      *
-     * @Route("/upgrade", name="search_admin_index")
+     * @Route("/upgrade, name="search_admin_index")
      * @Method("GET")
      */
     public function searchAction(Request $request)

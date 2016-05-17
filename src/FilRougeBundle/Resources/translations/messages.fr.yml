@@ -58,7 +58,7 @@ index:
     on: 'sur'
 admin:
     reported_user: 'utilisateurs signalés'
-    lock: 'Lloquer'
+    lock: 'Bloquer'
     series_to_moderate: 'Séries à moderer'
     episodes_to_moderate: 'Épisodes à moderer'
     validate: 'Validate'
