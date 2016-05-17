@@ -21,7 +21,7 @@
                     {% if comment is fos_comment_in_state(constant('FOS\\CommentBundle\\Model\\CommentInterface::STATE_DELETED')) %}
                 {% trans from 'FOSCommentBundle' %}fos_comment_comment_deleted{% endtrans %}
                     {% else %}
-                      <a class="red-txt" href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">
+                      <a class="red-txt" href="{{ path('user_profile', { 'id': comment.author.getId() }) }}">
                         {{ comment.authorName }}
                       </a>
                     {% endif %}
