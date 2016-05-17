@@ -758,3 +758,114 @@
   };
 
 })(jQuery);
+
+jQuery(function($){
+    $('.isr-rate').raty({
+        path: '/bundles/ideatostarrating/images/',
+        score: function() {
+            return $(this).data('score');
+        },
+        click: function(score, evt) {
+            var t = $(this);
+            var url = t.data('route');
+            var data = {
+                contentId: t.data('contentid'),
+                contentType: t.data('contenttype'),
+                score: score
+            };
+            t.raty('readOnly', true);
+
+            $.post(url, data)
+                .done(function(result){
+                    t.raty('score', result);
+                    t.trigger('isr-rated', { score: score, average: result });
+                })
+                .fail(function(){
+                    $('#msg').html('Please log in to vote');
+                    t.raty('readOnly', false);
+                });
+        }
+    });
+});
+
+  /**
+  * is Followed ? Ajax request
+  *
+  * @data : serie id
+  */
+$.ajax(
+  {
+    url:"{{ path('ajax_isfollowed') }}",
+    data: { id: {{ serie.id}} },
+    success: function(data){
+      if (data) {
+        $("#follow").html(data);
+      }
+    },
+    error: function(error){
+      console.log(error);
+    }
+  }
+);
+
+$('#follow').click( function()
+{
+  /**
+  * Follow Ajax request
+  *
+  * @data : serie id
+  */
+  $.ajax(
+    {
+      url:"{{ path('ajax_follow') }}",
+      data: { id: {{ serie.id}} },
+      success: function(data){
+        $("#follow").html(data);
+      },
+      error: function(error){
+        console.log(error);
+      }
+    }
+  );
+});
+
+  /**
+   * is seen ? Ajax request
+   *
+   * @data : seen id
+   */
+$.ajax(
+  {
+    url:"{{ path('ajax_isseen') }}",
+    data: { id: {{ episode.id}} },
+    success: function(data){
+      if (data) {
+        $("#seen").html(data);
+      }
+    },
+    error: function(error){
+      console.log(error);
+    }
+  }
+);
+
+ $('#seen').click( function()
+ {
+   /**
+    * seen Ajax request
+    *
+    * @data : episode id
+    */
+   $.ajax(
+     {
+       url:"{{ path('ajax_seen') }}",
+       data: { id: {{ episode.id}} },
+       success: function(data){
+          $("#seen").html(data);
+       },
+       error: function(error){
+         console.log(error);
+       }
+     }
+   );
+ });

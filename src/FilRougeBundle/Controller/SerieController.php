@@ -26,7 +26,7 @@ class SerieController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $query = $em->getRepository('FilRougeBundle:Serie')->findAll();
+        $query = $em->getRepository('FilRougeBundle:Serie')->findByModerated(true);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
