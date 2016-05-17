@@ -12,10 +12,6 @@
 {% endblock %}
 
 {% block side_content %}
-{% stylesheets
-    "@IdeatoStarRatingBundle/Resources/public/jquery.raty.css" filter="cssrewrite" %}
-<link rel="stylesheet" href="{{ asset_url }}" />
-{% endstylesheets %}
   {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
   <div class="panel panel-default green">
     <div class="panel-heading"><h5 class="introfont">{{ 'administration_menu'|trans }}</h5></div>
