@@ -81,6 +81,9 @@ fos_user:
     registration:
         form:
             type: FilRougeBundle\Form\RegistrationType
+    profile:
+        form:
+            type: FilRougeBundle\Form\ProfileType
 
 #FOS Comment
 fos_comment:

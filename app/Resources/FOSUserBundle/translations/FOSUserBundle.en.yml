@@ -33,10 +33,13 @@ profile:
     show:
         home: 'home'
         send_message: 'Send a message'
-        username: Username
-        email: Email
+        username: 'Username'
+        email: 'Email'
+        edit: 'Edit my profile'
     edit:
-        submit: Update
+        submit: 'Update'
+        back: 'Back to my profile'
+        current_password: 'Current password'
     flash:
         updated: 'The profile has been updated'
 

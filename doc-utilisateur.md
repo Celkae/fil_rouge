@@ -39,7 +39,7 @@ Pour repasser le site en français, cliquez sur le lien *Version française* pr�
 
 1. Cliquez sur *Ajouter une série* dans le menu de navigation en haut, un formulaire apparaît.
 
-2. Si le site est en version française, le synopsis doit être rédigé en français, pour l'éditer en anglais il suffit de passer le site en anglais comme indiqué dans la rubrique *Langage*, ainsi le formulaire sera affiché dans la langue activée. 
+2. Si le site est en version française, le synopsis doit être rédigé en français, pour l'éditer en anglais il suffit de passer le site en anglais comme indiqué dans la rubrique *Langage*, ainsi le formulaire sera affiché dans la langue activée.
 
 3. Cliquez sur créer après avoir bien rempli les champs.
 
@@ -75,6 +75,19 @@ Un systeme de Messagerie est disponible en haut de page à droite (Icône envelo
 
   3. Vous pouvez consulter les messages reçus en cliquant sur l'onglet *boîte de réception*, cliquez sur le message à relire.
 
-## upgrader un utilisateur
+## Moderation
+
+Un administrateur peut participer à la moderation des séries, épisodes, commentaires et utilisateurs. En effet une interface est disponibles
+en cliquant sur l'icone utilisateur en haut à droite, puis *Administration* (Celui-ci apparaîtra que si l'utilisateur est moderateur).
+Dès qu'une serie ou un épisode est moderé, ils apparaîtront dans cette interface pour éventuellement être validés avant d'être affichés.
+Dès qu'un utilisateur ou commentaire est signalé, pour les bouttons de signalement se trouvant par exemple sur les commentaires, il aparaîtra dans cette interface.
+
+## Upgrader un utilisateur
+
+  1. Se rendre à http://monsite/admin/upgrader
+
+  2. Rechecher l'utilisateur concerné grâce au formualire
+
+  3. Une fois validé et trouvé, un boutton apparaît, cliquer dessus pour passer l'utilisateur au statut de moderateur
 
 (il doit redemarrer sa session !)

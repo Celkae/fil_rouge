@@ -33,8 +33,11 @@ profile:
         send_message: 'Envoyer un message'
         username: 'Nom d''utilisateur'
         email: 'Adresse e-mail'
+        edit: 'Éditer mon profile'
     edit:
         submit: 'Mettre à jour'
+        back: 'Retour au profile'
+        current_password: 'Mot de passe actuel'
     flash:
         updated: 'Le profil a été mis à jour'
 change_password:

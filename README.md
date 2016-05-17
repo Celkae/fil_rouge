@@ -5,13 +5,13 @@ Red Line Project
 A Symfony project started on April 1(:-), 2016.
 Developpeurs web : Manu et Alexandra.
 
-### [Cahier des charges](https://github.com/Celkae/fil_rouge/blob/master/cahier_des_charges.pdf)
+### [Cahier des charges](./cahier_des_charges.pdf)
 
 
-### [Manuel d'utilisation](https://github.com/Celkae/fil_rouge/blob/master/doc/user-doc-0.md)
+### [Manuel d'utilisation](./doc-utilisateur.md)
 
 
-## Installation:
+## Installation et testes:
 
 **Nécessite Symfony2 et Composer.**
 
@@ -23,8 +23,6 @@ Developpeurs web : Manu et Alexandra.
 
 `$ app/console server:run`
 
-## Testes
-
 Un test unitaire est disponible dans *src/FilRougeBundle/Util/Test.php*.
 Il consiste à Tester des valeurs negatives entrées sur les methodes de n'importe quelle entité.
 
@@ -33,6 +31,24 @@ Il consiste à Tester des valeurs negatives entrées sur les methodes de n'impor
 Des **DataFixtures** peuvent être installer facilement.
 
 `$ php app/console doctrine:fixtures:load`
+
+### Mise en production
+
+Pour mettre votre projet Symfony en production, pensez à donner les bons droits utilisateur aux dossier cache et logs
+
+`$ sudo chmod -R 777 app/cache/`
+`$ sudo chmod -R 777 app/logs/`
+`$ sudo chmod -R 775 ../fil_rouge`
+`$ sudo chown -R www-data:www-data ../fil_rouge`
+
+Puis lancer les commandes suivantes:
+
+`$ php app/console cache:clear`
+`$ php app/console cache:clear --env=prod --no-debug`
+`$ php app/console assets:install web`
+`$ php app/console assetic:dump --env=prod --no-debug`
+
+Et enfin paramétrer votre serveur web.
 
 ## Fonctionnalités mises en place
 

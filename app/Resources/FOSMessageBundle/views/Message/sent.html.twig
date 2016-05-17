@@ -9,7 +9,10 @@
       <a href="{{ url('fos_message_inbox') }}" class="grey-txt">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
     </li>
     <li>
-      <a href="{{ url('fos_message_thread_new') }}" class="grey-txt">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a>
+      <a href="{{ url('fos_message_thread_new' )}}" class="grey-txt">{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="{{ url('fos_message_deleted') }}" class="grey-txt">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a>
     </li>
   </ul>
 {% endblock %}

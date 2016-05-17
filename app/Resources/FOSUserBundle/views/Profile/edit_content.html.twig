@@ -1,8 +1,30 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
-    </div>
-{{ form_end(form) }}
+{% extends 'base.html.twig' %}
+
+{% block panel %}
+  <ul class="nav nav-pills nav-stacked white">
+    <li class="active">
+      <a href="/" class="introfont blue">{{ 'profile.show.home'|trans }}</a>
+    </li>
+    <li>
+      <a href="{{ path('fos_user_profile_show')}}">{{ 'profile.edit.back'|trans }}</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block body %}
+  <div class="fos_user_user_show p20p30p">
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        {{ form_widget(form.username, {'attr': {'class': 'form-control input-sm mb20p', 'id': 'signup-username', 'placeholder': 'profile.show.username'|trans }}) }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control input-sm mb20p', 'id': 'signup-username', 'placeholder': 'profile.show.email'|trans }}) }}
+        {{ form_widget(form.current_password, {'attr': {'class': 'form-control input-sm mb20p', 'id': 'signup-username', 'placeholder': 'profile.edit.current_password'|trans }}) }}
+        <p class="fieldset">
+          <label class="image-replace" for="picture">Avatar</label>
+          {{ form_widget(form.picture, {'attr': {'class': 'btn'}}) }}
+        </p>
+        {{ form_widget(form) }}
+        <button type="submit" class="btn blue mb20p">{{ 'profile.edit.submit'|trans }}</button>
+    {{ form_end(form) }}
+  </div>
+{% endblock %}

@@ -37,7 +37,7 @@ class SearchController extends Controller
   /**
    * Get results for search entries.
    *
-   * @Route("/{_locale}/results", name="results", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"})
+   * @Route("/{_locale}/results", defaults={"_locale": "fr"}, requirements={"_locale": "en|fr"}, name="results")
    * @Method("GET")
    */
   public function getSearchResults(Request $request)
