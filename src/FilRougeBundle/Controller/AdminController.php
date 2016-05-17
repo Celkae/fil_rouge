@@ -45,7 +45,7 @@ class AdminController extends Controller
     /**
      * Lists all admin entities.
      *
-     * @Route("/upgrade, name="search_admin_index")
+     * @Route("/upgrade", name="search_admin_index")
      * @Method("GET")
      */
     public function searchAction(Request $request)
