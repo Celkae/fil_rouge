@@ -93,7 +93,7 @@
         <div class="col-sm-3"><img src="{{ comment.author.getPicture() }}" alt="" class="avatar-comment"/></div>
         <div class="col-sm-9">
           <h4>
-            <a href="{{ path('fos_user_profile_show', { 'id': comment.author.getId() }) }}">{{ comment.getAuthorName() }}</a>&nbsp;
+            <a href="{{ path('user_profile', { 'id': comment.author.getId() }) }}">{{ comment.getAuthorName() }}</a>&nbsp;
             {{ 'index.on'|trans }} <a href="{{ path('serie_show', { 'id': comment.thread.id }) }}">{{ comment_service.getTitle(comment.thread.id) }}</a>
           </h4>
           <p>
