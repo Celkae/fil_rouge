@@ -1,0 +1,68 @@
+news: 'Dernières news'
+favorite_series: 'Vos séries préférées'
+last_commentaires: 'Derniers commentaires'
+administration_menu: 'Administration'
+serie:
+    show:
+        back_list: 'Liste des séries'
+        home: 'Accueil'
+        edit: 'Éditer'
+        add_episode: 'Ajouter un épisode'
+        delete: 'Supprimer'
+        season: 'Saison'
+        nationality: 'Nationalité'
+        number_of_season: 'Nombre de saison'
+        director: 'Réalisateur'
+        actors: 'Acteurs'
+    new:
+        create: 'Créer'
+        new: 'Nouvelle série'
+        title: 'Titre'
+        resume: 'Résumé'
+        number_of_season: 'Nombre de saisons'
+        nationality: 'Nationalité'
+        director: 'Réalisateurs'
+        actors: 'Acteurs'
+        picture: 'Affiche'
+        file: 'Selection un fichier de type image (jpeg, png...)'
+    edit:
+        edit: 'Édition'
+        submit: 'Envoyer'
+episode:
+    new:
+        new: 'Nouvelle épisode'
+        title: 'Titre'
+        resume: 'Résumé'
+        season_number: 'Saison'
+        episode_number: 'Numero'
+    edit:
+        edit: 'Édition'
+        submit: 'Envoyer'
+    show:
+        back_serie: 'Retour à la série'
+        note: 'Notez cet Épisode'
+exception:
+    error404: 'Page non trouvée'
+    error: 'Erreur... '
+result:
+    request: 'Résultats pour la recherche'
+modal:
+    signin: 'Se connecter'
+    signup: 'Créer un compte'
+navbar:
+    promote: 'Gerer les moderateurs'
+    add: 'Ajouter une série'
+index:
+    news: 'Dernières news !'
+    commentaires: 'Derniers commentaires !'
+    on: 'sur'
+admin:
+    reported_user: 'utilisateurs signalés'
+    lock: 'Bloquer'
+    series_to_moderate: 'Séries à moderer'
+    episodes_to_moderate: 'Épisodes à moderer'
+    validate: 'Validate'
+    reported_comments: 'Commentaires signalés'
+roles:
+    search: 'Rechercher un utilisateur'
+    upgrade: 'Upgrader à moderateur'

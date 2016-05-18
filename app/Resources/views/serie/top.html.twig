@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% endblock %}
+{% block list %}
+<div class="container white p20p30p">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="green-txt up-case">Serie list ({{ pagination.getTotalItemCount }})</h1>
+    </div>
+  </div>
+  {% for s in pagination %}
+  <div class="row">
+    <hr>
+      <div class="col-xs-4 col-sm-3 col-md-2">
+        <a class="" href="{{ path('serie_show', { 'id': s.id }) }}">{{ loop.index }}
+          <img class="img-responsive" src="{{ asset(s.getPicture()) }}" alt="">
+        </a>
+      </div>
+      <div class="col-xs-8 col-sm-9 col-md-10">
+        <h2 class="up-case">{{ s.title }}</h2>
+        <h5>
+          {{ s.director }}
+        </h5>
+        <p>
+          {{ s.resumeFr }}
+        </p>
+      </div>
+  </div>
+  {% endfor %}
+  <div class="row mt30p">
+    <div class="text-center">
+      {{ knp_pagination_render(pagination) }}
+    </div>
+  </div>
+</div>
+{% endblock list %}

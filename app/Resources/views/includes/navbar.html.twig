@@ -1,0 +1,121 @@
+  <nav class="navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="#" class="navbar-toggle toggle-button" data-toggle="collapse" data-target="#navbar-collapse">
+        <i class="fa fa-ellipsis-v fa-2x" aria-hidden="true"></i>
+      </a>
+      <a class="navbar-brand navbar-left" href="/"><img class="logo" src="{{ asset('logo.png') }}"></a>
+      <a href="#" id="search_button" class="navbar-toggle" ><i class="fa fa-search" aria-hidden="true"></i></a>
+      <!-- navbar sm/xs menu -->
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <a href="#" class="navbar-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="{{ path('fos_user_profile_show')}}">
+              <img src="{{ asset(app.user.getPicture()) }}" alt="Avatar" class="avatar" />&nbsp;
+              {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+            </a>
+          </li>
+          {% if is_granted("ROLE_ADMIN") %}
+          <li>
+            <a href="{{ path('admin_index') }}">{{ 'Administration'|trans }}</a>
+          </li>
+          {% endif %}
+          {% if is_granted("ROLE_SUPER_ADMIN") %}
+          <li>
+            <a href="{{ path('search_admin_index') }}">{{ 'navbar.promote'|trans }}</a>
+          </li>
+          {% endif %}
+          <li>
+            <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+          </li>
+        </ul>
+        <a href="#" class="navbar-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
+          </li>
+          <li>
+            <a href="{{ url('fos_message_thread_new' )}}">{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</a>
+          </li>
+        </ul>
+      {% else %}
+        <a href="#" class="navbar-toggle" class="grey-menu"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        <a href="#" class="navbar-toggle" class="grey-menu"><i class="fa fa-user-plus"></i> {{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+      {% endif %}
+    </div>
+    <!-- navbar-collapse -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <div class="col-md-2 col-lg-3"></div>
+      <ul class="menu nav navbar-nav navbar-center IntroFont">
+        <li class="menu2">
+          <a href="#">News</a>
+        </li>
+        <li class="menu3">
+          <a href="{{ path('serie_index') }}">Series</a>
+        </li>
+        <li class="menu4">
+          <a href="{{ path('serie_top') }}">Top</a>
+        </li>
+        <li class="menu1">
+          <a href="{{ path('serie_new')}}">{{ 'navbar.add'|trans }}</a>
+        </li>
+      </ul>
+      <ul class="menu nav navbar-nav navbar-right visible-lg visible-md visible-sm hidden-xs grey-menu">
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <li>
+          <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown">{{ fos_message_nb_unread() }} <i class="fa fa-envelope"></i><span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-txt">
+            <li>
+              <a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a>
+            </li>
+            <li>
+              <a href="{{ url('fos_message_thread_new' )}}">{% trans from 'FOSMessageBundle' %}send_new{% endtrans %}</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user"></i><span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-txt">
+            <li>
+              <a href="{{ path('fos_user_profile_show')}}">
+                <img src="{{ asset(app.user.getPicture()) }}" alt="Avatar" class="avatar" />&nbsp;
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+              </a>
+            </li>
+            {% if is_granted("ROLE_ADMIN") %}
+            <li>
+              <a href="{{ path('admin_index') }}">Administration</a>
+            </li>
+            {% endif %}
+            {% if is_granted("ROLE_SUPER_ADMIN") %}
+            <li>
+              <a href="{{ path('search_admin_index') }}">{{ 'navbar.promote'|trans }}</a>
+            </li>
+            {% endif %}
+            <li>
+              <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
+            </li>
+          </ul>
+        </li>
+        {% else %}
+        <li>
+          <a href="#0" id="signin-modal"><i class="fa fa-sign-in"></i> {{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        </li>
+        <li>
+          <a href="#0" id="signup-modal"><i class="fa fa-user-plus"></i> {{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+        </li>
+        {% endif %}
+        <li>
+          <a href="#" id="search_button_main"><i class="fa fa-search" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    <form action="{{ path('results') }}" method="get" class="ui-widget form-inline">
+      <div id="search_bar">
+        <label for="tags"></label>
+        <input id="tags" class="col-md-8 col-md-push-2 col-xs-10 search-bar" name="q" placeholder="Search..." />
+        <button type="submit" class="col-md-4 col-xs-2 search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </form><!-- /.search-bar -->
+  </nav>
+</header> <!-- Header end -->

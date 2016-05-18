@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}<!-- contenu -->
+{% endblock %}
+
+{% block list %}
+<div class="container p20p30p white">
+  <div class="row">
+    <form action="/search/results" method="get" class="ui-widget form-inline">
+      <div id="search_bar">
+        <label for="tags"></label>
+        <input id="tags" class="col-md-8 col-md-push-2 col-xs-10 search-bar" name="q" placeholder="Search..." />
+        <button type="submit" class="col-md-4 col-xs-2 search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+  {% for s in pagination %}
+    <a class="" href="{{ path('serie_show', { 'id': s.id }) }}">
+      <div class="col-lg-3 col-sm-4 col-xs-6">
+        {% if s.picture is defined %}
+          <h2 class="series-title up-case">{{ s.title }}</h2>
+          <img class="img-responsive" src="{{ asset(s.getPicture()) }}" alt="">
+        {% else %}
+          <h2 class="series-title up-case">{{ s.serie.title }}</h2>
+          <img class="img-responsive" src="{{ asset(s.serie.getPicture()) }}" alt="">
+          <h4 class="series-title">{{ s.title }}</h4>
+        {% endif %}
+      </div>
+    </a>
+  {% endfor %}
+  </div>
+  <div class="row mt30p">
+    <div class="text-center">
+      {{ knp_pagination_render(pagination) }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

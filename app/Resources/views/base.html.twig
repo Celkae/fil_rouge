@@ -1,0 +1,90 @@
+{% include 'includes/header.html.twig' %}
+{% include 'includes/navbar.html.twig' %}
+{% include 'includes/login.html.twig' %}
+
+  <div> <!-- todo : placer flashbag -->
+    {% if app.request.hasPreviousSession %}
+      {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+          <div class="flash-{{ type }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <main>
+    {% block carousel %}{% endblock %}
+    <div class="container-fluid mt30p">
+      <aside class="col-md-3 col-xs-12 mb20p">
+        {% block panel %}{% endblock %}
+      </aside>
+
+      {% block list %}{% endblock %}
+
+      <div class="col-md-6 col-xs-12 mb20p white">
+        {% block body %}{% endblock %}
+        {% block fos_user_content %}
+        {% endblock %}
+        {% block fos_message_content %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+      </div>
+
+      <div class="col-md-3 col-xs-12">
+        {% block side_content %}{% endblock %}
+      </div>
+    </div>
+  </main><!-- Main end -->
+{% include 'includes/footer.html.twig' %}
+
+  {% javascripts
+    'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
+    'http://code.jquery.com/ui/1.11.4/jquery-ui.min.js'
+    'js/carousel.js'
+    'js/formModal.js'
+  %}
+  <script type="text/javascript" src="{{ asset_url }}"></script>
+  <script type="text/javascript">
+    //modal login
+    $(document).ready(function(){
+        $("#signin-button").click(function(){
+            $("#myModal").modal();
+        });
+    });
+    //search autocompletion
+    $(function() {
+      $("#tags").autocomplete({
+        source: function( request, response ) {
+          $.ajax({
+            url: '{{ path('ajax_search') }}',
+            type: 'GET',
+            data: {
+              q: request.term
+            },
+            success: function(data){
+              console.log(data);
+              response( data );
+            },
+            error: function(error){
+              console.log(error);
+            }
+          });
+        },
+        minLength: 2
+      });
+    });
+    //search bar
+    $("#search_bar").hide();
+    $("#search_button").off().on("click", function(){
+      $("#search_bar").toggle(300);
+    });
+    $("#search_button_main").off().on("click", function(){
+      $("#search_bar").toggle(300);
+    });
+
+  </script>
+  {% endjavascripts %}
+
+</body>
+</html>

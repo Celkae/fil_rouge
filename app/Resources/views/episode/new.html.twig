@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block panel %} <!-- surcharge du block panel gauche -->
+  <ul class="nav nav-pills nav-stacked white">
+    <li class="active">
+      <a href="/" class="introfont blue">{{ 'serie.show.home'|trans }}</a>
+    </li>
+    <li>
+      <a href="{{ path('serie_show', { 'id': serie_id }) }}"class="grey-txt">{{ 'episode.show.back_serie'|trans }}</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block body %}
+<div class="p20p30p">
+  <h1>{{ 'episode.new.new'|trans }}</h1>
+  {{ form_start(form, {'attr': {'class': 'form'}}) }}
+  <div class="form-group">
+    <label for="title" class="control-label col-sm-2">{{ 'episode.new.title'|trans }}</label>
+    <div class="col-sm-10 mb20p">
+      {{ form_widget(form.title, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+  </div>
+  <div class="form-group">
+    {% if app.request.getLocale() == 'fr' %}
+    <label for="resume_fr" class="control-label col-sm-2">{{ 'episode.new.resume'|trans }}</label>
+    <div class="col-sm-10 mb20p">
+      {{ form_widget(form.resumeFr, {'attr': {'class': 'form-control input-sm'}}) }}
+      {{ form_widget(form.resumeEn, {'attr': {'class': 'form-control input-sm hidden'}}) }}
+    </div>
+    {% else %}
+    <label for="resume_en" class="control-label col-sm-2">{{ 'episode.new.resume'|trans }}</label>
+    <div class="col-sm-10 mb20p">
+      {{ form_widget(form.resumeEn, {'attr': {'class': 'form-control input-sm'}}) }}
+      {{ form_widget(form.resumeFr, {'attr': {'class': 'form-control input-sm hidden'}}) }}
+    </div>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="season" class="control-label col-sm-2">{{ 'episode.new.season_number'|trans }}</label>
+    <div class="col-sm-10 mb20p">
+      {{ form_widget(form.season, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="episode_number" class="control-label col-sm-2">{{ 'episode.new.episode_number'|trans }}</label>
+    <div class="col-sm-10 mb20p">
+      {{ form_widget(form.episodeNumber, {'attr': {'class': 'form-control input-sm'}}) }}
+    </div>
+  </div>
+  <div class="col-sm-12 mb20p">
+    <input type="submit" class="btn blue mb20p flt-r" value="&nbsp;&nbsp;{{ 'serie.new.create'|trans }}&nbsp;&nbsp;" />
+  </div>
+  {{ form_end(form) }}
+</div>
+{% endblock %}

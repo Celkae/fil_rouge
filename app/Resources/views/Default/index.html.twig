@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block carousel %}
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img class="hidden-xs visible-sm visible-md visible-lg"  src="{{ asset('img/imgCarousel/got2.jpg') }}" alt="got">
+        <img class="hidden-lg hidden-md hidden-sm visible-xs posterH"  src="{{ asset('img/imgCarousel/gotPoster.jpg') }}" alt="gotPoster">
+      </div>
+      <div class="item">
+        <img class="hidden-xs visible-sm visible-md visible-lg"  src="{{ asset('img/imgCarousel/breakingBad2.jpg') }}" alt="breakingBad">
+        <img class="hidden-lg hidden-md hidden-sm visible-xs posterH "  src="{{ asset('img/imgCarousel/breakingBadPoster.jpg') }}" alt="breakingBadPoster">
+      </div>
+      <div class="item">
+        <img class="hidden-xs visible-sm visible-md visible-lg"  src="{{ asset('img/imgCarousel/mrr2.jpg') }}" alt="mrRobot">
+        <img class="hidden-lg hidden-md hidden-sm visible-xs posterH"  src="{{ asset('img/imgCarousel/mrRobotPoster.jpg') }}" alt="mrRobotPoster">
+      </div>
+      <div class="item">
+        <img class="hidden-xs visible-sm visible-md visible-lg"  src="{{ asset('img/imgCarousel/jJones.jpg') }}" alt="jJones">
+        <img class="hidden-lg hidden-md hidden-sm visible-xs posterH"  src="{{ asset('img/imgCarousel/jJonesPoster.jpg') }}" alt="jJonesPoster">
+      </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div><!-- /.carousel -->
+{% endblock carousel %}
+
+
+{% block panel %}
+  <div class="panel panel-default blue">
+    <div class="panel-heading"><h4 class="introfont">{{ 'news'|trans }}</h4></div>
+    <div class="panel-body white">
+      <h4 class="mt30p green-txt up-case">HBO veut mettre fin au piratage</h4>
+      <p>
+        Confrontée au téléchargement illégal massif de sa série phare, la chaîne câblée américaine HBO tente d'organiser
+        la contre-attaque. Et s'apprête à prendre des "mesures extrêmes" pour stopper le piratage de Game of Thrones
+        et arrêter les contrevenants...<a href="#">En savoir plus</a>
+      </p>
+      <h4 class="mt30p green-txt up-case">Game of Thrones : on a vu l'épisode 4 !</h4>
+      <p>
+        Après "The Red Woman" et "Home", dont la fin n'a pas laissé grand monde indifférent, la saison 6 de Game of Thrones
+        se poursuit avec "Oathbreaker" (que l'on peut traduire par "Le Briseur de serments").
+        Diffusé sur la chaîne câblée HBO, mais est également proposé en H+24 sur OCS City,
+        on débriefe avec vous cet épisode 3....<a href="#">En savoir plus</a>
+      </p>
+      <h4 class="mt30p green-txt up-case">Aviez-vous remarqué ?</h4>
+      <p>
+        Aviez-vous remarqué ? Les petits détails cachés de House of Cards
+        Les petits détails des plus grands films et séries, c'est dans "Aviez-vous remarqué ?",
+        votre nouveau rendez-vous vidéo sur AlloCiné. ....<a href="#">En savoir plus</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block body %}
+  <div class="panel panel-default orange">
+    <div class="panel-heading" style="position:relative;margin:0 -15px"><h4 class="introfont">{{ 'favorite_series'|trans }}</h4></div>
+    <div class="panel-body white">
+      {% for serie in top_service.getTopFour() %}
+        <a class="" href="{{ path('serie_show', { 'id': serie.id }) }}">
+          <div class="col-sm-3 series-title">
+              <h3 class="">{{ serie.title }}</h3>
+              <img class="img-responsive" src="{{ asset(serie.getPicture()) }}" alt="poster">
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block side_content %}
+  <div class="panel panel-default green">
+    <div class="panel-heading"><h4 class="introfont">{{ 'last_commentaires'|trans }}</h4></div>
+    <div class="panel-body white">
+      {% for comment in comment_service.getLastComments() %}
+        <div class="col-sm-3"><img src="{{ comment.author.getPicture() }}" alt="" class="avatar-comment"/></div>
+        <div class="col-sm-9">
+          <h4>
+            <a href="{{ path('user_profile', { 'id': comment.author.getId() }) }}">{{ comment.getAuthorName() }}</a>&nbsp;
+            {{ 'index.on'|trans }} <a href="{{ path('serie_show', { 'id': comment.thread.id }) }}">{{ comment_service.getTitle(comment.thread.id) }}</a>
+          </h4>
+          <p>
+            {{ comment.getBody() }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

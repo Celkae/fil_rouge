@@ -1,0 +1,13 @@
+  <footer class="container text-center mt30p">
+    <hr>
+    <div class="row">
+      <div class="col-md-xs">
+        {% if app.request.getLocale() == 'fr' %}
+          <a href="/en">English version</a>
+        {% else %}
+          <a href="/fr">Version française</a>
+        {% endif %}
+        <p>Fil Rouge 2016 - Alex & Manu</p>
+      </div>
+    </div>
+  </footer><!-- Footer end -->

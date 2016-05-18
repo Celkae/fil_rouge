@@ -1,0 +1,14 @@
+
+<div class="user-modal">
+  <div class="user-modal-container ">
+    <ul class="switcher ">
+      <li><a href="#0">{{ 'modal.signin'|trans }}</a></li>
+      <li><a href="#0">{{ 'modal.signup'|trans }}</a></li>
+    </ul>
+    <!--login template-->
+    {{ render(controller("FOSUserBundle:Security:login")) }}
+
+    <!--register template-->
+    {{ render(controller("FOSUserBundle:Registration:Register")) }}
+  </div>
+</div>

@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block panel %} <!-- surcharge du block panel gauche -->
+  <ul class="nav nav-pills nav-stacked white">
+    <li class="active">
+      <a class="introfont blue" href="/">{{ 'serie.show.home'|trans }}</a>
+    </li>
+    <li>
+      <a href="{{ path('serie_index') }}" class="grey-txt">{{ 'serie.show.back_list'|trans }}</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block side_content %}
+  {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+  <div class="panel panel-default green">
+    <div class="panel-heading"><h5 class="introfont">{{ 'administration_menu'|trans }}</h5></div>
+    <div class="panel-body white">
+      <div class="col-md-12">
+        <div class="row grey-txt">
+          <a href="{{ path('serie_edit', { 'id': serie.id }) }}">{{ 'serie.show.edit'|trans }}</a>
+        </div>
+        <div class="row grey-txt">
+          <a href="{{ path('episode_new', { 'id': serie.id }) }}">{{ 'serie.show.add_episode'|trans }}</a>
+        </div>
+        <div class="row">
+        {% if is_granted("ROLE_ADMIN") %}
+          {{ form_start(delete_form) }}
+            <button type="submit" id="delete" class="btn btn-xs btn-danger mt22p"><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> {{ 'serie.show.delete'|trans }}</button>
+          {{ form_end(delete_form) }}
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}
+
+{% block body %}
+<div class="p20p30p">
+  <div class="row"><!-- contenu -->
+    <div class="col-sm-4 col-xs-12 mb20p">
+      <img src="{{ asset(serie.getPicture()) }}" class="poster" />
+    </div>
+    <div class="col-sm-2 col-xs-12 flt-r">
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+      <button id="follow" class="btn btn-sm orange no-border"></button>
+      {% endif %}
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <h1 class="up-case grey-txt">{{ serie.title }}</h1>
+      {{ render( controller( "IdeatoStarRatingBundle:StarRating:displayRate", { contentId: serie.id, contentType: 'Serie' }) ) }} <!-- Star Rating ! -->
+      <h3 class="grey-txt">Synopsis</h3>
+      {% if app.request.getLocale() == 'fr' %}
+        <p>{{ serie.resumeFr }}</p>
+      {% else %}
+        <p>{{ serie.resumeEn }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row mt30p">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs"> <!-- Ongets -->
+        <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+        {% for i in 1..serie.season %}  <!-- boucle nombre saison -->
+          <li><a data-toggle="tab" href="#season{{ i }}">{{ 'serie.show.season'|trans }} {{ i }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <div class="tab-content mt30p"> <!--  -->
+        <div id="description" class="tab-pane fade in active lght-grey-txt">
+          <p>Status: {{ serie.status }}</p>
+          <p>{{ 'serie.show.nationality'|trans }}: {{ serie.nationality }}</p>
+          <p>{{ 'serie.show.number_of_season'|trans }}: {{ serie.season }}</p>
+          <p>{{ 'serie.show.director'|trans }}: {{ serie.director }}</p>
+          <p>{{ 'serie.show.actors'|trans }}: {{ serie.actors }}</p>
+        </div>
+        {% for i in 1..serie.season %}
+          <div id="season{{ i }}" class="tab-pane fade">
+            <ul>
+            {% for episode in serie.episode %} <!-- Boucle d'affichage des episodes -->
+              {% if episode.season == i %}
+                <li>
+                  <a href="{{ path('episode_show', { 'id': episode.id }) }}">{{ episode.episodeNumber }}. {{ episode }} </a> <!-- affichage et lien vers l'épisode -->
+                </li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  <div class="col-sm-12 jumbotron mt30p">
+    {% stylesheets 'css/comments.css' %}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") == false %} <!-- condition si authentifié -->
+      {% include 'includes/not_logged.html.twig' %}
+    {% endif %}
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': serie.id } %} <!-- affichage des commentaires et du formulaire -->
+  </div>
+</div>
+</div>
+
+      <!-- chargement du JS -->
+      {% javascripts
+        'bundles/ideatostarrating/jquery.raty.js'
+        'bundles/ideatostarrating/jquery.starrating.js'
+        'js/ajaxServices.js'
+      %}
+      <script type="text/javascript" src="{{ asset_url }}"></script>
+      <script type="text/javascript">
+          /**
+          * is Followed ? Ajax request
+          *
+          * @data : serie id
+          */
+        $.ajax(
+          {
+            url:"{{ path('ajax_isfollowed', { 'id': serie.id }) }}",
+            success: function(data){
+              if (data) {
+                $("#follow").html(data);
+              }
+            },
+            error: function(error){
+              //console.log(error);
+            }
+          }
+        );
+
+        $('#follow').off().on("click", function()
+        {
+          /**
+          * Follow Ajax request
+          *
+          * @data : serie id
+          */
+          $.ajax(
+            {
+              url:"{{ path('ajax_follow', { 'id':  serie.id }) }}",
+              success: function(data){
+                $("#follow").html(data);
+              },
+              error: function(error){
+              }
+            }
+          );
+        });
+      </script>
+      {% endjavascripts %}
+
+{% endblock %}

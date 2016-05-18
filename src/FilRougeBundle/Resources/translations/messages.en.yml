@@ -1,0 +1,68 @@
+administration_menu: 'Administration'
+serie:
+    show:
+        back_list: 'Back to the series list'
+        home: 'Home'
+        edit: 'Edit'
+        add_episode: 'Add an episode'
+        delete: 'Delete'
+        season: 'Season'
+        nationality: 'Nationality'
+        number_of_season: 'Nomber of season'
+        director: 'Director'
+        actors: 'Actors'
+    new:
+        create: 'Create'
+        new: 'New show'
+        title: 'Title'
+        resume: 'Resume'
+        number_of_season: 'Nomber of season'
+        nationality: 'Nationality'
+        director: 'Director'
+        actors: 'Actors'
+        picture: 'Poster'
+        file: 'Sectect a file of type (jpeg, png...)'
+    edit:
+        edit: 'Edit'
+        submit: 'Modifier'
+episode:
+    new:
+        new: 'New episode'
+        title: 'Title'
+        resume: 'Resume'
+        season_number: 'Season'
+        episode_number: 'Numero'
+    edit:
+        edit: 'Edit'
+        submit: 'Send'
+    show:
+        back_serie: 'Back to the series'
+        note: 'Note this Episode'
+exception:
+    error404: 'Page not found'
+    error: 'An error occured... '
+result:
+    request: 'Search results'
+modal:
+    signin: 'Sign in'
+    signup: 'New account'
+navbar:
+    promote: 'Handle roles'
+    add: 'Add a series'
+index:
+    news: 'Last news !'
+    commentaires: 'Last commentaires !'
+    on: 'about'
+admin:
+    reported_user: 'Reported users'
+    lock: 'Lock'
+    series_to_moderate: 'Series to moderate'
+    episodes_to_moderate: 'Episodes to moderate'
+    validate: 'Validate'
+    reported_comments: 'Reported comments'
+roles:
+    search: 'Search a user'
+    upgrade: 'Upgrade to moderator'
+news: 'Last news'
+favorite_series: 'Your favorite series'
+last_commentaires: 'Last commentaires'

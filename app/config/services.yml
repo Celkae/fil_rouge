@@ -1,0 +1,18 @@
+parameters:
+    fil_rouge.comments.vote_persistence_listener.class: FilRougeBundle\EventListener\CommentVotePersistenceListener
+
+services:
+    fil_rouge.comments.vote_persistence_listener:
+        class: %fil_rouge.comments.vote_persistence_listener.class%
+        arguments: [ @fos_comment.manager.vote.default, @security.context ]
+        tags:
+            - { name: kernel.event_subscriber }
+    fil_rouge.comment_service:
+        class: FilRougeBundle\Services\CommentService
+        arguments: [@doctrine.orm.entity_manager]
+    fil_rouge.top_service:
+        class: FilRougeBundle\Services\TopService
+        arguments: [@doctrine.orm.entity_manager]
+    fil_rouge.activity_service:
+        class: FilRougeBundle\Services\ActivityService
+        arguments: [@doctrine.orm.entity_manager]

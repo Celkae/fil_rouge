@@ -1,0 +1,88 @@
+
+.logo {
+	width: 179px;
+}
+nav {
+	margin:0;
+	padding-right:15px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	background-color:#fff;
+}
+ul li {
+  list-style-type: none;
+}
+.navbar-nav > li > a {
+	margin-right: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.avatar {
+	width:30px;
+	border-radius:30px;
+}
+.avatar-comment {
+	width:50px;
+	border-radius:50px;
+}
+.poster {
+	max-width:100%;
+}
+.mt30p {
+	margin-top:30px;
+}
+.mt22p {
+	margin-top:22px;
+}
+.mb20p {
+	margin-bottom: 20px;
+}
+.mb10p {
+	margin-bottom: 10px;
+}
+.no-border {
+	border: 0;
+	box-shadow: 0;
+}
+.reply {
+	background-color: #5aba92 ;
+  color: #ffffff;
+}
+.navbar-toggle {
+	margin-right: 0;
+	padding: 15px 5px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	border: 0;
+	color: #666666;
+	text-decoration: none;
+}
+.flt-r {
+	float: right;
+}
+.toggle-button {
+	float: left;
+	margin-left: 7px;
+	padding-top: 10px;
+}
+.navbar-brand {
+  padding-left: 7px;
+  padding-right: 0px;
+}
+.search-bar {
+	border: 0;
+}
+.search-bar:focus {
+	border-bottom: 1px solid blue;
+}
+.search-button {
+	border: 0;
+	background-color: transparent;
+}
+footer {
+}
+@media (max-width: 480px)
+{
+	.logo {
+		width: 138px;
+	}
+}
