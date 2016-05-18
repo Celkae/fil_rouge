@@ -34,6 +34,7 @@ profile:
         username: 'Nom d''utilisateur'
         email: 'Adresse e-mail'
         edit: 'Éditer mon profile'
+        on: 'Sur'
     edit:
         submit: 'Mettre à jour'
         back: 'Retour au profile'

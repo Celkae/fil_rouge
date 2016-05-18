@@ -36,6 +36,7 @@ profile:
         username: 'Username'
         email: 'Email'
         edit: 'Edit my profile'
+        on: 'On'
     edit:
         submit: 'Update'
         back: 'Back to my profile'

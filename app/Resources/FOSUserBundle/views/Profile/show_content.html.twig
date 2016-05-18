@@ -37,7 +37,7 @@
         <h3>Derniers commentaires</h3>
         {% for comment in comment_service.getUserLastComments(user) %}
         <div class="row">
-          {{ 'index.on'|trans }} <a href="{{ path('serie_show', { 'id': comment.thread.id }) }}">{{ comment_service.getTitle(comment.thread.id) }}</a>
+          {{ 'prolfile.show.on'|trans }} <a href="{{ path('serie_show', { 'id': comment.thread.id }) }}">{{ comment_service.getTitle(comment.thread.id) }}</a>
           <p>
             {{ comment.getBody() }}
           </p>
@@ -45,6 +45,6 @@
         {% endfor %}
       </div>
     </div>
-    
+
   </div>
 {% endblock %}
