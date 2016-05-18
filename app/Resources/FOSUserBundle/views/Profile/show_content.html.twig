@@ -45,28 +45,6 @@
         {% endfor %}
       </div>
     </div>
-    Signaler&nbsp;
-    <button id="signal" class="no-border"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></button>
-    <script type="text/javascript">
-
-      $('#signal').off().on("click", function()
-      {
-        /**
-        * Ajax request for signaled comment
-        *
-        * @data :id
-        */
-        $.ajax(
-          {
-            url:"{{ path('admin_users', { 'id':  user.id }) }}",
-            success: function(data){
-              $("#signal").html('<i class="fa fa-check" aria-hidden="true"></i>');
-            },
-            error: function(error){
-            }
-          }
-        );
-      });
-    </script>
+    
   </div>
 {% endblock %}
